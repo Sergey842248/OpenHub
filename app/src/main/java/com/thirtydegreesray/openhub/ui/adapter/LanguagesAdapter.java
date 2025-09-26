@@ -2,12 +2,13 @@ package com.thirtydegreesray.openhub.ui.adapter;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.AppCompatImageView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.mvp.model.TrendingLanguage;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseAdapter;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseViewHolder;
@@ -50,9 +51,9 @@ public class LanguagesAdapter extends BaseAdapter<LanguagesAdapter.ViewHolder, T
     }
 
     class ViewHolder extends BaseViewHolder {
-        @BindView(R.id.language_name) TextView languageName;
-        @BindView(R.id.selected_flag) AppCompatImageView selectedFlag;
-        @BindView(R.id.language_color) AppCompatImageView languageColor;
+        @BindView(R2.id.language_name) TextView languageName;
+        @BindView(R2.id.selected_flag) AppCompatImageView selectedFlag;
+        @BindView(R2.id.language_color) AppCompatImageView languageColor;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
         }

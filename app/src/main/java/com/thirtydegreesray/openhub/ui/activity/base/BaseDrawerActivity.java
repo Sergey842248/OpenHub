@@ -2,15 +2,16 @@ package com.thirtydegreesray.openhub.ui.activity.base;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.navigation.NavigationView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.mvp.contract.base.IBaseContract;
 import com.thirtydegreesray.openhub.util.ViewUtils;
 
@@ -23,9 +24,9 @@ import butterknife.BindView;
 public abstract class BaseDrawerActivity<P extends IBaseContract.Presenter> extends BaseActivity<P>
         implements IBaseContract.View {
 
-    @BindView(R.id.nav_view_start) @Nullable protected NavigationView navViewStart;
-    @BindView(R.id.nav_view_end) @Nullable protected NavigationView navViewEnd;
-    @BindView(R.id.drawer_layout) @Nullable protected DrawerLayout drawerLayout;
+    @BindView(R2.id.nav_view_start) @Nullable protected NavigationView navViewStart;
+    @BindView(R2.id.nav_view_end) @Nullable protected NavigationView navViewEnd;
+    @BindView(R2.id.drawer_layout) @Nullable protected DrawerLayout drawerLayout;
 
     private boolean startDrawerEnable = false;
     private boolean endDrawerEnable = false;

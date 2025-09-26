@@ -1,12 +1,13 @@
 package com.thirtydegreesray.openhub.ui.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.AppCompatImageView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.http.Downloader;
 import com.thirtydegreesray.openhub.mvp.model.DownloadSource;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseAdapter;
@@ -23,8 +24,8 @@ import butterknife.OnClick;
 
 public class DownloadSourcesAdapter extends BaseAdapter<DownloadSourcesAdapter.ViewHolder, DownloadSource> {
 
-    private String repoName;
-    private String tagName;
+    private final String repoName;
+    private final String tagName;
 
     public DownloadSourcesAdapter(Context context, String repoName, String tagName) {
         super(context);
@@ -58,15 +59,15 @@ public class DownloadSourcesAdapter extends BaseAdapter<DownloadSourcesAdapter.V
 
     class ViewHolder extends BaseViewHolder {
 
-        @BindView(R.id.icon) AppCompatImageView icon;
-        @BindView(R.id.name) TextView name;
-        @BindView(R.id.size) TextView size;
+        @BindView(R2.id.icon) AppCompatImageView icon;
+        @BindView(R2.id.name) TextView name;
+        @BindView(R2.id.size) TextView size;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
         }
 
-        @OnClick(R.id.download_bn)
+        @OnClick(R2.id.download_bn)
         public void onDownloadClick(){
             DownloadSource source = data.get(getAdapterPosition());
             String fileName = repoName.concat("-").concat(tagName)

@@ -20,13 +20,12 @@
         android:theme="@style/SplashTheme"
         tools:replace="android:supportsRtl">
 
-
         <receiver android:name=".service.NetBroadcastReceiver"/>
         <receiver android:name=".service.ShareBroadcastReceiver"/>
         <receiver android:name=".service.CopyBroadcastReceiver"/>
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true">

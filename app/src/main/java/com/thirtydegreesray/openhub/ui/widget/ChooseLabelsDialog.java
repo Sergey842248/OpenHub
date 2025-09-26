@@ -1,9 +1,9 @@
 package com.thirtydegreesray.openhub.ui.widget;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.thirtydegreesray.openhub.R;
@@ -64,7 +64,7 @@ public class ChooseLabelsDialog implements BaseViewHolder.OnItemClickListener {
         adapter.getData().get(position).setSelect(!adapter.getData().get(position).isSelect());
         adapter.notifyItemChanged(position);
     }
-    
+
     public interface ChooseLabelsListener{
         void onChooseLabelsComplete(@NonNull ArrayList<Label> labels);
         void onShowManageLabels();
@@ -79,5 +79,4 @@ public class ChooseLabelsDialog implements BaseViewHolder.OnItemClickListener {
         }
         return chosenLabels;
     }
-    
 }

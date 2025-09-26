@@ -1,12 +1,13 @@
 package com.thirtydegreesray.openhub.ui.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.mvp.model.Release;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseAdapter;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseViewHolder;
@@ -55,9 +56,9 @@ public class ReleasesAdapter extends BaseAdapter<ReleasesAdapter.ViewHolder, Rel
 
     class ViewHolder extends BaseViewHolder {
 
-        @BindView(R.id.release_name) TextView releaseName;
-        @BindView(R.id.time) TextView time;
-        @BindView(R.id.body) TextView body;
+        @BindView(R2.id.release_name) TextView releaseName;
+        @BindView(R2.id.time) TextView time;
+        @BindView(R2.id.body) TextView body;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

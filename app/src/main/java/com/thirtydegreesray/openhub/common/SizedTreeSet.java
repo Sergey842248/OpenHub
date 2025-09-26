@@ -21,7 +21,7 @@ public class SizedTreeSet<E> extends TreeSet<E> {
         if(size() >= maxSize && !contains(e)){
             E last = null;
             Iterator<E> iterator = iterator();
-            for( ; iterator.hasNext(); ){
+            while (iterator.hasNext()) {
                 last = iterator.next();
             }
             remove(last);

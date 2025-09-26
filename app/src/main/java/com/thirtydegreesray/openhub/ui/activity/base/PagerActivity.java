@@ -4,14 +4,15 @@ package com.thirtydegreesray.openhub.ui.activity.base;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import androidx.annotation.NonNull;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 import android.view.KeyEvent;
 
 import com.orhanobut.logger.Logger;
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.mvp.contract.base.IBaseContract;
 import com.thirtydegreesray.openhub.mvp.presenter.base.BasePresenter;
 import com.thirtydegreesray.openhub.ui.adapter.base.FragmentViewPagerAdapter;
@@ -34,8 +35,8 @@ public abstract class PagerActivity<P extends BasePresenter> extends BaseDrawerA
 
     @Inject protected FragmentViewPagerAdapter pagerAdapter;
 
-    @BindView(R.id.view_pager) protected ViewPager viewPager;
-    @BindView(R.id.tab_layout) protected TabLayout tabLayout;
+    @BindView(R2.id.view_pager) protected ViewPager viewPager;
+    @BindView(R2.id.tab_layout) protected TabLayout tabLayout;
 
     private ArrayList<Fragment> fragments ;
 

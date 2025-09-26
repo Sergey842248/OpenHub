@@ -302,6 +302,7 @@
     <string name="created_pull_request_comment_at">创建拉取请求审查评论在 %s</string>
     <string name="deleted_pull_request_comment_at">删除拉取请求审查评论在 %s</string>
     <string name="edited_pull_request_comment_at">编辑拉取请求审查评论在 %s</string>
+    <string name="created_pull_request_review_at">创建拉取请求审查在 %s</string>
     <string name="submitted_pull_request_review_at">提交拉取请求审查在 %s</string>
     <string name="edited_pull_request_review_at">编辑拉取请求审查在 %s</string>
     <string name="dismissed_pull_request_review_at">取消拉取请求审查在 %s</string>

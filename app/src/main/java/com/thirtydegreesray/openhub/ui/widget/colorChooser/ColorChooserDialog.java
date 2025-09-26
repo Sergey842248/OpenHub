@@ -9,16 +9,16 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.ArrayRes;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringDef;
-import android.support.annotation.StringRes;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.ArrayRes;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringDef;
+import androidx.annotation.StringRes;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
@@ -410,21 +410,21 @@ public class ColorChooserDialog extends DialogFragment
 
     final MaterialDialog dialog = bd.build();
     final View v = dialog.getCustomView();
-    grid = (GridView) v.findViewById(R.id.md_grid);
+    grid = v.findViewById(R.id.md_grid);
 
     if (builder.allowUserCustom) {
       selectedCustomColor = preselectColor;
       colorChooserCustomFrame = v.findViewById(R.id.md_colorChooserCustomFrame);
-      customColorHex = (EditText) v.findViewById(R.id.md_hexInput);
+      customColorHex = v.findViewById(R.id.md_hexInput);
       customColorIndicator = v.findViewById(R.id.md_colorIndicator);
-      customSeekA = (SeekBar) v.findViewById(R.id.md_colorA);
-      customSeekAValue = (TextView) v.findViewById(R.id.md_colorAValue);
-      customSeekR = (SeekBar) v.findViewById(R.id.md_colorR);
-      customSeekRValue = (TextView) v.findViewById(R.id.md_colorRValue);
-      customSeekG = (SeekBar) v.findViewById(R.id.md_colorG);
-      customSeekGValue = (TextView) v.findViewById(R.id.md_colorGValue);
-      customSeekB = (SeekBar) v.findViewById(R.id.md_colorB);
-      customSeekBValue = (TextView) v.findViewById(R.id.md_colorBValue);
+      customSeekA = v.findViewById(R.id.md_colorA);
+      customSeekAValue = v.findViewById(R.id.md_colorAValue);
+      customSeekR = v.findViewById(R.id.md_colorR);
+      customSeekRValue = v.findViewById(R.id.md_colorRValue);
+      customSeekG = v.findViewById(R.id.md_colorG);
+      customSeekGValue = v.findViewById(R.id.md_colorGValue);
+      customSeekB = v.findViewById(R.id.md_colorB);
+      customSeekBValue = v.findViewById(R.id.md_colorBValue);
 
       if (!builder.allowUserCustomAlpha) {
         v.findViewById(R.id.md_colorALabel).setVisibility(View.GONE);

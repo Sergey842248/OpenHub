@@ -92,6 +92,14 @@
             {
                 \"name\": \"Kotlin\",
                 \"slug\": \"kotlin\"
+            },
+            {
+                \"name\": \"Go\",
+                \"slug\": \"go\"
+            },
+            {
+                \"name\": \"Rust\",
+                \"slug\": \"rust\"
             }
         ]
     </string>

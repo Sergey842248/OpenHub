@@ -21,7 +21,7 @@ public class AuthUser implements Parcelable {
 
     @NotNull
     private java.util.Date authTime;
-    private int expireIn;
+    private long expireIn;
 
     @NotNull
     private String scope;
@@ -72,7 +72,7 @@ public class AuthUser implements Parcelable {
         this.authTime = authTime;
     }
 
-    public int getExpireIn() {
+    public long getExpireIn() {
         return expireIn;
     }
 
@@ -133,7 +133,7 @@ public class AuthUser implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.accessToken);
         dest.writeLong(this.authTime != null ? this.authTime.getTime() : -1);
-        dest.writeInt(this.expireIn);
+        dest.writeLong(this.expireIn);
         dest.writeString(this.scope);
         dest.writeByte(this.selected ? (byte) 1 : (byte) 0);
         dest.writeString(this.loginId);

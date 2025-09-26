@@ -3,12 +3,13 @@ package com.thirtydegreesray.openhub.ui.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.Menu;
 import android.view.View;
 
 import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.mvp.contract.base.IBaseContract;
 import com.thirtydegreesray.openhub.mvp.model.TrendingLanguage;
 import com.thirtydegreesray.openhub.ui.activity.base.SingleFragmentActivity;
@@ -45,7 +46,7 @@ public class LanguagesEditorActivity extends
         activity.startActivityForResult(intent, requestCode);
     }
 
-    @BindView(R.id.float_action_bn) ZoomAbleFloatingActionButton floatingActionButton;
+    @BindView(R2.id.float_action_bn) ZoomAbleFloatingActionButton floatingActionButton;
     private final int ADD_LANGUAGE_REQUEST_CODE = 100;
 
     @Override
@@ -89,7 +90,7 @@ public class LanguagesEditorActivity extends
         setToolbarScrollAble(true);
     }
 
-    @OnClick(R.id.float_action_bn)
+    @OnClick(R2.id.float_action_bn)
     public void onAddClick() {
         LanguagesEditorActivity.showForChoose(getActivity(), LanguageEditorMode.Choose,
                 getFragment().getSelectedLanguages(), ADD_LANGUAGE_REQUEST_CODE);

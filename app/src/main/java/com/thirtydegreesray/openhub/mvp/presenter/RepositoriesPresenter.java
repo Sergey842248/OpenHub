@@ -2,13 +2,14 @@
 
 package com.thirtydegreesray.openhub.mvp.presenter;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.orhanobut.logger.Logger;
 import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 import com.thirtydegreesray.openhub.AppConfig;
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.common.Event;
 import com.thirtydegreesray.openhub.dao.BookMarkRepo;
 import com.thirtydegreesray.openhub.dao.BookMarkRepoDao;
@@ -396,7 +397,7 @@ public class RepositoriesPresenter extends BasePagerPresenter<IRepositoriesContr
 
         Elements articleElements = element.getElementsByTag("div");
         Element descElement = articleElements.get(articleElements.size() - 2);
-        StringBuilder desc = new StringBuilder("");
+        StringBuilder desc = new StringBuilder();
         for(TextNode textNode : descElement.textNodes()){
             desc.append(textNode.getWholeText());
         }
@@ -498,14 +499,14 @@ public class RepositoriesPresenter extends BasePagerPresenter<IRepositoriesContr
     }
 
     private Repository parseTrendingRepositoryData(Element element) throws Exception{
-        String fullName = element.select("h1 > a").attr("href");
+        String fullName = element.select("h2 > a").attr("href");
         fullName = fullName.substring(1);
         String owner = fullName.substring(0, fullName.lastIndexOf("/"));
         String repoName = fullName.substring(fullName.lastIndexOf("/") + 1);
 
-        Element descElement = element.getElementsByClass("col-9 color-text-secondary my-1 pr-4").first();
-        Element numElement = element.getElementsByClass("f6 color-text-secondary mt-2").first();
-        StringBuilder desc = new StringBuilder("");
+        Element descElement = element.getElementsByClass("col-9 color-fg-muted my-1 pr-4").first();
+        Element numElement = element.getElementsByClass("f6 color-fg-muted mt-2").first();
+        StringBuilder desc = new StringBuilder();
         String language = "unknown";
         String starNumStr = "0";
         String forkNumStr = "0";
@@ -523,10 +524,17 @@ public class RepositoriesPresenter extends BasePagerPresenter<IRepositoriesContr
                 if(null != languageElements && languageElements.size() > 0){
                     language = numElement.select("span > span").get(1).textNodes().get(0).toString().trim();
                 }
-                starNumStr =  numElement.select("a").get(0).textNodes().get(1).toString()
-                        .replaceAll(" ", "").replaceAll(",", "");
-                forkNumStr =  numElement.select("a").get(1).textNodes().get(1).toString()
-                        .replaceAll(" ", "").replaceAll(",", "");
+
+                for (Element e : numElement.getElementsByClass("Link Link--muted d-inline-block mr-3")) {
+                    if (e.attr("href").endsWith("stargazers")) {
+                        starNumStr = e.textNodes().get(0).toString()
+                                .replaceAll(" ", "").replaceAll(",", "");
+                    } else if (e.attr("href").endsWith("forks")) {
+                        forkNumStr = e.textNodes().get(0).toString()
+                                .replaceAll(" ", "").replaceAll(",", "");
+                    }
+                }
+
                 Element periodElement =  numElement.getElementsByClass("d-inline-block float-sm-right").first();
                 if(periodElement != null){
                     periodNumStr = periodElement.childNodes().get(2).toString().trim();

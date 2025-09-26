@@ -4,7 +4,7 @@ package com.thirtydegreesray.openhub.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.widget.NestedScrollView;
+import androidx.core.widget.NestedScrollView;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextPaint;
@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.inject.component.AppComponent;
 import com.thirtydegreesray.openhub.inject.component.DaggerFragmentComponent;
 import com.thirtydegreesray.openhub.inject.module.FragmentModule;
@@ -52,20 +53,20 @@ public class RepoInfoFragment extends BaseFragment<RepoInfoPresenter>
         return fragment;
     }
 
-    @BindView(R.id.scroll_view) NestedScrollView nestedScrollView;
-    @BindView(R.id.repo_title_text) TextView repoTitleText;
-    @BindView(R.id.fork_info_text) TextView forkInfoText;
-//    @BindView(R.id.repo_desc_text) TextView repoDescText;
-    @BindView(R.id.repo_created_info_text) TextView repoCreatedInfoText;
-    @BindView(R.id.issues_num_text) TextView issuesNumText;
-    @BindView(R.id.issues_lay) View issueLay;
-    @BindView(R.id.stargazers_num_text) TextView stargazersNumText;
-    @BindView(R.id.forks_num_text) TextView forksNumText;
-    @BindView(R.id.watchers_num_text) TextView watchersNumText;
+    @BindView(R2.id.scroll_view) NestedScrollView nestedScrollView;
+    @BindView(R2.id.repo_title_text) TextView repoTitleText;
+    @BindView(R2.id.fork_info_text) TextView forkInfoText;
+//    @BindView(R2.id.repo_desc_text) TextView repoDescText;
+    @BindView(R2.id.repo_created_info_text) TextView repoCreatedInfoText;
+    @BindView(R2.id.issues_num_text) TextView issuesNumText;
+    @BindView(R2.id.issues_lay) View issueLay;
+    @BindView(R2.id.stargazers_num_text) TextView stargazersNumText;
+    @BindView(R2.id.forks_num_text) TextView forksNumText;
+    @BindView(R2.id.watchers_num_text) TextView watchersNumText;
 
-    @BindView(R.id.readme_title) TextView readmeTitle;
-    @BindView(R.id.readme_loader) ProgressBar readmeLoader;
-    @BindView(R.id.web_view) CodeWebView webView;
+    @BindView(R2.id.readme_title) TextView readmeTitle;
+    @BindView(R2.id.readme_loader) ProgressBar readmeLoader;
+    @BindView(R2.id.web_view) CodeWebView webView;
 
     private boolean isReadmeSetted = false;
 
@@ -173,8 +174,8 @@ public class RepoInfoFragment extends BaseFragment<RepoInfoPresenter>
         readmeLoader.setVisibility(View.GONE);
     }
 
-    @OnClick({R.id.issues_lay, R.id.stargazers_lay, R.id.froks_lay, R.id.watchers_lay,
-            R.id.fork_info_text})
+    @OnClick({R2.id.issues_lay, R2.id.stargazers_lay, R2.id.froks_lay, R2.id.watchers_lay,
+            R2.id.fork_info_text})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.issues_lay:

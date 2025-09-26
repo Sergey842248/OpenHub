@@ -2,7 +2,7 @@
 
 package com.thirtydegreesray.openhub.util;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Base64;
 
 import javax.crypto.Cipher;
@@ -14,7 +14,7 @@ import javax.crypto.spec.SecretKeySpec;
  *
  */
 public class AESEncrypting {
-	
+
 	private final static String DEFAULT_KEY = "OpenHubAESKeyRay";
 
 	/**
@@ -49,11 +49,11 @@ public class AESEncrypting {
 	      cipher.init(Cipher.ENCRYPT_MODE, skey);
 	      crypted = cipher.doFinal(input.getBytes());
 	    }catch(Exception e){
-	    	System.out.println(e.toString());
+	    	System.out.println(e);
 	    }
 	    return new String(Base64.encode(crypted, Base64.DEFAULT));
 	}
-	
+
 	/**
 	 * AES解密
 	 * @param input 解密字符串
@@ -68,7 +68,7 @@ public class AESEncrypting {
 	      cipher.init(Cipher.DECRYPT_MODE, skey);
 	      output = cipher.doFinal(Base64.decode(input, Base64.DEFAULT));
 	    }catch(Exception e){
-	      System.out.println(e.toString());
+	      System.out.println(e);
 	    }
 	    return new String(output);
 	}

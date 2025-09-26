@@ -12,11 +12,11 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.ColorInt;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import android.text.SpannableStringBuilder;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -109,7 +109,6 @@ public class ViewUtils {
         }
 
         if (!findSub) {
-            return;
         } else if (find) {
             selectMenuItem(menu, itemId, false);
         } else {
@@ -131,17 +130,17 @@ public class ViewUtils {
 
     @ColorInt
     public static int getPrimaryColor(@NonNull Context context) {
-        return getColorAttr(context, R.attr.colorPrimary);
+        return getColorAttr(context, androidx.appcompat.R.attr.colorPrimary);
     }
 
     @ColorInt
     public static int getPrimaryDarkColor(@NonNull Context context) {
-        return getColorAttr(context, R.attr.colorPrimaryDark);
+        return getColorAttr(context, androidx.appcompat.R.attr.colorPrimaryDark);
     }
 
     @ColorInt
     public static int getAccentColor(@NonNull Context context) {
-        return getColorAttr(context, R.attr.colorAccent);
+        return getColorAttr(context, androidx.appcompat.R.attr.colorAccent);
     }
 
     @ColorInt

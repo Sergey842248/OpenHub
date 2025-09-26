@@ -2,7 +2,7 @@
 
 package com.thirtydegreesray.openhub.mvp.presenter;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 import com.thirtydegreesray.openhub.dao.DaoSession;
@@ -158,7 +158,7 @@ public class NotificationsPresenter extends BasePagerPresenter<INotificationsCon
         }
 
         Iterator<String> iterator = sortedMap.keySet().iterator();
-        for (; iterator.hasNext(); ) {
+        while (iterator.hasNext()) {
             String key = iterator.next();
             ArrayList<Notification> list = sortedMap.get(key);
             sortedList.add(new DoubleTypesModel<Repository, Notification>(list.get(0).getRepository(), null));

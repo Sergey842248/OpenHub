@@ -38,7 +38,7 @@ public class EventPayload implements Parcelable {
     }
 
     public enum PullRequestReviewEventActionType{
-        submitted, edited, dismissed
+        created, submitted, edited, dismissed
     }
 
     //PushEvent

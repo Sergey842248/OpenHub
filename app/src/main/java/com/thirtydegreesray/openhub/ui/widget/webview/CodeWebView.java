@@ -7,8 +7,8 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -82,8 +82,8 @@ public class CodeWebView extends WebView {
         }
         WebSettings settings = getSettings();
         settings.setJavaScriptEnabled(true);
-        settings.setAppCachePath(getContext().getCacheDir().getPath());
-        settings.setAppCacheEnabled(true);
+        settings.setGeolocationDatabasePath(getContext().getCacheDir().getPath());
+        settings.setGeolocationEnabled(true);
         settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         settings.setDefaultTextEncodingName("utf-8");
         boolean isLoadImageEnable = PrefUtils.isLoadImageEnable();

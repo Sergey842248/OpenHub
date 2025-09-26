@@ -5,9 +5,9 @@ package com.thirtydegreesray.openhub.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +18,7 @@ import com.thirtydegreesray.openhub.inject.component.DaggerActivityComponent;
 import com.thirtydegreesray.openhub.inject.module.ActivityModule;
 import com.thirtydegreesray.openhub.mvp.contract.ITrendingContract;
 import com.thirtydegreesray.openhub.mvp.model.TrendingLanguage;
+import com.thirtydegreesray.openhub.mvp.model.filter.TrendingSince;
 import com.thirtydegreesray.openhub.mvp.presenter.TrendingPresenter;
 import com.thirtydegreesray.openhub.ui.activity.base.PagerActivity;
 import com.thirtydegreesray.openhub.ui.adapter.base.FragmentPagerModel;
@@ -87,14 +88,18 @@ public class TrendingActivity extends PagerActivity<TrendingPresenter>
     @Override
     protected int getFragmentPosition(Fragment fragment) {
         if(fragment instanceof RepositoriesFragment){
-            String since = fragment.getArguments().getString("since");
+            TrendingSince since = null;
+            Object obj = fragment.getArguments().get("since");
+            if (obj instanceof TrendingSince)
+                since = (TrendingSince) obj;
+
             if(since == null){
                 return -1;
-            }else if(since.equals("daily")){
+            }else if(since.equals(TrendingSince.Daily)){
                 return 0;
-            } else if(since.equals("weekly")){
+            } else if(since.equals(TrendingSince.Weekly)){
                 return 1;
-            } else if(since.equals("monthly")){
+            } else if(since.equals(TrendingSince.Monthly)){
                 return 2;
             } else {
                 return -1;

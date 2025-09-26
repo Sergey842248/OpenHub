@@ -5,13 +5,14 @@ package com.thirtydegreesray.openhub.ui.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.common.GlideApp;
 import com.thirtydegreesray.openhub.mvp.model.Notification;
 import com.thirtydegreesray.openhub.mvp.model.NotificationSubject;
@@ -116,10 +117,10 @@ public class NotificationsAdapter extends BaseAdapter<BaseViewHolder,
 
     class NotificationViewHolder extends BaseViewHolder {
 
-        @BindView(R.id.type_icon) AppCompatImageView typeIcon;
-        @BindView(R.id.title) TextView title;
-        @BindView(R.id.time) TextView time;
-        @BindView(R.id.status) AppCompatImageView status;
+        @BindView(R2.id.type_icon) AppCompatImageView typeIcon;
+        @BindView(R2.id.title) TextView title;
+        @BindView(R2.id.time) TextView time;
+        @BindView(R2.id.status) AppCompatImageView status;
 
         public NotificationViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -129,15 +130,15 @@ public class NotificationsAdapter extends BaseAdapter<BaseViewHolder,
 
     class RepoViewHolder extends BaseViewHolder {
 
-        @BindView(R.id.user_avatar) CircleImageView userAvatar;
-        @BindView(R.id.repo_name) TextView repoName;
-        @BindView(R.id.mark_as_read_bn) ToastAbleImageButton markAsReadBn;
+        @BindView(R2.id.user_avatar) CircleImageView userAvatar;
+        @BindView(R2.id.repo_name) TextView repoName;
+        @BindView(R2.id.mark_as_read_bn) ToastAbleImageButton markAsReadBn;
 
         public RepoViewHolder(@NonNull View itemView) {
             super(itemView);
         }
 
-        @OnClick(R.id.user_avatar)
+        @OnClick(R2.id.user_avatar)
         public void onUserClicked() {
             if(getAdapterPosition() != RecyclerView.NO_POSITION) {
                 ProfileActivity.show((Activity) context, userAvatar,
@@ -145,7 +146,7 @@ public class NotificationsAdapter extends BaseAdapter<BaseViewHolder,
             }
         }
 
-        @OnClick(R.id.repo_name)
+        @OnClick(R2.id.repo_name)
         public void onRepoClicked() {
             if(getAdapterPosition() != RecyclerView.NO_POSITION) {
                 RepositoryActivity.show(context, getRepository().getOwner().getLogin(),
@@ -153,7 +154,7 @@ public class NotificationsAdapter extends BaseAdapter<BaseViewHolder,
             }
         }
 
-        @OnClick(R.id.mark_as_read_bn)
+        @OnClick(R2.id.mark_as_read_bn)
         public void onMarkAsReadClicked() {
             if(getAdapterPosition() != RecyclerView.NO_POSITION) {
                 listener.onRepoMarkAsReadClicked(data.get(getAdapterPosition()).getM1());

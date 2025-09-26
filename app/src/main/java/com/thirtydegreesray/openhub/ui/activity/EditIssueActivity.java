@@ -5,9 +5,9 @@ package com.thirtydegreesray.openhub.ui.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
-import android.support.design.widget.TextInputLayout;
+import androidx.annotation.NonNull;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 import com.thirtydegreesray.openhub.AppData;
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.inject.component.AppComponent;
 import com.thirtydegreesray.openhub.inject.component.DaggerActivityComponent;
 import com.thirtydegreesray.openhub.inject.module.ActivityModule;
@@ -42,12 +43,12 @@ import butterknife.OnClick;
 public class EditIssueActivity extends BaseActivity<EditIssuePresenter>
         implements IEditIssueContract.View, ChooseLabelsDialog.ChooseLabelsListener {
 
-    @BindView(R.id.title_edit) TextInputEditText titleEdit;
-    @BindView(R.id.title_layout) TextInputLayout titleLayout;
-    @BindView(R.id.comment_edit) TextInputEditText commentEdit;
-    @BindView(R.id.comment_layout) TextInputLayout commentLayout;
-    @BindView(R.id.labels_text) TextView labelsText;
-    @BindView(R.id.edit_labels) LinearLayout editLabelsLay;
+    @BindView(R2.id.title_edit) TextInputEditText titleEdit;
+    @BindView(R2.id.title_layout) TextInputLayout titleLayout;
+    @BindView(R2.id.comment_edit) TextInputEditText commentEdit;
+    @BindView(R2.id.comment_layout) TextInputLayout commentLayout;
+    @BindView(R2.id.labels_text) TextView labelsText;
+    @BindView(R2.id.edit_labels) LinearLayout editLabelsLay;
 
     public static void showForAdd(@NonNull Activity activity, @NonNull String userId,
                                   @NonNull String repoName, int requestCode) {
@@ -132,7 +133,7 @@ public class EditIssueActivity extends BaseActivity<EditIssuePresenter>
         new ChooseLabelsDialog(getActivity(), labels, this).show();
     }
 
-    @OnClick({R.id.markdown_editor_bn, R.id.edit_labels})
+    @OnClick({R2.id.markdown_editor_bn, R2.id.edit_labels})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.markdown_editor_bn:

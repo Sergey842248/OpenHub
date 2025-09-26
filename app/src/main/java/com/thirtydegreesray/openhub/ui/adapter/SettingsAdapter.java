@@ -3,14 +3,15 @@
 package com.thirtydegreesray.openhub.ui.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.AppCompatImageView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.mvp.model.SettingModel;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseAdapter;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseViewHolder;
@@ -77,10 +78,10 @@ public class SettingsAdapter extends BaseAdapter<SettingsAdapter.ViewHolder, Set
 
     public class ViewHolder extends BaseViewHolder{
 
-        @BindView(R.id.icon_image) AppCompatImageView iconImage;
-        @BindView(R.id.title_text) TextView titleText;
-        @BindView(R.id.desc_text) TextView descText;
-        @BindView(R.id.switch_bn) Switch switchBn;
+        @BindView(R2.id.icon_image) AppCompatImageView iconImage;
+        @BindView(R2.id.title_text) TextView titleText;
+        @BindView(R2.id.desc_text) TextView descText;
+        @BindView(R2.id.switch_bn) Switch switchBn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

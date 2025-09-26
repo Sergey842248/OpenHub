@@ -3,8 +3,8 @@ package com.thirtydegreesray.openhub.ui.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.view.View;
@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.common.GlideApp;
 import com.thirtydegreesray.openhub.mvp.model.IssueEvent;
 import com.thirtydegreesray.openhub.mvp.model.Label;
@@ -105,7 +106,7 @@ public class IssueTimelineAdapter extends BaseAdapter<BaseViewHolder, IssueEvent
     }
 
     class HeadCommentViewHolder extends CommentViewHolder{
-        @BindView(R.id.issue_labels) TextView issueLabels;
+        @BindView(R2.id.issue_labels) TextView issueLabels;
         public HeadCommentViewHolder(@NonNull View itemView) {
             super(itemView);
         }
@@ -126,16 +127,16 @@ public class IssueTimelineAdapter extends BaseAdapter<BaseViewHolder, IssueEvent
 
     class CommentViewHolder extends BaseViewHolder {
 
-        @BindView(R.id.user_avatar) CircleImageView userAvatar;
-        @BindView(R.id.user_name) TextView userName;
-        @BindView(R.id.time) TextView time;
-        @BindView(R.id.comment_desc) TextView commentDesc;
+        @BindView(R2.id.user_avatar) CircleImageView userAvatar;
+        @BindView(R2.id.user_name) TextView userName;
+        @BindView(R2.id.time) TextView time;
+        @BindView(R2.id.comment_desc) TextView commentDesc;
 
         public CommentViewHolder(@NonNull View itemView) {
             super(itemView);
         }
 
-        @OnClick({R.id.user_avatar, R.id.user_name})
+        @OnClick({R2.id.user_avatar, R2.id.user_name})
         public void onUserClicked() {
             if (getAdapterPosition() != RecyclerView.NO_POSITION) {
                 ProfileActivity.show((Activity) context, userAvatar, data.get(getAdapterPosition()).getUser().getLogin(),
@@ -164,16 +165,16 @@ public class IssueTimelineAdapter extends BaseAdapter<BaseViewHolder, IssueEvent
     }
 
     class EventViewHolder extends BaseViewHolder{
-        @BindView(R.id.root_lay) LinearLayout rootLay;
-        @BindView(R.id.event_icon) CircleBackgroundImageView eventIcon;
-        @BindView(R.id.user_avatar) CircleImageView userAvatar;
-        @BindView(R.id.desc) TextView desc;
+        @BindView(R2.id.root_lay) LinearLayout rootLay;
+        @BindView(R2.id.event_icon) CircleBackgroundImageView eventIcon;
+        @BindView(R2.id.user_avatar) CircleImageView userAvatar;
+        @BindView(R2.id.desc) TextView desc;
 
         public EventViewHolder(@NonNull View itemView) {
             super(itemView);
         }
 
-        @OnClick({R.id.user_avatar})
+        @OnClick({R2.id.user_avatar})
         public void onUserClicked() {
             if (getAdapterPosition() != RecyclerView.NO_POSITION) {
                 ProfileActivity.show((Activity) context, userAvatar, data.get(getAdapterPosition()).getActor().getLogin(),

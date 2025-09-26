@@ -3,8 +3,8 @@
 package com.thirtydegreesray.openhub.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 
 import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.inject.component.AppComponent;
 import com.thirtydegreesray.openhub.inject.component.DaggerFragmentComponent;
 import com.thirtydegreesray.openhub.inject.module.FragmentModule;
@@ -36,8 +37,8 @@ public class ViewerFragment extends BaseFragment<ViewerPresenter>
         implements IViewerContract.View,
         CodeWebView.ContentChangedListener{
 
-    @BindView(R.id.web_view) CodeWebView webView;
-    @BindView(R.id.loader) ProgressBar loader;
+    @BindView(R2.id.web_view) CodeWebView webView;
+    @BindView(R2.id.loader) ProgressBar loader;
 
     @AutoAccess boolean wrap = false;
     //store scroll y percent, recover position when needed

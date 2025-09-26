@@ -3,10 +3,10 @@ package com.thirtydegreesray.openhub.ui.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.NestedScrollView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.core.widget.NestedScrollView;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.common.GlideApp;
 import com.thirtydegreesray.openhub.inject.component.AppComponent;
 import com.thirtydegreesray.openhub.inject.component.DaggerActivityComponent;
@@ -65,12 +66,12 @@ public class ReleaseInfoActivity extends BaseActivity<ReleaseInfoPresenter>
                         .put("repoName", repoName).build());
     }
 
-    @BindView(R.id.scroll_view) NestedScrollView scrollView;
-    @BindView(R.id.web_view) CodeWebView webView;
-    @BindView(R.id.user_avatar) ImageView userAvatar;
-    @BindView(R.id.user_name) TextView userName;
-    @BindView(R.id.download_bn) FloatingActionButton downloadBn;
-    @BindView(R.id.loader) ProgressBar loader;
+    @BindView(R2.id.scroll_view) NestedScrollView scrollView;
+    @BindView(R2.id.web_view) CodeWebView webView;
+    @BindView(R2.id.user_avatar) ImageView userAvatar;
+    @BindView(R2.id.user_name) TextView userName;
+    @BindView(R2.id.download_bn) FloatingActionButton downloadBn;
+    @BindView(R2.id.loader) ProgressBar loader;
 
     @Override
     public void showReleaseInfo(Release release) {
@@ -132,13 +133,13 @@ public class ReleaseInfoActivity extends BaseActivity<ReleaseInfoPresenter>
         return super.onCreateOptionsMenu(menu);
     }
 
-    @OnClick(R.id.download_bn)
+    @OnClick(R2.id.download_bn)
     public void showDownloadDialog() {
         DownloadSourceDialog.show(getActivity(), mPresenter.getRepoName(),
                 mPresenter.getRelease().getTagName(), mPresenter.getRelease());
     }
 
-    @OnClick({R.id.user_name, R.id.user_avatar})
+    @OnClick({R2.id.user_name, R2.id.user_avatar})
     public void onUserClick() {
         ProfileActivity.show(getActivity(), userAvatar, mPresenter.getRelease().getAuthor().getLogin(),
                 mPresenter.getRelease().getAuthor().getAvatarUrl());

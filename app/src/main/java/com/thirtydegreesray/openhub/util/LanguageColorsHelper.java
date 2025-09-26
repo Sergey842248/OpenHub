@@ -2,7 +2,7 @@ package com.thirtydegreesray.openhub.util;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,7 +40,7 @@ public enum  LanguageColorsHelper {
             String content = convertStreamToString(inputStream);
             JSONObject jsonObject = new JSONObject(content);
             Iterator<String> iterator = jsonObject.keys();
-            for(; iterator.hasNext(); ){
+            while (iterator.hasNext()) {
                 String name = iterator.next();
                 JSONObject language = jsonObject.getJSONObject(name);
                 String colorStr = language.getString("color");

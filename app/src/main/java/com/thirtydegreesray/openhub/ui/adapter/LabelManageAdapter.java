@@ -1,13 +1,14 @@
 package com.thirtydegreesray.openhub.ui.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.AppCompatImageView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.mvp.model.Label;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseAdapter;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseViewHolder;
@@ -57,9 +58,9 @@ public class LabelManageAdapter extends BaseAdapter<LabelManageAdapter.ViewHolde
     }
 
     class ViewHolder extends BaseViewHolder {
-        @BindView(R.id.color) AppCompatImageView color;
-        @BindView(R.id.name) TextView name;
-        @BindView(R.id.label_bg) LinearLayout labelBg;
+        @BindView(R2.id.color) AppCompatImageView color;
+        @BindView(R2.id.name) TextView name;
+        @BindView(R2.id.label_bg) LinearLayout labelBg;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
         }

@@ -1,11 +1,12 @@
 package com.thirtydegreesray.openhub.ui.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.mvp.model.WikiModel;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseAdapter;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseViewHolder;
@@ -46,8 +47,8 @@ public class WikiAdapter extends BaseAdapter<WikiAdapter.ViewHolder, WikiModel> 
     }
 
     class ViewHolder extends BaseViewHolder {
-        @BindView(R.id.wiki_title) TextView wikiTitle;
-        @BindView(R.id.wiki_desc) TextView wikiDesc;
+        @BindView(R2.id.wiki_title) TextView wikiTitle;
+        @BindView(R2.id.wiki_desc) TextView wikiDesc;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
         }

@@ -4,12 +4,13 @@ package com.thirtydegreesray.openhub.ui.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.common.GlideApp;
 import com.thirtydegreesray.openhub.mvp.model.RepoCommit;
 import com.thirtydegreesray.openhub.ui.activity.ProfileActivity;
@@ -69,18 +70,18 @@ public class CommitAdapter extends BaseAdapter<CommitAdapter.ViewHolder, RepoCom
 
     class ViewHolder extends BaseViewHolder {
 
-        @BindView(R.id.user_avatar) CircleImageView userAvatar;
-        @BindView(R.id.user_name) TextView userName;
-        @BindView(R.id.time) TextView time;
-        @BindView(R.id.commit_message) TextView commitMessage;
-        @BindView(R.id.commit_brief_sha) TextView commitBriefSha;
-        @BindView(R.id.comment_num) TextView commentNum;
+        @BindView(R2.id.user_avatar) CircleImageView userAvatar;
+        @BindView(R2.id.user_name) TextView userName;
+        @BindView(R2.id.time) TextView time;
+        @BindView(R2.id.commit_message) TextView commitMessage;
+        @BindView(R2.id.commit_brief_sha) TextView commitBriefSha;
+        @BindView(R2.id.comment_num) TextView commentNum;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
         }
 
-        @OnClick({R.id.user_avatar, R.id.user_name})
+        @OnClick({R2.id.user_avatar, R2.id.user_name})
         void onUserClick() {
             if(getAdapterPosition() != RecyclerView.NO_POSITION) {
                 RepoCommit commit = data.get(getAdapterPosition());

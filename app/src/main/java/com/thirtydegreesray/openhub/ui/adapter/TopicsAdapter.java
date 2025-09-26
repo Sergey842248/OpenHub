@@ -2,12 +2,13 @@ package com.thirtydegreesray.openhub.ui.adapter;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.AppCompatImageView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.common.GlideApp;
 import com.thirtydegreesray.openhub.mvp.model.Topic;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseAdapter;
@@ -69,9 +70,9 @@ public class TopicsAdapter extends BaseAdapter<TopicsAdapter.ViewHolder, Topic> 
     }
 
     class ViewHolder extends BaseViewHolder {
-        @BindView(R.id.image) AppCompatImageView image;
-        @BindView(R.id.name) TextView name;
-        @BindView(R.id.desc) TextView desc;
+        @BindView(R2.id.image) AppCompatImageView image;
+        @BindView(R2.id.name) TextView name;
+        @BindView(R2.id.desc) TextView desc;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
         }

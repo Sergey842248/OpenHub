@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.SizeF;
 import android.util.SparseArray;
 
@@ -31,7 +31,7 @@ public class BundleHelper {
     public static BundleHelper builder() {
         return new BundleHelper();
     }
-    
+
     //constant
     public BundleHelper put(@NonNull String key, @Nullable String value){
         bundle.putString(key, value);

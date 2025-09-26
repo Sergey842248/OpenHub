@@ -3,12 +3,13 @@ package com.thirtydegreesray.openhub.ui.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
+import androidx.annotation.NonNull;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.view.View;
 
 import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.mvp.contract.base.IBaseContract;
 import com.thirtydegreesray.openhub.ui.activity.base.SingleFragmentActivity;
 import com.thirtydegreesray.openhub.ui.fragment.LabelManageFragment;
@@ -31,7 +32,7 @@ public class LabelManageActivity extends SingleFragmentActivity<IBaseContract.Pr
 
     @AutoAccess String owner;
     @AutoAccess String repo;
-    @BindView(R.id.float_action_bn) FloatingActionButton floatingActionButton;
+    @BindView(R2.id.float_action_bn) FloatingActionButton floatingActionButton;
 
 
     @Override
@@ -47,7 +48,7 @@ public class LabelManageActivity extends SingleFragmentActivity<IBaseContract.Pr
         setToolbarScrollAble(true);
     }
 
-    @OnClick(R.id.float_action_bn) public void onCreateLabelClick(){
+    @OnClick(R2.id.float_action_bn) public void onCreateLabelClick(){
         getFragment().onCreateLabelClick();
     }
 

@@ -5,13 +5,9 @@ package com.thirtydegreesray.openhub.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.TextInputEditText;
-import android.support.design.widget.TextInputLayout;
-import android.view.KeyEvent;
-import android.view.inputmethod.EditorInfo;
-import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.inject.component.AppComponent;
 import com.thirtydegreesray.openhub.inject.component.DaggerActivityComponent;
 import com.thirtydegreesray.openhub.inject.module.ActivityModule;
@@ -20,8 +16,6 @@ import com.thirtydegreesray.openhub.mvp.model.BasicToken;
 import com.thirtydegreesray.openhub.mvp.presenter.LoginPresenter;
 import com.thirtydegreesray.openhub.ui.activity.base.BaseActivity;
 import com.thirtydegreesray.openhub.util.AppOpener;
-import com.thirtydegreesray.openhub.util.StringUtils;
-import com.thirtydegreesray.openhub.util.ViewUtils;
 import com.unstoppable.submitbuttonview.SubmitButton;
 
 import butterknife.BindView;
@@ -39,11 +33,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter>
 
     private final String TAG = LoginActivity.class.getSimpleName();
 
-//    @BindView(R.id.user_name_et) TextInputEditText userNameEt;
-//    @BindView(R.id.user_name_layout) TextInputLayout userNameLayout;
-//    @BindView(R.id.password_et) TextInputEditText passwordEt;
-//    @BindView(R.id.password_layout) TextInputLayout passwordLayout;
-    @BindView(R.id.login_bn) SubmitButton loginBn;
+//    @BindView(R2.id.user_name_et) TextInputEditText userNameEt;
+//    @BindView(R2.id.user_name_layout) TextInputLayout userNameLayout;
+//    @BindView(R2.id.password_et) TextInputEditText passwordEt;
+//    @BindView(R2.id.password_layout) TextInputLayout passwordLayout;
+    @BindView(R2.id.login_bn) SubmitButton loginBn;
 
 //    private String userName;
 //    private String password;
@@ -137,12 +131,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter>
     }
 
 
-    @OnClick(R.id.login_bn)
+    @OnClick(R2.id.login_bn)
     public void onOauthLoginClick(){
         AppOpener.openInCustomTabsOrBrowser(getActivity(), mPresenter.getOAuth2Url());
     }
 
-//    @OnClick(R.id.login_bn)
+//    @OnClick(R2.id.login_bn)
 //    public void onLoginClick(){
 //        if(loginCheck()){
 //            loginBn.setEnabled(false);

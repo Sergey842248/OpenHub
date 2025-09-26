@@ -3,13 +3,14 @@ package com.thirtydegreesray.openhub.ui.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.common.GlideApp;
 import com.thirtydegreesray.openhub.mvp.model.BookmarkExt;
 import com.thirtydegreesray.openhub.mvp.model.Repository;
@@ -107,8 +108,8 @@ public class BookmarksAdapter extends BaseAdapter<BaseViewHolder, BookmarkExt> {
     }
 
     class UserViewHolder extends BaseViewHolder {
-        @BindView(R.id.avatar) ImageView avatar;
-        @BindView(R.id.name) TextView name;
+        @BindView(R2.id.avatar) ImageView avatar;
+        @BindView(R2.id.name) TextView name;
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
         }
@@ -116,21 +117,21 @@ public class BookmarksAdapter extends BaseAdapter<BaseViewHolder, BookmarkExt> {
 
     public class RepoViewHolder extends BaseViewHolder {
 
-        @BindView(R.id.iv_user_avatar) ImageView ivUserAvatar;
-        @BindView(R.id.language_color) ImageView languageColor;
-        @BindView(R.id.tv_repo_name) TextView tvRepoName;
-        @BindView(R.id.tv_language) TextView tvLanguage;
-        @BindView(R.id.tv_repo_description) TextView tvRepoDescription;
-        @BindView(R.id.tv_star_num) TextView tvStarNum;
-        @BindView(R.id.tv_fork_num) TextView tvForkNum;
-        @BindView(R.id.tv_owner_name) TextView tvOwnerName;
-        @BindView(R.id.fork_mark) View forkMark;
+        @BindView(R2.id.iv_user_avatar) ImageView ivUserAvatar;
+        @BindView(R2.id.language_color) ImageView languageColor;
+        @BindView(R2.id.tv_repo_name) TextView tvRepoName;
+        @BindView(R2.id.tv_language) TextView tvLanguage;
+        @BindView(R2.id.tv_repo_description) TextView tvRepoDescription;
+        @BindView(R2.id.tv_star_num) TextView tvStarNum;
+        @BindView(R2.id.tv_fork_num) TextView tvForkNum;
+        @BindView(R2.id.tv_owner_name) TextView tvOwnerName;
+        @BindView(R2.id.fork_mark) View forkMark;
 
         public RepoViewHolder(@NonNull View itemView) {
             super(itemView);
         }
 
-        @OnClick(R.id.iv_user_avatar)
+        @OnClick(R2.id.iv_user_avatar)
         public void onUserClick(){
             if(getAdapterPosition() != RecyclerView.NO_POSITION) {
                 ProfileActivity.show((Activity) context, ivUserAvatar,

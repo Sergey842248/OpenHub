@@ -11,28 +11,29 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.CallSuper;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Display;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 
+import androidx.annotation.CallSuper;
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+
 import com.bumptech.glide.Glide;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.thirtydegreesray.dataautoaccess.DataAutoAccess;
 import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 import com.thirtydegreesray.openhub.AppApplication;
 import com.thirtydegreesray.openhub.AppData;
-import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.dao.DaoSession;
 import com.thirtydegreesray.openhub.inject.component.AppComponent;
 import com.thirtydegreesray.openhub.mvp.contract.base.IBaseContract;
@@ -66,8 +67,8 @@ BaseActivity<P extends IBaseContract.Presenter>
     private static BaseActivity curActivity;
 
     protected boolean isAlive = true;
-    @BindView(R.id.toolbar) @Nullable protected Toolbar toolbar;
-    @BindView(R.id.toolbar_layout) @Nullable protected CollapsingToolbarLayout toolbarLayout;
+    @BindView(R2.id.toolbar) @Nullable protected Toolbar toolbar;
+    @BindView(R2.id.toolbar_layout) @Nullable protected CollapsingToolbarLayout toolbarLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -388,7 +389,7 @@ BaseActivity<P extends IBaseContract.Presenter>
      */
     @Nullable
     protected <T extends View> T findViewByViewId(@IdRes int id){
-        return (T) findViewById(id);
+        return findViewById(id);
     }
 
     private void getScreenSize(){

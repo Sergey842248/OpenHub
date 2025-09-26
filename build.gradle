@@ -1,18 +1,30 @@
 
 buildscript {
     repositories {
-        jcenter()
+        maven {url 'https://maven.aliyun.com/repository/gradle-plugin'}
+        maven {url 'https://maven.aliyun.com/repository/google'}
+        maven {url 'https://maven.aliyun.com/repository/public'}
+        maven {url 'https://maven.aliyun.com/repository/releases'}
+        maven {url 'https://maven.aliyun.com/repository/central'}
         google()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
-        classpath 'com.novoda:gradle-build-properties-plugin:0.3'
+        classpath 'com.android.tools.build:gradle:8.12.0'
+        classpath 'com.novoda:gradle-build-properties-plugin:0.4.1'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.3'
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
+        maven {url 'https://maven.aliyun.com/repository/gradle-plugin'}
+        maven {url 'https://maven.aliyun.com/repository/google'}
+        maven {url 'https://maven.aliyun.com/repository/public'}
+        maven {url 'https://maven.aliyun.com/repository/releases'}
+        maven {url 'https://maven.aliyun.com/repository/central'}
+        google()
+        mavenCentral()
     }
 }
 

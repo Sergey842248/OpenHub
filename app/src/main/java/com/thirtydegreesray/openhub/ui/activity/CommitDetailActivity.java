@@ -5,10 +5,10 @@ package com.thirtydegreesray.openhub.ui.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.fragment.app.Fragment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.common.GlideApp;
 import com.thirtydegreesray.openhub.inject.component.AppComponent;
 import com.thirtydegreesray.openhub.inject.component.DaggerActivityComponent;
@@ -84,14 +85,14 @@ public class CommitDetailActivity extends BaseActivity<CommitDetailPresenter>
 
     }
 
-    @BindView(R.id.user_avatar) CircleImageView userAvatar;
-    @BindView(R.id.commit_message) TextView commitMessage;
-    @BindView(R.id.changed_files_count) TextView changedFileCount;
-    @BindView(R.id.additions_count) TextView addtionsCount;
-    @BindView(R.id.deletions_count) TextView deletionsCount;
+    @BindView(R2.id.user_avatar) CircleImageView userAvatar;
+    @BindView(R2.id.commit_message) TextView commitMessage;
+    @BindView(R2.id.changed_files_count) TextView changedFileCount;
+    @BindView(R2.id.additions_count) TextView addtionsCount;
+    @BindView(R2.id.deletions_count) TextView deletionsCount;
 
-    @BindView(R.id.loader) ProgressBar loader;
-    @BindView(R.id.comment_bn) FloatingActionButton commentBn;
+    @BindView(R2.id.loader) ProgressBar loader;
+    @BindView(R2.id.comment_bn) FloatingActionButton commentBn;
 
     @Override
     protected void setupActivityComponent(AppComponent appComponent) {
@@ -170,7 +171,7 @@ public class CommitDetailActivity extends BaseActivity<CommitDetailPresenter>
                 .into(userAvatar);
     }
 
-    @OnClick(R.id.comment_bn)
+    @OnClick(R2.id.comment_bn)
     public void onViewClicked() {
 
     }
@@ -215,12 +216,12 @@ public class CommitDetailActivity extends BaseActivity<CommitDetailPresenter>
         return true;
     }
 
-    @OnClick(R.id.commit_message)
+    @OnClick(R2.id.commit_message)
     public void onCommitMessageClick() {
         commitMessage.setMaxLines(commitMessage.getMaxLines() == 6 ? 20 : 6);
     }
 
-    @OnClick(R.id.user_avatar)
+    @OnClick(R2.id.user_avatar)
     public void onUserAvatarClick() {
         if (mPresenter.getCommit() != null && mPresenter.getCommit().getAuthor() != null) {
             RepoCommit commit = mPresenter.getCommit();

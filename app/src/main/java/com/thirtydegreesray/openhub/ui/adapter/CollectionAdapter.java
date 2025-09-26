@@ -1,11 +1,12 @@
 package com.thirtydegreesray.openhub.ui.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.mvp.model.Collection;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseAdapter;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseViewHolder;
@@ -45,8 +46,8 @@ public class CollectionAdapter extends BaseAdapter<CollectionAdapter.ViewHolder,
     }
 
     class ViewHolder extends BaseViewHolder {
-        @BindView(R.id.name) TextView name;
-        @BindView(R.id.desc) TextView desc;
+        @BindView(R2.id.name) TextView name;
+        @BindView(R2.id.desc) TextView desc;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
         }

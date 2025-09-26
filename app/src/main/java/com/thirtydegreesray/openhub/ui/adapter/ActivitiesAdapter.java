@@ -5,8 +5,8 @@ package com.thirtydegreesray.openhub.ui.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.StyleSpan;
@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.common.GlideApp;
 import com.thirtydegreesray.openhub.mvp.model.Event;
 import com.thirtydegreesray.openhub.mvp.model.EventPayload;
@@ -73,17 +74,17 @@ public class ActivitiesAdapter extends BaseAdapter<ActivitiesAdapter.ViewHolder,
 
     class ViewHolder extends BaseViewHolder {
 
-        @BindView(R.id.user_avatar) ImageView userAvatar;
-        @BindView(R.id.user_name) TextView userName;
-        @BindView(R.id.time) TextView time;
-        @BindView(R.id.action) TextView action;
-        @BindView(R.id.desc) TextView desc;
+        @BindView(R2.id.user_avatar) ImageView userAvatar;
+        @BindView(R2.id.user_name) TextView userName;
+        @BindView(R2.id.time) TextView time;
+        @BindView(R2.id.action) TextView action;
+        @BindView(R2.id.desc) TextView desc;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
         }
 
-        @OnClick({R.id.user_avatar, R.id.user_name})
+        @OnClick({R2.id.user_avatar, R2.id.user_name})
         void onUserClick() {
             if(getAdapterPosition() != RecyclerView.NO_POSITION) {
                 String loginId = data.get(getAdapterPosition()).getActor().getLogin();
@@ -249,7 +250,7 @@ public class ActivitiesAdapter extends BaseAdapter<ActivitiesAdapter.ViewHolder,
             actionStr = actionStr == null ? "" : actionStr;
             SpannableStringBuilder span = new SpannableStringBuilder(actionStr);
             Matcher matcher = GitHubHelper.REPO_FULL_NAME_PATTERN.matcher(actionStr);
-            for (; matcher.find(); ) {
+            while (matcher.find()) {
                 span.setSpan(new StyleSpan(Typeface.BOLD), matcher.start(), matcher.end(),
                         Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
@@ -265,6 +266,8 @@ public class ActivitiesAdapter extends BaseAdapter<ActivitiesAdapter.ViewHolder,
             EventPayload.PullRequestReviewEventActionType actionType =
                     EventPayload.PullRequestReviewEventActionType.valueOf(action);
             switch (actionType){
+                case created:
+                    return getString(R.string.created_pull_request_review_at);
                 case submitted:
                     return getString(R.string.submitted_pull_request_review_at);
                 case edited:

@@ -1,8 +1,8 @@
 package com.thirtydegreesray.openhub.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.PopupMenu;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 import android.text.Editable;
 import android.view.Gravity;
 import android.view.Menu;
@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.inject.component.AppComponent;
 import com.thirtydegreesray.openhub.ui.activity.MarkdownEditorCallback;
 import com.thirtydegreesray.openhub.ui.fragment.base.BaseFragment;
@@ -37,8 +38,8 @@ public class MarkdownEditorFragment extends BaseFragment
         return fragment;
     }
 
-    @BindView(R.id.markdown_edit) EditText markdownEdit;
-    @BindView(R.id.add_mention) ToastAbleImageButton addMention;
+    @BindView(R2.id.markdown_edit) EditText markdownEdit;
+    @BindView(R2.id.add_mention) ToastAbleImageButton addMention;
     @AutoAccess boolean isTextChanged = false;
     @AutoAccess String text;
     @AutoAccess ArrayList<String> mentionUsers;
@@ -64,11 +65,11 @@ public class MarkdownEditorFragment extends BaseFragment
         }
     }
 
-    @OnTextChanged(R.id.markdown_edit)
+    @OnTextChanged(R2.id.markdown_edit)
     public void onTextChanged(CharSequence s, int start, int before, int count) {
         isTextChanged = true;
     }
-    @OnTextChanged(value = R.id.markdown_edit, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
+    @OnTextChanged(value = R2.id.markdown_edit, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     public void afterTextChanged(Editable s){
         int cursorIndex = markdownEdit.getSelectionStart();
         String curContent = markdownEdit.getText().toString();
@@ -91,9 +92,9 @@ public class MarkdownEditorFragment extends BaseFragment
         return !isTextChanged;
     }
 
-    @OnClick({R.id.add_large_head, R.id.add_medium_head, R.id.add_small_head, R.id.add_bold,
-            R.id.add_italic, R.id.add_quote, R.id.insert_code, R.id.add_link, R.id.add_bulleted_list,
-            R.id.add_mention})
+    @OnClick({R2.id.add_large_head, R2.id.add_medium_head, R2.id.add_small_head, R2.id.add_bold,
+            R2.id.add_italic, R2.id.add_quote, R2.id.insert_code, R2.id.add_link, R2.id.add_bulleted_list,
+            R2.id.add_mention})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.add_large_head:

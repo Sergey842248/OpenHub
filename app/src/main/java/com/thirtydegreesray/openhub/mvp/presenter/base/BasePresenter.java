@@ -5,17 +5,18 @@ package com.thirtydegreesray.openhub.mvp.presenter.base;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.CallSuper;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v4.app.Fragment;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.fragment.app.Fragment;
 
 import com.orhanobut.logger.Logger;
 import com.thirtydegreesray.dataautoaccess.DataAutoAccess;
 import com.thirtydegreesray.openhub.AppConfig;
 import com.thirtydegreesray.openhub.AppData;
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.common.AppEventBus;
 import com.thirtydegreesray.openhub.dao.DaoSession;
 import com.thirtydegreesray.openhub.http.CommitService;
@@ -115,7 +116,7 @@ public abstract class BasePresenter<V extends IBaseContract.View> implements IBa
         for (Subscriber subscriber : subscribers) {
             if (subscriber != null && !subscriber.isUnsubscribed()) {
                 subscriber.unsubscribe();
-                Logger.d(TAG, "unsubscribe:" + subscriber.toString());
+                Logger.d(TAG, "unsubscribe:" + subscriber);
             }
         }
         if (isEventSubscriber) AppEventBus.INSTANCE.getEventBus().unregister(this);

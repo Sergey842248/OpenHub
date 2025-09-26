@@ -3,17 +3,18 @@
 package com.thirtydegreesray.openhub.ui.fragment.base;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.mvp.contract.base.IBaseContract;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseAdapter;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseViewHolder;
@@ -39,14 +40,14 @@ public abstract class ListFragment <P extends IBaseContract.Presenter, A extends
         BaseViewHolder.OnItemLongClickListener,
         SwipeRefreshLayout.OnRefreshListener{
 
-    @BindView(R.id.refresh_layout) protected SwipeRefreshLayout refreshLayout;
-    @BindView(R.id.recycler_view) protected RecyclerView recyclerView;
+    @BindView(R2.id.refresh_layout) protected SwipeRefreshLayout refreshLayout;
+    @BindView(R2.id.recycler_view) protected RecyclerView recyclerView;
     @Inject protected A adapter;
     private RecyclerView.AdapterDataObserver observer;
 
-    @BindView(R.id.lay_tip) LinearLayout layTip;
-    @BindView(R.id.tv_tip) TextView tvTip;
-    @BindView(R.id.error_image) AppCompatImageView errorImage;
+    @BindView(R2.id.lay_tip) LinearLayout layTip;
+    @BindView(R2.id.tv_tip) TextView tvTip;
+    @BindView(R2.id.error_image) AppCompatImageView errorImage;
 
     private int curPage = 1;
 
@@ -150,7 +151,7 @@ public abstract class ListFragment <P extends IBaseContract.Presenter, A extends
         onReLoadData();
     }
 
-    @OnClick(R.id.retry_bn)
+    @OnClick(R2.id.retry_bn)
     public void onRetryClick(@NonNull View view) {
         refreshLayout.setVisibility(View.VISIBLE);
         layTip.setVisibility(View.GONE);

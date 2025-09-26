@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.util.Pair;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.core.util.Pair;
+import androidx.appcompat.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.AppData;
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.common.GlideApp;
 import com.thirtydegreesray.openhub.inject.component.AppComponent;
 import com.thirtydegreesray.openhub.inject.component.DaggerActivityComponent;
@@ -86,13 +87,13 @@ public class IssueDetailActivity extends BaseActivity<IssueDetailPresenter>
                         .put("issueNumber", issueNumber).build());
     }
 
-    @BindView(R.id.user_avatar) ImageView userImageView;
-    @BindView(R.id.issue_title) TextView issueTitle;
-    @BindView(R.id.issue_state_img) ImageView issueStateImg;
-    @BindView(R.id.issue_state_text) TextView issueStateText;
-    @BindView(R.id.comment_bn) ZoomAbleFloatingActionButton commentBn;
-    @BindView(R.id.edit_bn) FloatingActionButton editBn;
-    @BindView(R.id.loader) ProgressBar loader;
+    @BindView(R2.id.user_avatar) ImageView userImageView;
+    @BindView(R2.id.issue_title) TextView issueTitle;
+    @BindView(R2.id.issue_state_img) ImageView issueStateImg;
+    @BindView(R2.id.issue_state_text) TextView issueStateText;
+    @BindView(R2.id.comment_bn) ZoomAbleFloatingActionButton commentBn;
+    @BindView(R2.id.edit_bn) FloatingActionButton editBn;
+    @BindView(R2.id.loader) ProgressBar loader;
 
     private IssueTimelineFragment issueTimelineFragment;
 
@@ -228,12 +229,12 @@ public class IssueDetailActivity extends BaseActivity<IssueDetailPresenter>
                 text, issueTimelineFragment == null ? null : issueTimelineFragment.getIssueUsersExceptMe());
     }
 
-    @OnClick(R.id.comment_bn)
+    @OnClick(R2.id.comment_bn)
     public void onCommentBnClicked() {
         showAddCommentPage(null);
     }
 
-    @OnClick(R.id.edit_bn)
+    @OnClick(R2.id.edit_bn)
     public void onEditBnClicked() {
         EditIssueActivity.showForEdit(getActivity(), mPresenter.getIssue(), EDIT_ISSUE_REQUEST_CODE);
     }
@@ -276,7 +277,7 @@ public class IssueDetailActivity extends BaseActivity<IssueDetailPresenter>
         loader.setVisibility(View.GONE);
     }
 
-    @OnClick(R.id.user_avatar)
+    @OnClick(R2.id.user_avatar)
     public void onUserAvatarClick() {
         if (mPresenter.getIssue() != null) {
             Issue issue = mPresenter.getIssue();

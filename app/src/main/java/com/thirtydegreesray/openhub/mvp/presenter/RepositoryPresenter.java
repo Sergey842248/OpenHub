@@ -5,6 +5,7 @@ package com.thirtydegreesray.openhub.mvp.presenter;
 import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 import com.thirtydegreesray.openhub.AppData;
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.dao.Bookmark;
 import com.thirtydegreesray.openhub.dao.BookmarkDao;
 import com.thirtydegreesray.openhub.dao.DaoSession;

@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name" translatable="false">OpenHub</string>
     <string name="app_github_name" translatable="false">OpenHub</string>
     <string name="navigation_drawer_open" translatable="false">navigation_drawer_open</string>
     <string name="navigation_drawer_close" translatable="false">navigation_drawer_close</string>
@@ -380,6 +381,7 @@
     <string name="created_pull_request_comment_at">Created pull request review comment at %s</string>
     <string name="deleted_pull_request_comment_at">Deleted pull request review comment at %s</string>
     <string name="edited_pull_request_comment_at">Edited pull request review comment at %s</string>
+    <string name="created_pull_request_review_at">Created pull request review at %s</string>
     <string name="submitted_pull_request_review_at">Submitted pull request review at %s</string>
     <string name="edited_pull_request_review_at">Edited pull request review at %s</string>
     <string name="dismissed_pull_request_review_at">Dismissed pull request review at %s</string>

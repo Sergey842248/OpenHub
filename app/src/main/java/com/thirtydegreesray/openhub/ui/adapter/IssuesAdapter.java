@@ -2,13 +2,14 @@ package com.thirtydegreesray.openhub.ui.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.common.GlideApp;
 import com.thirtydegreesray.openhub.mvp.model.Issue;
 import com.thirtydegreesray.openhub.ui.activity.ProfileActivity;
@@ -71,18 +72,18 @@ public class IssuesAdapter extends BaseAdapter<IssuesAdapter.ViewHolder, Issue> 
 
     class ViewHolder extends BaseViewHolder {
 
-        @BindView(R.id.user_avatar) ImageView userAvatar;
-        @BindView(R.id.user_name) TextView userName;
-        @BindView(R.id.time) TextView time;
-        @BindView(R.id.issue_title) TextView issueTitle;
-        @BindView(R.id.comment_num) TextView commentNum;
-        @BindView(R.id.repo_full_name) TextView repoFullName;
+        @BindView(R2.id.user_avatar) ImageView userAvatar;
+        @BindView(R2.id.user_name) TextView userName;
+        @BindView(R2.id.time) TextView time;
+        @BindView(R2.id.issue_title) TextView issueTitle;
+        @BindView(R2.id.comment_num) TextView commentNum;
+        @BindView(R2.id.repo_full_name) TextView repoFullName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
         }
 
-        @OnClick({R.id.user_avatar, R.id.user_name})
+        @OnClick({R2.id.user_avatar, R2.id.user_name})
         public void onUserClick(){
             if(getAdapterPosition() != RecyclerView.NO_POSITION) {
                 Issue issue = data.get(getAdapterPosition());

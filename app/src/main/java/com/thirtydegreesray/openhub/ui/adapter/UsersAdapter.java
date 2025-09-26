@@ -3,12 +3,13 @@
 package com.thirtydegreesray.openhub.ui.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.common.GlideApp;
 import com.thirtydegreesray.openhub.mvp.model.User;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseAdapter;
@@ -58,8 +59,8 @@ public class UsersAdapter extends BaseAdapter<UsersAdapter.ViewHolder, User> {
     }
 
     class ViewHolder extends BaseViewHolder {
-        @BindView(R.id.avatar) ImageView avatar;
-        @BindView(R.id.name) TextView name;
+        @BindView(R2.id.avatar) ImageView avatar;
+        @BindView(R2.id.name) TextView name;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
         }

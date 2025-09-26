@@ -3,12 +3,13 @@
 package com.thirtydegreesray.openhub.ui.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.AppCompatImageView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.mvp.model.FileModel;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseAdapter;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseViewHolder;
@@ -56,9 +57,9 @@ public class RepoFilesAdapter extends BaseAdapter<RepoFilesAdapter.ViewHolder, F
 
     class ViewHolder extends BaseViewHolder {
 
-        @BindView(R.id.file_type) AppCompatImageView fileType;
-        @BindView(R.id.file_name) TextView fileName;
-        @BindView(R.id.file_size) TextView fileSize;
+        @BindView(R2.id.file_type) AppCompatImageView fileType;
+        @BindView(R2.id.file_name) TextView fileName;
+        @BindView(R2.id.file_size) TextView fileSize;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

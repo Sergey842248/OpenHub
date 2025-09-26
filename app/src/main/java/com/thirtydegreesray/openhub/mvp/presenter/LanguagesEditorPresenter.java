@@ -3,6 +3,7 @@ package com.thirtydegreesray.openhub.mvp.presenter;
 import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 import com.thirtydegreesray.openhub.AppConfig;
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.dao.DaoSession;
 import com.thirtydegreesray.openhub.dao.MyTrendingLanguage;
 import com.thirtydegreesray.openhub.dao.MyTrendingLanguageDao;

@@ -7,12 +7,13 @@ import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 
 import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.inject.component.AppComponent;
 import com.thirtydegreesray.openhub.inject.component.DaggerActivityComponent;
 import com.thirtydegreesray.openhub.inject.module.ActivityModule;
@@ -38,7 +39,7 @@ public class SettingsActivity extends SingleFragmentActivity<SettingsPresenter, 
         activity.startActivityForResult(intent, requestCode);
     }
 
-    @BindView(R.id.root_layout) View rootLayout;
+    @BindView(R2.id.root_layout) View rootLayout;
     @AutoAccess boolean recreated = false;
 
     @Override

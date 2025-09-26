@@ -4,16 +4,17 @@ package com.thirtydegreesray.openhub.ui.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.AppData;
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.inject.component.AppComponent;
 import com.thirtydegreesray.openhub.inject.component.DaggerFragmentComponent;
 import com.thirtydegreesray.openhub.inject.module.FragmentModule;
@@ -46,23 +47,23 @@ public class ProfileInfoFragment extends BaseFragment<ProfileInfoPresenter>
         implements IProfileInfoContract.View,
         BaseViewHolder.OnItemClickListener{
 
-    @BindView(R.id.name) TextView name;
-    @BindView(R.id.bio) TextView bio;
-    @BindView(R.id.company) TextView company;
-    @BindView(R.id.email) TextView email;
-    @BindView(R.id.link) TextView link;
+    @BindView(R2.id.name) TextView name;
+    @BindView(R2.id.bio) TextView bio;
+    @BindView(R2.id.company) TextView company;
+    @BindView(R2.id.email) TextView email;
+    @BindView(R2.id.link) TextView link;
 
-    @BindView(R.id.members_lay) LinearLayout membersLay;
-    @BindView(R.id.followers_lay) LinearLayout followersLay;
-    @BindView(R.id.following_lay) LinearLayout followingLay;
-    @BindView(R.id.gists_lay) LinearLayout gistsLay;
-    @BindView(R.id.followers_num_text) TextView followersNumText;
-    @BindView(R.id.following_num_text) TextView followingNumText;
-    @BindView(R.id.repos_num_text) TextView reposNumText;
-    @BindView(R.id.gists_num_text) TextView gistsNumText;
+    @BindView(R2.id.members_lay) LinearLayout membersLay;
+    @BindView(R2.id.followers_lay) LinearLayout followersLay;
+    @BindView(R2.id.following_lay) LinearLayout followingLay;
+    @BindView(R2.id.gists_lay) LinearLayout gistsLay;
+    @BindView(R2.id.followers_num_text) TextView followersNumText;
+    @BindView(R2.id.following_num_text) TextView followingNumText;
+    @BindView(R2.id.repos_num_text) TextView reposNumText;
+    @BindView(R2.id.gists_num_text) TextView gistsNumText;
 
-    @BindView(R.id.orgs_lay) CardView orgsLay;
-    @BindView(R.id.orgs_recycler_view) RecyclerView orgsRecyclerView;
+    @BindView(R2.id.orgs_lay) CardView orgsLay;
+    @BindView(R2.id.orgs_recycler_view) RecyclerView orgsRecyclerView;
 
     @Inject UsersAdapter orgsAdapter;
 
@@ -93,8 +94,8 @@ public class ProfileInfoFragment extends BaseFragment<ProfileInfoPresenter>
         orgsLay.setVisibility(View.GONE);
     }
 
-    @OnClick({R.id.followers_lay, R.id.following_lay, R.id.repos_lay, R.id.gists_lay,
-                R.id.email, R.id.link, R.id.members_lay})
+    @OnClick({R2.id.followers_lay, R2.id.following_lay, R2.id.repos_lay, R2.id.gists_lay,
+                R2.id.email, R2.id.link, R2.id.members_lay})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.followers_lay:

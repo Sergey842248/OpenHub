@@ -303,6 +303,7 @@
     <string name="created_pull_request_comment_at">新增拉取請求審查留言於 %s</string>
     <string name="deleted_pull_request_comment_at">刪除拉取請求審查留言於 %s</string>
     <string name="edited_pull_request_comment_at">編輯拉取請求審查留言於 %s</string>
+    <string name="created_pull_request_review_at">新增拉取請求審查於 %s</string>
     <string name="submitted_pull_request_review_at">提交拉取請求審查於 %s</string>
     <string name="edited_pull_request_review_at">編輯拉取請求審查在 %s</string>
     <string name="dismissed_pull_request_review_at">取消拉取请求审查於 %s</string>

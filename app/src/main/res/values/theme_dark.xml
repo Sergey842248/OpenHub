@@ -18,12 +18,12 @@
     <color name="dark_subtitle_color">@color/material_grey_500</color>
     <color name="dark_selected_color">#3f3f3f</color>
 
-    <style name="ThemeDark" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="ThemeDark" parent="Theme.Material3.Dark.NoActionBar">
         <item name="colorPrimary">@color/dark_color_primary</item>
         <item name="colorPrimaryDark">@color/dark_color_primary_dark</item>
         <item name="colorAccent">@color/dark_color_accent</item>
         <item name="android:windowBackground">@color/dark_color_window_background</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="preferenceTheme">@style/Theme.Material3.DayNight</item>
         <item name="android:textColorPrimary">@color/dark_text_color_primary</item>
         <item name="android:textColorSecondary">@color/dark_text_color_secondary</item>
         <item name="android:textColorTertiary">@color/material_grey_200</item>

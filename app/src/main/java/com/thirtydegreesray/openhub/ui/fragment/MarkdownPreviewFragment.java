@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.inject.component.AppComponent;
 import com.thirtydegreesray.openhub.ui.activity.MarkdownEditorCallback;
 import com.thirtydegreesray.openhub.ui.fragment.base.BaseFragment;
@@ -23,7 +24,7 @@ public class MarkdownPreviewFragment extends BaseFragment{
         return fragment;
     }
 
-    @BindView(R.id.preview_text) TextView previewText;
+    @BindView(R2.id.preview_text) TextView previewText;
 
     @Override
     protected int getLayoutId() {

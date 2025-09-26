@@ -331,10 +331,6 @@
     <string name="repo_collections">리포지토리 모음</string>
     <string name="no_repo_collections">리포지토리 모음 없음</string>
     <string name="collections_tip">성장하는 산업, 주제 및 커뮤니티에 대한 선정된 목록과 인사이트입니다.</string>
-    <string name="gitHub_page_parse_error">
-        %s 페이지 파싱 오류가 발생했으며, 페이지가 GitHub에 의해 수정될 수도 있기 때문에,
-        애플리케이션을 업데이트하고, 그럼에도 불구하고 오류가 계속 발생한다면, 이 문제를 해결할 수 있도록 저희에게 알려주세요!
-    </string>
     <string name="bookmarks_tip">좌우로 밀어서 북마크를 삭제할 수 있습니다.</string>
     <string name="mark_all_as_read">모두 읽음으로 표시</string>
     <string name="mark_as_read">읽음으로 표시</string>

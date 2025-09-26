@@ -2,10 +2,11 @@
 
 package com.thirtydegreesray.openhub.http.error;
 
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 
 import com.thirtydegreesray.openhub.AppApplication;
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 
 import java.util.HashMap;
 import java.util.Map;

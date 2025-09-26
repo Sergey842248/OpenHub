@@ -4,13 +4,14 @@ package com.thirtydegreesray.openhub.ui.adapter;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.AppCompatImageView;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.widget.AppCompatImageView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
+import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.mvp.model.CommitFile;
 import com.thirtydegreesray.openhub.mvp.model.CommitFilesPathModel;
 import com.thirtydegreesray.openhub.ui.adapter.base.BaseAdapter;
@@ -100,17 +101,17 @@ public class CommitFilesAdapter extends BaseAdapter<BaseViewHolder,
     }
 
     class PathViewHolder extends BaseViewHolder {
-        @BindView(R.id.path) TextView path;
+        @BindView(R2.id.path) TextView path;
         public PathViewHolder(@NonNull View itemView) {
             super(itemView);
         }
     }
 
     class FileViewHolder extends BaseViewHolder {
-        @BindView(R.id.status_type) AppCompatImageView statusType;
-        @BindView(R.id.file_name) TextView fileName;
-        @BindView(R.id.additions_count) TextView additionsCount;
-        @BindView(R.id.deletions_count) TextView deletionsCount;
+        @BindView(R2.id.status_type) AppCompatImageView statusType;
+        @BindView(R2.id.file_name) TextView fileName;
+        @BindView(R2.id.additions_count) TextView additionsCount;
+        @BindView(R2.id.deletions_count) TextView deletionsCount;
 
         public FileViewHolder(@NonNull View itemView) {
             super(itemView);

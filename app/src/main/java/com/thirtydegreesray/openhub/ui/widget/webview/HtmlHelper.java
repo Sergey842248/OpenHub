@@ -2,15 +2,15 @@
 
 package com.thirtydegreesray.openhub.ui.widget.webview;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.thirtydegreesray.openhub.mvp.model.GitHubName;
 import com.thirtydegreesray.openhub.util.GitHubHelper;
 import com.thirtydegreesray.openhub.util.StringUtils;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,15 +21,8 @@ import java.util.regex.Pattern;
  */
 
 class HtmlHelper {
-
-    private final static List<String> SUPPORTED_CODE_FILE_EXTENSIONS = Arrays.asList(
-            "bsh", "c", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html", "java",
-            "js", "m", "mxml", "perl", "pl", "pm", "py", "rb", "sh", "xhtml", "xml",
-            "xsl"
-    );
-
-    private static Pattern LINK_PATTERN = Pattern.compile("href=\"(.*?)\"");
-    private static Pattern IMAGE_PATTERN = Pattern.compile("src=\"(.*?)\"");
+    private static final Pattern LINK_PATTERN = Pattern.compile("href=\"(.*?)\"");
+    private static final Pattern IMAGE_PATTERN = Pattern.compile("src=\"(.*?)\"");
 
     static String generateImageHtml(@NonNull String imageUrl, @NonNull String backgroundColor) {
         return "<html>" +
@@ -48,7 +41,7 @@ class HtmlHelper {
         return "<html>" +
                     "<head>" +
                         "<meta charset=\"utf-8\" />\n" +
-                        "<meta name=\"viewport\" content=\"width=device-width; initial-scale=1.0;\"/>" +
+                        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>" +
                         "<style>" +
                             "body{background: " + backgroundColor + ";}" +
                             "a {color:" + accentColor + " !important;}" +
@@ -63,33 +56,76 @@ class HtmlHelper {
     static String generateCodeHtml(@NonNull String codeSource, @Nullable String extension,
                                    boolean isDark, @NonNull String backgroundColor,
                                    boolean wrap, boolean lineNums) {
-        String skin = isDark ? "sons-of-obsidian" : "prettify";
+        String skin = isDark ? "github-dark.min" : "github.min";
         return generateCodeHtml(codeSource, extension, skin, backgroundColor, wrap, lineNums);
+    }
+
+    private static String guessLanguage(@Nullable String extension) {
+        if (extension == null) return null;
+        final Map<String, String> langMap = Map.of("h", "cpp",
+                                                   "hpp", "cpp",
+                                                   "cpp", "cpp",
+                                                   "cc", "cpp",
+                                                   "cxx", "cpp",
+                                                   "c", "c",
+                                                   "kt", "kotlin",
+                                                   "java", "java",
+                                                   "rs", "rust");
+
+        if (langMap.containsKey(extension)) {
+            return langMap.get(extension);
+        }
+        else {
+            return null;
+        }
     }
 
     private static String generateCodeHtml(@NonNull String codeSource, @Nullable String extension,
                                            @Nullable String skin, @NonNull String backgroundColor,
                                            boolean wrap, boolean lineNums) {
+        String lang = guessLanguage(extension);
         return "<html>\n" +
                     "<head>\n" +
                         "<meta charset=\"utf-8\" />\n" +
                         "<title>Code View</title>\n" +
-                        "<meta name=\"viewport\" content=\"width=device-width; initial-scale=1.0;\"/>" +
-                        "<script src=\"./core/run_prettify.js?autoload=true&amp;" +
-                            "skin=" + skin + "&amp;" +
-                            "lang=" + getExtension(extension) + "&amp;\" defer></script>\n" +
+                        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>" +
+                        "<link rel=\"stylesheet\" href=\"./highlight/styles/" + skin + ".css\">\n" +
+                        "<script src=\"./highlight/highlight.min.js\"></script>\n" +
+                        "<script>\n" +
+                        "document.addEventListener('DOMContentLoaded', (event) => {\n" +
+                        "   document.querySelectorAll('pre code').forEach((el) => {\n" +
+                        "       hljs.highlightAll(el);\n" +
+                                (lineNums ? "let lines = el.innerHTML.split('\\n');\n" +
+                                            "lines.shift();\n" +
+                                            "var lineNumberWidth = lines.length.toString().length * 10" + (wrap ? " + 4" : "") + ";\n" +
+                                            "var css = document.createElement('style');\n" +
+                                            "css.type = 'text/css';\n" +
+                                            "var newStyle = `.line-number {\\n" +
+                                            "  display: inline-block;\\n" +
+                                            "  width: ${lineNumberWidth}px;\\n" +
+                                            "  text-align: right;\\n" +
+                                            "  color: #999;\\n" +
+                                            "  margin-right: 16px;\\n" +
+                                            "  user-select: none;\\n" +
+                                            "}`;\n" +
+                                            "css.innerHTML = newStyle;\n" +
+                                            "document.head.appendChild(css);\n" +
+                                            "el.innerHTML = lines.map(function(line, index) {\n" +
+                                            "   return '<span class=\"line-number\">' + (index + 1) + '.' + '</span>' + line;\n" +
+                                            "}).join('\\n');" : "") +
+                        "   })\n" +
+                        "})\n" +
+                        "</script>\n" +
                         "<style>" +
-                            "body {background: " + backgroundColor + ";}" +
-                            ".prettyprint {background: " + backgroundColor + ";}" +
-                            "pre.prettyprint {" +
-                                " word-wrap: " + (wrap ? "break-word" : "normal") + "; " +
-                                " white-space: " + (wrap ? "pre-wrap" : "no-wrap") + "; " +
-                            "}" +
+                            "body {background: " + backgroundColor + ";}\n" +
+                            "code {\n" +
+                            "    word-wrap: " + (wrap ? "break-word" : "normal") + ";\n" +
+                            "    white-space: " + (wrap ? "pre-wrap" : "no-wrap") + ";\n" +
+                            "}\n" +
                         "</style>" +
                     "</head>\n" +
                     "<body>\n" +
-                        "<?prettify lang=" + getExtension(extension) + " linenums=" + lineNums + "?>\n" +
-                        "<pre class=\"prettyprint\">\n" +
+                        "<pre><code" + (lang != null ? " class=\"language-" + lang + "\"" : "") +">\n" +
                             formatCode(codeSource) +
                         "</pre>\n" +
                     "</body>\n" +
@@ -101,7 +137,7 @@ class HtmlHelper {
                                  @NonNull String accentColor, boolean wrapCode) {
         String skin = isDark ? "markdown_dark.css" : "markdown_white.css";
         mdSource = StringUtils.isBlank(baseUrl) ? mdSource : fixLinks(mdSource, baseUrl);
-        //fix wiki inner url like this "href="/robbyrussell/oh-my-zsh/wiki/Themes"" 
+        //fix wiki inner url like this "href="/robbyrussell/oh-my-zsh/wiki/Themes""
         mdSource = fixWikiLinks(mdSource);
         return generateMdHtml(mdSource, skin, backgroundColor, accentColor, wrapCode);
     }
@@ -113,7 +149,7 @@ class HtmlHelper {
                     "<head>\n" +
                         "<meta charset=\"utf-8\" />\n" +
                         "<title>MD View</title>\n" +
-                        "<meta name=\"viewport\" content=\"width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;\"/>" +
+                        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\"/>" +
                         "<link rel=\"stylesheet\" type=\"text/css\" href=\"./" + skin + "\">\n" +
                         "<style>" +
                             "body{background: " + backgroundColor + ";}" +
@@ -128,10 +164,6 @@ class HtmlHelper {
                         mdSource +
                     "</body>\n" +
                 "</html>";
-    }
-
-    private static String getExtension(@Nullable String extension) {
-        return SUPPORTED_CODE_FILE_EXTENSIONS.contains(extension) ? extension : "";
     }
 
     private static String formatCode(@NonNull String codeSource) {
@@ -208,7 +240,7 @@ class HtmlHelper {
                     "<head>\n" +
                         "<meta charset=\"utf-8\" />\n" +
                         "<title>Diff View</title>\n" +
-                        "<meta name=\"viewport\" content=\"width=device-width; initial-scale=1.0;\"/>" +
+                        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>" +
                         "<link rel=\"stylesheet\" type=\"text/css\" href=\"./" + skin + "\">\n" +
                         "<style>" +
                             "body {background: " + backgroundColor + ";}\n" +
@@ -297,16 +329,15 @@ class HtmlHelper {
 
     private static String getDiffLineNumber(String removeNumber, String addNumber){
         int minLength = 4;
-        return new StringBuilder().append(getBlank(minLength - removeNumber.length()))
-                .append(removeNumber)
-                .append(getBlank(1))
-                .append(getBlank(minLength - addNumber.length()))
-                .append(addNumber)
-                .toString();
+        return getBlank(minLength - removeNumber.length()) +
+                removeNumber +
+                getBlank(1) +
+                getBlank(minLength - addNumber.length()) +
+                addNumber;
     }
 
     private static String getBlank(int num){
-        StringBuilder builder = new StringBuilder("");
+        StringBuilder builder = new StringBuilder();
         for(int i = 0; i < num; i++){
             builder.append(" ");
         }
