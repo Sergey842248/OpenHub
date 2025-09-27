@@ -139,8 +139,13 @@ public class LoginPresenter extends BasePresenter<ILoginContract.View>
                     @Override
                     public void onSuccess(HttpResponse<User> response) {
 //                        mView.dismissProgressDialog();
-                        saveAuthUser(basicToken, response.body());
-                        mView.onLoginComplete();
+                        if (response.body() != null) {
+                            saveAuthUser(basicToken, response.body());
+                            mView.onLoginComplete();
+                        } else {
+                            mView.dismissProgressDialog();
+                            mView.onGetTokenError(getErrorTip(new Throwable("Get user info error")));
+                        }
                     }
                 }
         );

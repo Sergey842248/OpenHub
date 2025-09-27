@@ -8,7 +8,7 @@
     <color name="light_teal_color_primary">@color/material_teal_500</color>
     <color name="light_teal_color_primary_blur">#DD009688</color>
     <color name="light_teal_color_primary_dark">@color/material_teal_700</color>
-    <color name="light_teal_color_accent">@color/material_green_accent_700</color>
+    <color name="light_teal_color_accent">@color/material_blue_accent_700</color>
     <color name="light_teal_window_background">#F4F4F4</color>
     <color name="light_teal_icon_color">@color/material_light_black</color>
     <color name="light_teal_card_background">@color/material_white</color>

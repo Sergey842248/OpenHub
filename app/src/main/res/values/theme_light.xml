@@ -8,7 +8,7 @@
     <color name="light_color_primary">@color/material_indigo_500</color>
     <color name="light_color_primary_blur">#DD3F51B5</color>
     <color name="light_color_primary_dark">@color/material_indigo_700</color>
-    <color name="light_color_accent">@color/material_green_accent_700</color>
+    <color name="light_color_accent">@color/material_blue_accent_700</color>
     <color name="light_window_background">#F4F4F4</color>
     <color name="light_icon_color">@color/material_light_black</color>
     <color name="light_card_background">@color/material_white</color>
@@ -21,7 +21,7 @@
     <style name="ThemeLight" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/light_color_primary</item>
         <item name="colorPrimaryDark">@color/light_color_primary_dark</item>
-        <item name="colorAccent">@color/light_color_accent</item>
+        <item name="colorAccent">@color/material_blue_accent_700</item>
         <item name="android:windowBackground">@color/light_window_background</item>
         <item name="preferenceTheme">@style/Theme.Material3.DayNight</item>
         <item name="android:textColorPrimary">@color/light_text_color_primary</item>
@@ -45,7 +45,7 @@
         <item name="icon_color">@color/light_icon_color</item>
         <item name="colorPrimary">@color/light_color_primary</item>
         <item name="colorPrimaryDark">@color/light_color_primary_dark</item>
-        <item name="colorAccent">@color/light_color_accent</item>
+        <item name="colorAccent">@color/material_blue_accent_700</item>
         <item name="android:windowBackground">@color/light_window_background</item>
     </style>
 
@@ -213,8 +213,8 @@
         <item name="mal_color_primary">@color/light_text_color_primary</item>
         <item name="mal_color_secondary">@color/light_text_color_secondary</item>
         <item name="mal_card_background">@color/light_card_background</item>
-        <item name="alertDialogTheme">@style/DialogThemeLight.Green</item>
-        <item name="android:alertDialogTheme">@style/DialogThemeLight.Green</item>
+        <item name="alertDialogTheme">@style/DialogThemeLight.Cyan</item>
+        <item name="android:alertDialogTheme">@style/DialogThemeLight.Cyan</item>
     </style>
 
 </resources>

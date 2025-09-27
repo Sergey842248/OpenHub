@@ -122,7 +122,7 @@ public class PrefUtils {
     }
 
     public static int getAccentColor(){
-        return getDefaultSp(AppApplication.get()).getInt(ACCENT_COLOR, 11);
+        return getDefaultSp(AppApplication.get()).getInt(ACCENT_COLOR, 1);
     }
 
     public static boolean isCacheFirstEnable(){
