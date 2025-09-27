@@ -17,7 +17,7 @@ android {
     compileSdkVersion COMPILE_SDK_VERSION as int
     buildToolsVersion BUILD_TOOLS_VERSION
     defaultConfig {
-        applicationId "com.thirtydegreesray.openhub"
+        applicationId "com.future.openhub"
         minSdkVersion MIN_SDK_VERSION as int
         targetSdkVersion TARGET_SDK_VERSION as int
         versionCode VERSION_CODE as int
