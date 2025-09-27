@@ -29,7 +29,7 @@
             app:expandedTitleMarginTop="80dp"
             app:expandedTitleTextAppearance="@style/Toolbar.Expand.TitleText"
             android:paddingTop="0dp"
-            android:paddingBottom="@dimen/spacing_normal">
+            android:paddingBottom="0dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
