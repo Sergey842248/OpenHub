@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.thirtydegreesray.openhub.R;
 import com.thirtydegreesray.openhub.R2;
@@ -51,6 +52,14 @@ public class NotificationsActivity extends PagerActivity {
         tabLayout.setupWithViewPager(viewPager);
         viewPager.setAdapter(pagerAdapter);
         showFirstPager();
+
+        // Set margins on tabs to increase spacing
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            View tab = ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i);
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
+            p.setMargins(getResources().getDimensionPixelSize(R.dimen.spacing_normal), 0, getResources().getDimensionPixelSize(R.dimen.spacing_normal), 0);
+            tab.setLayoutParams(p);
+        }
     }
 
     @Override

@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.thirtydegreesray.openhub.R;
 import com.thirtydegreesray.openhub.inject.component.AppComponent;
@@ -74,6 +75,14 @@ public class TrendingActivity extends PagerActivity<TrendingPresenter>
         showFirstPager();
         initLanguagesDrawer();
         updateTitle();
+
+        // Set margins on tabs to increase spacing
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            View tab = ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i);
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
+            p.setMargins(getResources().getDimensionPixelSize(R.dimen.spacing_normal), 0, getResources().getDimensionPixelSize(R.dimen.spacing_normal), 0);
+            tab.setLayoutParams(p);
+        }
     }
 
     private void updateTitle(){
