@@ -7,9 +7,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@color/white">
+    android:background="@color/amoled_dark_card_background">
     <ImageView
         android:layout_width="280dp"
         android:layout_height="280dp"
-        android:src="@mipmap/logo_big"/>
+        android:src="@mipmap/logo_foreground"/>
 </LinearLayout>

@@ -4,13 +4,13 @@
     <item>
 
         <shape>
-            <solid android:color="?colorPrimary"/>
+            <solid android:color="@color/amoled_dark_card_background"/>
         </shape>
     </item>
 
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/logo_big"/>
+            android:src="@mipmap/ic_launcher_foreground"/>
     </item>
 </layer-list>

@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:padding="@dimen/spacing_normal"
-                android:src="@mipmap/logo_big"
+                android:src="@mipmap/logo"
                 android:background="@color/amoled_dark_card_background"/>
 
             <LinearLayout
