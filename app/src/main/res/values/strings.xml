@@ -192,9 +192,8 @@
     <string name="author" >Author</string>
     <string name="author_name" translatable="false">30度的射线</string>
     <string name="author_location" translatable="false">NanJing,China</string>
-    <string name="author_login_id" translatable="false">ThirtyDegreesRay</string>
-    <string name="author_avatar_url" translatable="false">https://avatars1.githubusercontent.com/u/9625508?v=4</string>
-    <string name="app_copyright" translatable="false">© 2017 ThirtyDegreesRay</string>
+    <string name="author_login_id" translatable="false">Sergey842248</string>
+    <string name="author_avatar_url" translatable="false">https://avatars.githubusercontent.com/u/125195195?s=48?v=4</string>
     <string name="follow_on_github" >Follow on GitHub</string>
     <string name="email" >Email</string>
     <string name="auth_email_address" translatable="false">rays.yuz@gmail.com</string>
@@ -299,10 +298,9 @@
 
     <string name="unread">Unread</string>
     <string name="no_notifications_tip">No new notifications.</string>
-    <string name="feedback_and_share">Share &#038; Feedback</string>
     <string name="share_to_friends">Share to your friends</string>
-    <string name="cookapk_download_url" translatable="false">https://www.coolapk.com/apk/com.thirtydegreesray.openhub</string>
-    <string name="feedback">Feedback</string>
+    <string name="github_download_url" translatable="false">https://github.com/Sergey842248/OpenHub/releases/latest</string>
+    <string name="feedback">Open an Issue</string>
 
     <string name="openhub_wishes">Wishes From OpenHub</string>
     <string name="star_wishes" formatted="false">

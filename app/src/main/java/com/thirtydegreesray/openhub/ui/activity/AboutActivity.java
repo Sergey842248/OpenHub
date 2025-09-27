@@ -62,8 +62,7 @@ public class AboutActivity extends MaterialAboutActivity {
     private void buildApp(MaterialAboutCard.Builder appBuilder, final Context context){
         appBuilder.addItem(new MaterialAboutTitleItem.Builder()
                 .text(getString(R.string.app_github_name))
-                .desc(getString(R.string.app_copyright))
-                .icon(R.mipmap.logo)
+                .icon(R.mipmap.logo_foreground)
                 .build());
         appBuilder.addItem(new MaterialAboutActionItem.Builder()
                 .text(R.string.version)
@@ -86,18 +85,6 @@ public class AboutActivity extends MaterialAboutActivity {
     private void buildAuthor(MaterialAboutCard.Builder appBuilder, final Context context){
         appBuilder.title(R.string.author);
         appBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.author_name)
-                .subText(R.string.author_location)
-                .icon(R.drawable.ic_menu_person)
-                .setOnClickAction(new MaterialAboutItemOnClickAction() {
-                    @Override
-                    public void onClick() {
-                        ProfileActivity.show(AboutActivity.this, getString(R.string.author_login_id),
-                                getString(R.string.author_avatar_url));
-                    }
-                })
-                .build());
-        appBuilder.addItem(new MaterialAboutActionItem.Builder()
                 .text(R.string.follow_on_github)
                 .icon(R.drawable.ic_github)
                 .setOnClickAction(new MaterialAboutItemOnClickAction() {
@@ -108,44 +95,17 @@ public class AboutActivity extends MaterialAboutActivity {
                     }
                 })
                 .build());
-        appBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.email)
-                .subText(R.string.auth_email_address)
-                .icon(R.drawable.ic_mail)
-                .setOnClickAction(new MaterialAboutItemOnClickAction() {
-                    @Override
-                    public void onClick() {
-                        AppOpener.launchEmail(context, getString(R.string.auth_email_address));
-                    }
-                })
-                .setOnLongClickAction(new MaterialAboutItemOnClickAction() {
-                    @Override
-                    public void onClick() {
-                        AppUtils.copyToClipboard(context, getString(R.string.auth_email_address));
-                    }
-                })
-                .build());
     }
 
     private void buildShare(MaterialAboutCard.Builder appBuilder, final Context context) {
-        appBuilder.title(R.string.feedback_and_share);
+        appBuilder.title(R.string.share);
         appBuilder.addItem(new MaterialAboutActionItem.Builder()
                 .text(R.string.share_to_friends)
                 .icon(R.drawable.ic_share)
                 .setOnClickAction(new MaterialAboutItemOnClickAction() {
                     @Override
                     public void onClick() {
-                        AppOpener.shareText(AboutActivity.this, getString(R.string.cookapk_download_url));
-                    }
-                })
-                .build());
-        appBuilder.addItem(new MaterialAboutActionItem.Builder()
-                .text(R.string.rate_in_market)
-                .icon(R.drawable.ic_menu_star)
-                .setOnClickAction(new MaterialAboutItemOnClickAction() {
-                    @Override
-                    public void onClick() {
-                        AppOpener.openInMarket(context);
+                        AppOpener.shareText(AboutActivity.this, getString(R.string.github_download_url));
                     }
                 })
                 .build());
