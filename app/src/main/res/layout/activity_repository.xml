@@ -28,7 +28,7 @@
             app:collapsedTitleGravity="start"
             app:expandedTitleGravity="top"
             app:expandedTitleMarginStart="@dimen/spacing_x_large"
-            app:expandedTitleMarginTop="60dp"
+            app:expandedTitleMarginTop="80dp"
             app:expandedTitleTextAppearance="@style/Toolbar.Expand.TitleText"
             android:paddingTop="0dp">
 
@@ -55,7 +55,7 @@
                 android:paddingStart="@dimen/spacing_normal"
                 android:paddingEnd="@dimen/spacing_normal"
                 android:paddingBottom="@dimen/spacing_normal"
-                android:layout_marginTop="96dp">
+                android:layout_marginTop="120dp">
 
                 <TextView
                     android:id="@+id/desc"
