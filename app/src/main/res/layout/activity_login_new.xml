@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_light"
+    android:background="@color/material_grey_700"
     android:gravity="center_horizontal"
     android:padding="@dimen/activity_margin"
     tools:context=".ui.activity.LoginActivity">
@@ -39,8 +39,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="279dp"
-                android:background="?card_background"
+                android:layout_height="285dp"
+                android:background="@color/dark_color_primary"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:paddingLeft="@dimen/spacing_normal"
@@ -50,9 +50,9 @@
                     android:id="@+id/login_bn"
                     android:layout_width="220dp"
                     android:layout_height="45dp"
-                    android:layout_marginTop="@dimen/spacing_huge"
-                    android:layout_marginBottom="@dimen/spacing_huge"
-                    app:buttonColor="@color/black_light"
+                    android:layout_marginTop="115dp"
+                    android:layout_marginBottom="115dp"
+                    app:buttonColor="@color/light_card_background"
                     app:buttonText="@string/login_in_browser"
                     app:buttonTextSize="18sp" />
 

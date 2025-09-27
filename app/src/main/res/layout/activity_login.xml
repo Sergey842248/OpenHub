@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_light"
+    android:background="@color/material_grey_700"
     android:gravity="center_horizontal"
     android:padding="@dimen/activity_margin"
     tools:context=".ui.activity.LoginActivity">
@@ -44,7 +44,7 @@
                 android:paddingRight="@dimen/spacing_normal"
                 android:paddingLeft="@dimen/spacing_normal"
                 android:gravity="center_horizontal"
-                android:background="?card_background">
+                android:background="@color/dark_color_primary">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/user_name_layout"
@@ -61,7 +61,9 @@
                         android:inputType="textPersonName"
                         android:maxLines="1"
                         android:hint="@string/user_name"
-                        android:imeOptions="actionNext"/>
+                        android:imeOptions="actionNext"
+                        android:textColorHint="@color/light_card_background"
+                        android:color="@color/light_card_background"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -81,7 +83,8 @@
                         android:inputType="textPassword"
                         android:maxLines="1"
                         android:hint="@string/password"
-                        android:imeOptions="actionSend"/>
+                        android:imeOptions="actionSend"
+                        android:textColorHint="@color/light_card_background"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.unstoppable.submitbuttonview.SubmitButton
@@ -89,7 +92,7 @@
                     android:layout_width="160dp"
                     android:layout_height="45dp"
                     android:layout_margin="@dimen/spacing_xx_large"
-                    app:buttonColor="@color/black_light"
+                    app:buttonColor="@color/light_card_background"
                     app:buttonText="@string/login"
                     app:buttonTextSize="18sp"/>
 
@@ -103,7 +106,7 @@
                     android:layout_margin="@dimen/spacing_normal"
                     android:background="@drawable/selector_button_outline"
                     android:text="@string/login_in_browser"
-                    android:textColor="@color/black_light"/>
+                    android:textColor="@color/light_card_background"/>
 
             </LinearLayout>
 
