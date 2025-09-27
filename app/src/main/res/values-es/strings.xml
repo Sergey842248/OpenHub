@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">OpenHub para GitHub</string>
+    <string name="app_name">OpenHub</string>
     <string name="user_name">Usuario</string>
     <string name="password">Contraseña</string>
     <string name="login">Inicio de Sesión</string>

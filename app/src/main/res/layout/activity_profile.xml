@@ -62,7 +62,7 @@
                     android:layout_width="72dp"
                     android:layout_height="72dp"
                     android:transitionName="userAvatar"
-                    android:src="@mipmap/logo"/>
+                    android:src="@mipmap/logo_foreground"/>
 
                 <TextView
                     android:id="@+id/location"
