@@ -1,6 +1,5 @@
 # OpenHub
-[![Releases](https://img.shields.io/badge/android-5.0%2B-brightgreen.svg)](https://play.google.com/store/apps/details?id=com.thirtydegreesray.openhub)
-[![Releases](https://img.shields.io/github/release/ThirtyDegreesRay/OpenHub.svg)](https://github.com/ThirtyDegreesRay/OpenHub/releases/latest)
+[![Releases](https://img.shields.io/github/release/Sergey842248/OpenHub.svg)](https://github.com/Sergey842248/OpenHub/releases/latest)
 
 An **Open-Source** GitHub Android client app, faster and concise.
 
