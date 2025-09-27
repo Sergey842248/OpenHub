@@ -85,6 +85,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/toolbar_background"
                 app:layout_collapseMode="pin"
                 app:popupTheme="?popup_theme"/>
 
