@@ -33,6 +33,12 @@
 
     <dimen name="card_view_horizontal_margin">8dp</dimen>
     <dimen name="card_view_vertical_margin">4dp</dimen>
-    <dimen name="card_view_corner_radius">2dp</dimen>
+    <dimen name="card_view_corner_radius">16dp</dimen>
+
+    <dimen name="tab_spacing_profile">12dp</dimen>
+    <dimen name="tab_spacing_repo">5dp</dimen>
+    <dimen name="tab_spacing_search">8dp</dimen>
+    <dimen name="tab_padding_vertical">6dp</dimen>
+    <dimen name="tab_height">10dp</dimen>
 
 </resources>

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -210,6 +211,14 @@ public class RepositoryActivity extends PagerActivity<RepositoryPresenter>
             tabLayout.setupWithViewPager(viewPager);
             viewPager.setAdapter(pagerAdapter);
             showFirstPager();
+
+            // Set margins on tabs to increase spacing
+            for (int i = 0; i < tabLayout.getTabCount(); i++) {
+                View tab = ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i);
+                ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
+                p.setMargins(12, 0, 12, 0);
+                tab.setLayoutParams(p);
+            }
 
             GlideApp.with(getActivity())
                     .load(repo.getOwner().getAvatarUrl())

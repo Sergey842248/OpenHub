@@ -41,7 +41,7 @@
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"/>
 
-            <androidx.appcompat.widget.AppCompatImageView
+            +<androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_collapseMode="parallax"
@@ -95,10 +95,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            app:tabGravity="fill"
-            app:tabMode="fixed"
             app:tabTextAppearance="@style/TextAppearance.Design.Tab"
-            app:tabSelectedTextColor="?title_color"/>
+            app:tabSelectedTextColor="?title_color" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
