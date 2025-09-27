@@ -63,7 +63,9 @@ public class ColorChooserPreference extends Preference implements ColorChooserDi
         super.onBindViewHolder(holder);
         View colorView = holder.findViewById(R.id.color_view);
 
-        colorView.getBackground().setColorFilter(getSelectedColor(), PorterDuff.Mode.SRC_IN);
+        if (colorView.getBackground() != null) {
+            colorView.getBackground().setColorFilter(getSelectedColor(), PorterDuff.Mode.SRC_IN);
+        }
     }
 
     @Override
