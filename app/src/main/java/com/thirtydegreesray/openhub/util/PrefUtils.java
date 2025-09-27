@@ -19,9 +19,8 @@ import java.util.Set;
 
 public class PrefUtils {
 
-    public final static String LIGHT_INDIGO = "Light indigo";
+    public final static String LIGHT_INDIGO = "Light";
     public final static String DARK = "Dark";
-    public final static String LIGHT_TEAL = "Light teal";
     public final static String AMOLED_DARK = "AMOLED dark";
 
     public final static int LIGHT_BLUE = 0;
@@ -110,7 +109,7 @@ public class PrefUtils {
     }
 
     public static String getTheme(){
-        return getDefaultSp(AppApplication.get()).getString(THEME, LIGHT_TEAL);
+        return getDefaultSp(AppApplication.get()).getString(THEME, LIGHT_INDIGO);
     }
 
     public static String getLanguage(){

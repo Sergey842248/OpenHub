@@ -18,7 +18,8 @@
     <color name="amoled_dark_subtitle_color">@color/material_grey_500</color>
     <color name="amoled_dark_selected_color">#3f3f3f</color>
 
-    <style name="ThemeAmoledDark" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="ThemeAmoledDark" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="tabBackground">@drawable/tab_overlay_rounded</item>
         <item name="colorPrimary">@color/amoled_dark_color_primary</item>
         <item name="colorPrimaryDark">@color/amoled_dark_color_primary_dark</item>
         <item name="colorAccent">@color/amoled_dark_color_accent</item>

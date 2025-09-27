@@ -14,7 +14,7 @@
     <color name="dark_text_color_secondary">@color/material_grey_500</color>
     <color name="dark_icon_color">@color/material_light_white</color>
     <color name="dark_card_background">#2D3035</color>
-    <color name="dark_title_color">@color/material_light_white</color>
+    <color name="dark_title_color">@color/material_grey_500</color>
     <color name="dark_subtitle_color">@color/material_grey_500</color>
     <color name="dark_selected_color">#3f3f3f</color>
 

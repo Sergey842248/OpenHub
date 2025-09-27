@@ -57,8 +57,7 @@
     </array>
 
     <array name="theme_array">
-        <item>Light teal</item>
-        <item>Light indigo</item>
+        <item>Light</item>
         <item>Dark</item>
         <item>AMOLED dark</item>
     </array>
