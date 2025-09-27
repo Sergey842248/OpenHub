@@ -4,15 +4,13 @@
 
 An **Open-Source** GitHub Android client app, faster and concise.
 
-[![GitHub](https://github.com/Sergey842248/OpenHub/blob/main/android/app/src/main/assets/get-it-on-github.png)](https://www.coolapk.com/apk/com.thirtydegreesray.openhub)
+[![GitHub](https://raw.githubusercontent.com/Sergey842248/OpenHub/refs/heads/master/app/src/main/assets/get-it-on-github.png)](https://github.com/Sergey842248/OpenHub/releases/latest)
 
 ## Features
 
 ### App
-* One login types (OAuth)
 * Light, dark, and AMOLED dark theme, multiple accent colors
 * Markdown and code highlighting support
-* English, Simplified Chinese, Hebrew, German, Hindi, Portuguese, Korea, Spanish, Traditional Chinese, Russian, Polish, Georgian, Italian, Dutch, Czech and Portuguese(Brazil) support
 * Offline mode
 * Supports trending repositories page for all languages
 * Supports multi-account switching
@@ -24,6 +22,7 @@ An **Open-Source** GitHub Android client app, faster and concise.
 * View Github collections
 * View Github featured topics
 * Support disable loading network images while using mobile network
+* Highly translated (English, Simplified Chinese, Hebrew, German, Hindi, Portuguese, Korea, Spanish, Traditional Chinese, Russian, Polish, Georgian, Italian, Dutch, Czech and Portuguese(Brazil))
 
 ### Repositories
 * View repository information and repository branches
@@ -67,16 +66,17 @@ An **Open-Source** GitHub Android client app, faster and concise.
 
 ## Screenshots
 
-| News | Drawer | Profile |
-|:-:|:-:|:-:|
-| ![news](https://raw.githubusercontent.com/ThirtyDegreesRay/OpenHub/master/art/news.png?raw=true) | ![drawer](https://raw.githubusercontent.com/ThirtyDegreesRay/OpenHub/master/art/drawer.png?raw=true) | ![profile](https://raw.githubusercontent.com/ThirtyDegreesRay/OpenHub/master/art/profile.png?raw=true) |
+|                                             News                                             |                                              Drawer                                              | Profile |
+|:--------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|:-:|
+| ![news](https://raw.githubusercontent.com/Sergey842248/OpenHub/master/art/news.png?raw=true) | ![drawer](https://raw.githubusercontent.com/Sergey842248/OpenHub/master/art/drawer.png?raw=true) | ![profile](https://raw.githubusercontent.com/Sergey842248/OpenHub/master/art/profile.png?raw=true) |
 
 | Repository | Commit | Code |
 |:-:|:-:|:-:|
-| ![repo](https://raw.githubusercontent.com/ThirtyDegreesRay/OpenHub/master/art/repo.png?raw=true) | ![commit](https://raw.githubusercontent.com/ThirtyDegreesRay/OpenHub/master/art/commit.png?raw=true) | ![code](https://raw.githubusercontent.com/ThirtyDegreesRay/OpenHub/master/art/code.png?raw=true) |
+| ![repo](https://raw.githubusercontent.com/Sergey842248/OpenHub/master/art/repo.png?raw=true) | ![commit](https://raw.githubusercontent.com/Sergey842248/OpenHub/master/art/commit.png?raw=true) | ![code](https://raw.githubusercontent.com/Sergey842248/OpenHub/master/art/code.png?raw=true) |
 
 ## Thanks for open source
 
+* [OpenHub for Android](https://github.com/ThirtyDegreesRay/OpenHub) Original repo
 * [ButterKnife](https://github.com/JakeWharton/butterknife) Bind Android views and callbacks to fields and methods.
 * [GreenDao](https://github.com/greenrobot/greenDAO) A light & fast ORM solution for Android that maps objects to SQLite databases.
 * [EventBus](https://github.com/greenrobot/EventBus) Android optimized event bus that simplifies communication between Activities, Fragments, Threads, Services, etc.
