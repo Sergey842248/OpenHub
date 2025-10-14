@@ -66,6 +66,13 @@ public class TrendingActivity extends PagerActivity<TrendingPresenter>
     @Override
     protected void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
+
+        com.google.android.material.appbar.AppBarLayout appBarLayout = findViewById(R.id.app_bar);
+        androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams params =
+                (androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams) appBarLayout.getLayoutParams();
+        params.setMargins(params.leftMargin, 0, params.rightMargin, params.bottomMargin);
+        appBarLayout.setLayoutParams(params);
+
         setToolbarScrollAble(true);
         setToolbarBackEnable();
         pagerAdapter.setPagerList(FragmentPagerModel.createTrendingPagerList(getActivity(), getFragments()));

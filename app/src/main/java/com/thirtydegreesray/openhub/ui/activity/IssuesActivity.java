@@ -97,6 +97,13 @@ public class IssuesActivity extends PagerActivity<IssuesActPresenter>
     @Override
     protected void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
+
+        com.google.android.material.appbar.AppBarLayout appBarLayout = findViewById(R.id.app_bar);
+        androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams params =
+                (androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams) appBarLayout.getLayoutParams();
+        params.setMargins(params.leftMargin, 0, params.rightMargin, params.bottomMargin);
+        appBarLayout.setLayoutParams(params);
+
         updateEndDrawerContent(R.menu.drawer_menu_issues);
         setToolbarScrollAble(true);
         setToolbarBackEnable();
