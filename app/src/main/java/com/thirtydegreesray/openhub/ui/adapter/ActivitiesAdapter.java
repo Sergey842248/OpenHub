@@ -202,31 +202,33 @@ public class ActivitiesAdapter extends BaseAdapter<ActivitiesAdapter.ViewHolder,
                     String branch = model.getPayload().getBranch();
                     actionStr = String.format(getString(R.string.push_to), branch, fullName);
 
-                    descSpan = new SpannableStringBuilder("");
-                    int count = model.getPayload().getCommits().size();
-                    int maxLines = 4;
-                    int max = count > maxLines ? maxLines - 1 : count;
+                    if(model.getPayload().getCommits() != null){
+                        descSpan = new SpannableStringBuilder("");
+                        int count = model.getPayload().getCommits().size();
+                        int maxLines = 4;
+                        int max = count > maxLines ? maxLines - 1 : count;
 
-                    for (int i = 0; i < max; i++) {
-                        PushEventCommit commit = model.getPayload().getCommits().get(i);
-                        if (i != 0) {
-                            descSpan.append("\n");
+                        for (int i = 0; i < max; i++) {
+                            PushEventCommit commit = model.getPayload().getCommits().get(i);
+                            if (i != 0) {
+                                descSpan.append("\n");
+                            }
+
+                            int lastLength = descSpan.length();
+                            String sha = commit.getSha().substring(0, 7);
+                            descSpan.append(sha);
+                            descSpan.setSpan(new TextAppearanceSpan(context, R.style.text_link),
+                                    lastLength, lastLength + sha.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                            descSpan.append(" ");
+                            descSpan.append(getFirstLine(commit.getMessage()));
+
+                            descSpan.setSpan(new EllipsizeLineSpan(i == (count - 1) ? 0 : 0),
+                                    lastLength, descSpan.length(), 0);
                         }
-
-                        int lastLength = descSpan.length();
-                        String sha = commit.getSha().substring(0, 7);
-                        descSpan.append(sha);
-                        descSpan.setSpan(new TextAppearanceSpan(context, R.style.text_link),
-                                lastLength, lastLength + sha.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                        descSpan.append(" ");
-                        descSpan.append(getFirstLine(commit.getMessage()));
-
-                        descSpan.setSpan(new EllipsizeLineSpan(i == (count - 1) ? 0 : 0),
-                                lastLength, descSpan.length(), 0);
-                    }
-                    if(count > maxLines){
-                        descSpan.append("\n").append("...");
+                        if(count > maxLines){
+                            descSpan.append("\n").append("...");
+                        }
                     }
                     break;
                 case ReleaseEvent:
