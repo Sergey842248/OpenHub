@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
-        android:theme="?appbar_theme">
+        android:theme="?appbar_theme"
+        android:background="@color/transparent">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
@@ -29,7 +30,8 @@
             app:expandedTitleMarginStart="96dp"
             app:expandedTitleMarginTop="80dp"
             app:expandedTitleTextAppearance="@style/Toolbar.Expand.TitleText"
-            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed|snap">
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed|snap"
+            android:background="@drawable/bg_rounded_bottom_corners">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -133,6 +135,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="824dp"
+        android:background="@drawable/bg_rounded_bottom_corners"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     </FrameLayout>
