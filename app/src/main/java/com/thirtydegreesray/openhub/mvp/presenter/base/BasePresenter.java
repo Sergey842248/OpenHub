@@ -351,6 +351,9 @@ public abstract class BasePresenter<V extends IBaseContract.View> implements IBa
             errorTip = getString(R.string.load_timeout_tip);
         } else if (error instanceof HttpError) {
             errorTip = error.getMessage();
+        } else if (error instanceof Error) {
+            // Handle java.lang.Error by returning empty string to avoid showing "Tap to retry"
+            errorTip = "";
         } else {
             errorTip = StringUtils.isBlank(error.getMessage()) ? error.toString() : error.getMessage();
         }

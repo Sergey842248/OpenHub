@@ -151,14 +151,7 @@ public abstract class ListFragment <P extends IBaseContract.Presenter, A extends
         onReLoadData();
     }
 
-    @OnClick(R2.id.retry_bn)
-    public void onRetryClick(@NonNull View view) {
-        refreshLayout.setVisibility(View.VISIBLE);
-        layTip.setVisibility(View.GONE);
-        refreshLayout.setRefreshing(true);
-        curPage = 1;
-        onReLoadData();
-    }
+    // Removed retry button click handler since button was removed from layout
 
     protected void setErrorTip(String errorTip){
         refreshLayout.setVisibility(View.GONE);

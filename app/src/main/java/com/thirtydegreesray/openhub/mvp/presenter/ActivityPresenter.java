@@ -69,7 +69,10 @@ public class ActivityPresenter extends BasePagerPresenter<IActivityContract.View
                     mView.showErrorToast(getErrorTip(error));
                 } else if(error instanceof HttpPageNoFoundError){
                     mView.showEvents(new ArrayList<Event>());
-                }else{
+                } else if(error instanceof Error){
+                    // Handle java.lang.Error (like the "Tap to retry" error) by showing empty activity list
+                    mView.showEvents(new ArrayList<Event>());
+                } else{
                     mView.showLoadError(getErrorTip(error));
                 }
             }
@@ -157,4 +160,3 @@ public class ActivityPresenter extends BasePagerPresenter<IActivityContract.View
     }
 
 }
-

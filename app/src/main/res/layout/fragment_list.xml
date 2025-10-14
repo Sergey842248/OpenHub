@@ -33,17 +33,7 @@
             android:paddingStart="@dimen/spacing_normal"
             android:paddingEnd="@dimen/spacing_normal"/>
 
-        <Button
-            android:id="@+id/retry_bn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/tap_to_retry"
-            android:textSize="@dimen/text_normal"
-            android:textColor="?colorAccent"
-            android:background="?android:selectableItemBackground"
-            android:paddingStart="@dimen/spacing_normal"
-            android:paddingEnd="@dimen/spacing_normal"/>
+        <!-- Button removed as requested -->
 
     </LinearLayout>
 
