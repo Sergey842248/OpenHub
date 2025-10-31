@@ -1,0 +1,12 @@
+{
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "matchManagers": ["gradle"],
+      "matchPackagePatterns": ["com.novoda"],
+      "registryUrls": [
+        "https://plugins.gradle.org/m2/"
+      ]
+    }
+  ]
+}
