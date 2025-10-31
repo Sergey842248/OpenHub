@@ -1,9 +1,19 @@
 {
   "extends": ["config:base"],
+  "gradle": {
+    "enabled": true
+  },
+  "maven": {
+    "enabled": true,
+    "registryUrls": [
+      "https://plugins.gradle.org/m2/",
+      "https://repo.maven.apache.org/maven2"
+    ]
+  },
   "packageRules": [
     {
-      "matchManagers": ["gradle"],
-      "matchPackagePatterns": ["com.novoda"],
+      "matchDatasources": ["maven"],
+      "matchPackagePatterns": ["com.novoda:gradle-build-properties-plugin"],
       "registryUrls": [
         "https://plugins.gradle.org/m2/"
       ]
