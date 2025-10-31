@@ -2,6 +2,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.github.gmazzo.buildconfig'
 apply plugin: 'com.jakewharton.butterknife'
 
+def publicPropsFile = rootProject.file("public.properties")
+if (publicPropsFile.exists()) {
+    def publicProps = new Properties()
+    publicProps.load(new FileInputStream(publicPropsFile))
+    publicProps.each { name, value ->
+        project.ext.set(name, value)
+    }
+}
+
 buildConfig {
     // Define custom fields
     // buildConfigField "String", "API_KEY", "your_api_key"

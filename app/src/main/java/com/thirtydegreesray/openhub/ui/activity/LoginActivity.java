@@ -1,5 +1,3 @@
-
-
 package com.thirtydegreesray.openhub.ui.activity;
 
 import android.content.Intent;
@@ -15,7 +13,9 @@ import com.thirtydegreesray.openhub.mvp.contract.ILoginContract;
 import com.thirtydegreesray.openhub.mvp.model.BasicToken;
 import com.thirtydegreesray.openhub.mvp.presenter.LoginPresenter;
 import com.thirtydegreesray.openhub.ui.activity.base.BaseActivity;
-import com.thirtydegreesray.openhub.util.AppOpener;
+import com.thirtydegreesray.openhub.util.StringUtils;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.unstoppable.submitbuttonview.SubmitButton;
 
 import butterknife.BindView;
@@ -33,36 +33,26 @@ public class LoginActivity extends BaseActivity<LoginPresenter>
 
     private final String TAG = LoginActivity.class.getSimpleName();
 
-//    @BindView(R2.id.user_name_et) TextInputEditText userNameEt;
-//    @BindView(R2.id.user_name_layout) TextInputLayout userNameLayout;
-//    @BindView(R2.id.password_et) TextInputEditText passwordEt;
-//    @BindView(R2.id.password_layout) TextInputLayout passwordLayout;
-    @BindView(R2.id.login_bn) SubmitButton loginBn;
+    @BindView(R2.id.pat_et) TextInputEditText patEt;
+    @BindView(R2.id.pat_layout) TextInputLayout patLayout;
+    @BindView(R2.id.login_pat_bn) SubmitButton loginPatBn;
 
-//    private String userName;
-//    private String password;
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        mPresenter.handleOauth(intent);
-        setIntent(null);
-    }
+    private String personalAccessToken;
 
     @Override
     public void onGetTokenSuccess(BasicToken basicToken) {
-        loginBn.doResult(true);
+        loginPatBn.doResult(true);
         mPresenter.getUserInfo(basicToken);
     }
 
     @Override
     public void onGetTokenError(String errorMsg) {
-        loginBn.doResult(false);
+        loginPatBn.doResult(false);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                loginBn.reset();
-                loginBn.setEnabled(true);
+                loginPatBn.reset();
+                loginPatBn.setEnabled(true);
             }
         }, 1000);
 
@@ -107,61 +97,27 @@ public class LoginActivity extends BaseActivity<LoginPresenter>
     @Override
     protected void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
-//        loginBn.setOnResultEndListener(new SubmitButton.OnResultEndListener() {
-//            @Override
-//            public void onResultEnd() {
-//
-//            }
-//        });
-
-
-//        passwordEt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_SEND
-//                        || (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER &&
-//                        event.getAction() == KeyEvent.ACTION_DOWN)){
-//                    if(loginBn.isEnabled())
-//                        ViewUtils.virtualClick(loginBn);
-//                }
-//                return false;
-//            }
-//        });
-
     }
 
-
-    @OnClick(R2.id.login_bn)
-    public void onOauthLoginClick(){
-        AppOpener.openInCustomTabsOrBrowser(getActivity(), mPresenter.getOAuth2Url());
+    @OnClick(R2.id.login_pat_bn)
+    public void onLoginPatClick(){
+        if(loginCheck()){
+            loginPatBn.setEnabled(false);
+            mPresenter.loginWithPat(personalAccessToken);
+        }else{
+            loginPatBn.reset();
+        }
     }
 
-//    @OnClick(R2.id.login_bn)
-//    public void onLoginClick(){
-//        if(loginCheck()){
-//            loginBn.setEnabled(false);
-//            mPresenter.basicLogin(userName, password);
-//        }else{
-//            loginBn.reset();
-//        }
-//    }
-
-//    private boolean loginCheck(){
-//        boolean valid = true;
-//        userName = userNameEt.getText().toString();
-//        password = passwordEt.getText().toString();
-//        if(StringUtils.isBlank(userName)){
-//            valid = false;
-//            userNameLayout.setError(getString(R.string.user_name_warning));
-//        }else{
-//            userNameLayout.setErrorEnabled(false);
-//        }
-//        if(StringUtils.isBlank(password)){
-//            valid = false;
-//            passwordLayout.setError(getString(R.string.password_warning));
-//        }else{
-//            passwordLayout.setErrorEnabled(false);
-//        }
-//        return valid;
-//    }
+    private boolean loginCheck(){
+        boolean valid = true;
+        personalAccessToken = patEt.getText().toString();
+        if(StringUtils.isBlank(personalAccessToken)){
+            valid = false;
+            patLayout.setError(getString(R.string.personal_access_token_hint));
+        }else{
+            patLayout.setErrorEnabled(false);
+        }
+        return valid;
+    }
 }

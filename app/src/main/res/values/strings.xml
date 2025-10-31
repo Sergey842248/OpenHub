@@ -31,6 +31,8 @@
     <string name="oauth_tip">For now we only support OAuth login in browser, Because Github will remove the Authorizations API endpoint on November 13, 2020. </string>
     <string name="user_name_warning">Invalid username!</string>
     <string name="password_warning">Invalid password!</string>
+    <string name="personal_access_token_hint">Personal Access Token</string>
+    <string name="login_with_pat">LOGIN WITH TOKEN</string>
 
     <!-- menu -->
     <string name="profile">Profile</string>

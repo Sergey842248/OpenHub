@@ -46,46 +46,6 @@ public class LoginPresenter extends BasePresenter<ILoginContract.View>
     }
 
     @Override
-    public void getToken(String code, String state) {
-        Observable<Response<OauthToken>> observable =
-                getLoginService().getAccessToken(AppConfig.OPENHUB_CLIENT_ID,
-                        AppConfig.OPENHUB_CLIENT_SECRET, code, state);
-
-        HttpSubscriber<OauthToken> subscriber =
-                new HttpSubscriber<>(
-                        new HttpObserver<OauthToken>() {
-                            @Override
-                            public void onError(@NonNull Throwable error) {
-                                mView.dismissProgressDialog();
-                                mView.showErrorToast(getErrorTip(error));
-                            }
-
-                            @Override
-                            public void onSuccess(@NonNull HttpResponse<OauthToken> response) {
-                                OauthToken token = response.body();
-                                if (token != null) {
-                                    mView.onGetTokenSuccess(BasicToken.generateFromOauthToken(token));
-                                } else {
-                                    mView.onGetTokenError(response.getOriResponse().message());
-                                }
-                            }
-                        }
-                );
-        generalRxHttpExecute(observable, subscriber);
-        mView.showProgressDialog(getLoadTip());
-    }
-
-    @NonNull
-    @Override
-    public String getOAuth2Url() {
-        String randomState = UUID.randomUUID().toString();
-        return AppConfig.OAUTH2_URL +
-                "?client_id=" + AppConfig.OPENHUB_CLIENT_ID +
-                "&scope=" + AppConfig.OAUTH2_SCOPE +
-                "&state=" + randomState;
-    }
-
-    @Override
     public void basicLogin(String userName, String password) {
         AuthRequestModel authRequestModel = AuthRequestModel.generate();
         String token = Credentials.basic(userName, password);
@@ -96,7 +56,6 @@ public class LoginPresenter extends BasePresenter<ILoginContract.View>
                         new HttpObserver<BasicToken>() {
                             @Override
                             public void onError(@NonNull Throwable error) {
-//                                mView.dismissProgressDialog();
                                 mView.onGetTokenError(getErrorTip(error));
                             }
 
@@ -113,17 +72,20 @@ public class LoginPresenter extends BasePresenter<ILoginContract.View>
                         }
                 );
         generalRxHttpExecute(observable, subscriber);
-//        mView.showProgressDialog(getLoadTip());
+    }
+
+    @Override
+    public void loginWithPat(String pat) {
+        BasicToken basicToken = new BasicToken();
+        basicToken.setToken(pat);
+        // Ensure scopes is not null to prevent NullPointerException when calling listToString
+        basicToken.setScopes(new java.util.ArrayList<String>());
+        mView.onGetTokenSuccess(basicToken);
     }
 
     @Override
     public void handleOauth(Intent intent) {
-        Uri uri = intent.getData();
-        if (uri != null) {
-            String code = uri.getQueryParameter("code");
-            String state = uri.getQueryParameter("state");
-            getToken(code, state);
-        }
+        // OAuth flow is no longer supported, this method will do nothing.
     }
 
     @Override
