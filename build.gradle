@@ -8,10 +8,11 @@ buildscript {
         maven {url 'https://maven.aliyun.com/repository/central'}
         google()
         mavenCentral()
+        maven { url 'https://plugins.gradle.org/m2/' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.12.0'
-        classpath 'com.novoda:gradle-build-properties-plugin:0.4.1'
+        classpath 'com.github.gmazzo.buildconfig:plugin:5.6.8'
         classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.3'
     }
 }

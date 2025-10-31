@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.novoda.build-properties'
+apply plugin: 'com.github.gmazzo.buildconfig'
 apply plugin: 'com.jakewharton.butterknife'
 
-buildProperties {
-    getPublic {
-        file rootProject.file('public.properties')
-    }
-    getLocal {
-        file rootProject.file('local.properties')
-    }
+buildConfig {
+    // Define custom fields
+    // buildConfigField "String", "API_KEY", "your_api_key"
+    // buildConfigField "boolean", "DEBUG_MODE", "true"
+
+    // Define custom properties from files
+    // from file("config.properties")
 }
 
 android {
@@ -26,10 +26,10 @@ android {
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled false
 
-        buildConfigField "String", "OPENHUB_CLIENT_ID", (buildProperties.getLocal['openhub_client_id'] | buildProperties.getPublic['openhub_client_id']).string
-        buildConfigField "String", "OPENHUB_CLIENT_SECRET", (buildProperties.getLocal['openhub_client_secret'] | buildProperties.getPublic['openhub_client_secret']).string
-        buildConfigField "String", "BUGLY_ID", (buildProperties.getLocal['bugly_appid'] | buildProperties.getPublic['bugly_appid']).string
-        buildConfigField "String", "DEBUG_BUGLY_ID", (buildProperties.getLocal['debug_bugly_appid'] | buildProperties.getPublic['debug_bugly_appid']).string
+        buildConfigField "String", "OPENHUB_CLIENT_ID", "\"${project.findProperty('openhub_client_id') ?: ""}\""
+        buildConfigField "String", "OPENHUB_CLIENT_SECRET", "\"${project.findProperty('openhub_client_secret') ?: ""}\""
+        buildConfigField "String", "BUGLY_ID", "\"${project.findProperty('bugly_appid') ?: ""}\""
+        buildConfigField "String", "DEBUG_BUGLY_ID", "\"${project.findProperty('debug_bugly_appid') ?: ""}\""
 
         ndk {
 //            abiFilters 'armeabi', 'armeabi-v7a', 'x86'
@@ -37,23 +37,13 @@ android {
         }
     }
 
-    signingConfigs  {
-        release {
-            storeFile(file((buildProperties.getLocal['sign_path'] | buildProperties.getPublic['sign_path']).string))
-            storePassword((buildProperties.getLocal['store_password'] | buildProperties.getPublic['store_password']).string)
-            keyAlias((buildProperties.getLocal['key_alias'] | buildProperties.getPublic['key_alias']).string)
-            keyPassword((buildProperties.getLocal['key_password'] | buildProperties.getPublic['key_password']).string)
-        }
-    }
 
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
         }
         debug {
-            signingConfig signingConfigs.release
         }
     }
 
