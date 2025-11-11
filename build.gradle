@@ -11,7 +11,7 @@ buildscript {
         maven { url 'https://plugins.gradle.org/m2/' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.13.0'
+        classpath 'com.android.tools.build:gradle:8.13.1'
         classpath 'com.github.gmazzo.buildconfig:plugin:5.7.1'
         classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.3'
     }
