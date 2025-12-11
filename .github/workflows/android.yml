@@ -24,7 +24,7 @@ jobs:
           cache: gradle
 
       - name: Cache Gradle Dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             ~/.gradle/caches
@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-gradle
 
       - name: Cache Android Build Outputs
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: android/app/build
           key: ${{ runner.os }}-build-${{ hashFiles('android/**/*.gradle*', 'android/**/gradle-wrapper.properties') }}
