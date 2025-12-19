@@ -8,7 +8,7 @@ Der ursprüngliche OAuth-Flow verwendete ein Custom URL Scheme (`openhub://login
 ### Die Lösung
 Wir verwenden jetzt eine Intermediate-HTTPS-Redirect-URL über GitHub Pages:
 
-1. **GitHub OAuth Redirect URI**: `https://ThirtyDegreesRay.github.io/OpenHub/docs/index.html`
+1. **GitHub OAuth Redirect URI**: `https://sergey842248.github.io/OpenHub/docs/index.html`
 2. **Intermediate Web-Seite**: Empfängt OAuth-Parameter von GitHub
 3. **Custom Scheme Callback**: Leitet Parameter an App weiter (`openhub://login`)
 4. **App**: Verarbeitet die Parameter und schließt OAuth-Flow ab
@@ -18,7 +18,7 @@ Wir verwenden jetzt eine Intermediate-HTTPS-Redirect-URL über GitHub Pages:
 ### GitHub OAuth App Setup
 In Ihrer GitHub OAuth App müssen Sie folgende Redirect URI konfigurieren:
 ```
-https://ThirtyDegreesRay.github.io/OpenHub/docs/index.html
+https://sergey842248.github.io/OpenHub/docs/index.html
 ```
 
 ### Verzeichnisstruktur

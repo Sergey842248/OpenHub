@@ -58,7 +58,7 @@ public class AppConfig {
      * Uses GitHub Pages as intermediate redirect to handle Custom URL Scheme properly.
      * Final redirect to app handled by web callback page.
      */
-    public final static String REDIRECT_URL = "https://ThirtyDegreesRay.github.io/OpenHub/docs/index.html";
+    public final static String REDIRECT_URL = "https://sergey842248.github.io/OpenHub/docs/index.html";
 
     /**
      * Custom URL scheme for app callback after OAuth flow.
