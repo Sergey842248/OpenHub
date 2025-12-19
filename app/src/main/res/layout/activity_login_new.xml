@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/material_grey_700"
     android:gravity="center_horizontal"
+    android:orientation="vertical"
     android:padding="@dimen/activity_margin"
     tools:context=".ui.activity.LoginActivity">
 
@@ -18,117 +17,81 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/spacing_normal"
-        android:minHeight="380dp"
         android:minWidth="250dp"
-        app:cardElevation="@dimen/spacing_large"
+        android:background="?card_background"
         app:cardCornerRadius="16dp"
-        android:background="?card_background">
+        app:cardElevation="@dimen/spacing_large">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:padding="@dimen/spacing_normal"
-                android:src="@mipmap/logo"
-                android:background="@color/amoled_dark_card_background"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/dark_color_primary"
                 android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/spacing_normal"
-                android:paddingRight="@dimen/spacing_normal"
-                android:paddingBottom="20dp">
+                android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/username_layout"
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:padding="@dimen/spacing_normal"
+                    android:background="@color/amoled_dark_card_background"
+                    android:src="@mipmap/logo"/>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:hint="@string/user_name"
-                    app:hintTextColor="@color/text_color_light">
+                    android:background="@color/dark_color_primary"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/spacing_normal"
+                    android:paddingRight="@dimen/spacing_normal"
+                    android:paddingBottom="20dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/username_et"
+                    <com.unstoppable.submitbuttonview.SubmitButton
+                        android:id="@+id/login_bn"
+                        android:layout_width="220dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="24dp"
+                        app:buttonColor="@color/light_card_background"
+                        app:buttonText="@string/login_with_github"
+                        app:buttonTextSize="18sp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/pat_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textColor="@color/text_color_light"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_marginTop="24dp"
+                        android:hint="@string/personal_access_token_hint"
+                        app:hintTextColor="@color/text_color_light">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/password_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="@string/password"
-                    app:hintTextColor="@color/text_color_light">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/pat_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/text_color_light"
+                            android:textSize="16sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/password_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPassword"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textColor="@color/text_color_light"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    <com.unstoppable.submitbuttonview.SubmitButton
+                        android:id="@+id/login_pat_bn"
+                        android:layout_width="220dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="20dp"
+                        app:buttonColor="@color/light_card_background"
+                        app:buttonText="@string/login_with_pat"
+                        app:buttonTextSize="18sp"/>
 
-                <com.unstoppable.submitbuttonview.SubmitButton
-                    android:id="@+id/login_bn"
-                    android:layout_width="220dp"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="20dp"
-                    app:buttonColor="@color/light_card_background"
-                    app:buttonText="@string/login"
-                    app:buttonTextSize="18sp" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/pat_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:hint="@string/personal_access_token_hint"
-                    app:hintTextColor="@color/text_color_light">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/pat_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPassword"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textColor="@color/text_color_light"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.unstoppable.submitbuttonview.SubmitButton
-                    android:id="@+id/login_pat_bn"
-                    android:layout_width="220dp"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="20dp"
-                    app:buttonColor="@color/light_card_background"
-                    app:buttonText="@string/login_with_pat"
-                    app:buttonTextSize="18sp" />
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
         </ScrollView>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
