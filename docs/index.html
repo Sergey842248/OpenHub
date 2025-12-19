@@ -49,6 +49,10 @@
         <div id="status" class="loading">Processing authentication...</div>
         <div class="spinner"></div>
         <p id="message">Redirecting back to OpenHub app...</p>
+        <div id="debug-info" style="display: none; margin-top: 20px; padding: 15px; background: #f6f8fa; border-radius: 5px; font-size: 12px; text-align: left;">
+            <strong>Debug Information:</strong>
+            <pre id="debug-content" style="margin-top: 10px; overflow-x: auto;"></pre>
+        </div>
     </div>
 
     <script>
@@ -59,6 +63,23 @@
         const error = urlParams.get('error');
         const errorDescription = urlParams.get('error_description');
 
+        function showDebugInfo() {
+            const debugInfo = document.getElementById('debug-info');
+            const debugContent = document.getElementById('debug-content');
+            debugInfo.style.display = 'block';
+            
+            const params = {};
+            for (const [key, value] of urlParams.entries()) {
+                params[key] = value;
+            }
+            
+            debugContent.textContent = JSON.stringify({
+                url: window.location.href,
+                parameters: params,
+                timestamp: new Date().toISOString()
+            }, null, 2);
+        }
+
         function redirectToApp() {
             const statusDiv = document.getElementById('status');
             const messageDiv = document.getElementById('message');
@@ -68,10 +89,12 @@
                 statusDiv.textContent = 'Authentication Failed';
                 messageDiv.textContent = errorDescription || error;
                 
+                showDebugInfo();
+                
                 // Redirect to app with error
                 setTimeout(() => {
                     window.location.href = `openhub://login?error=${encodeURIComponent(errorDescription || error)}`;
-                }, 2000);
+                }, 3000);
             } else if (code && state) {
                 statusDiv.className = 'success';
                 statusDiv.textContent = 'Authentication Successful';
@@ -84,15 +107,25 @@
             } else {
                 statusDiv.className = 'error';
                 statusDiv.textContent = 'Invalid Response';
-                messageDiv.textContent = 'Missing required parameters. Please try logging in again.';
+                messageDiv.innerHTML = 'Missing required parameters. Please try logging in again.<br><small style="color: #586069; margin-top: 10px; display: block;">Make sure you have configured your GitHub OAuth App correctly.</small>';
+                
+                showDebugInfo();
                 
                 // Show helpful info
                 setTimeout(() => {
+                    const setupButton = document.createElement('button');
+                    setupButton.textContent = 'View Setup Instructions';
+                    setupButton.style.cssText = 'padding: 10px 20px; margin: 10px; border: none; border-radius: 5px; background: #0366d6; color: white; cursor: pointer;';
+                    setupButton.onclick = () => window.open('https://github.com/ThirtyDegreesRay/OpenHub/blob/master/SETUP_OAUTH.md', '_blank');
+                    
                     const button = document.createElement('button');
-                    button.textContent = 'Back to Login';
-                    button.style.cssText = 'padding: 10px 20px; margin: 10px; border: none; border-radius: 5px; background: #0366d6; color: white; cursor: pointer;';
-                    button.onclick = () => window.location.href = 'https://github.com/login';
-                    document.querySelector('.container').appendChild(button);
+                    button.textContent = 'Back to GitHub';
+                    button.style.cssText = 'padding: 10px 20px; margin: 10px; border: none; border-radius: 5px; background: #6c757d; color: white; cursor: pointer;';
+                    button.onclick = () => window.location.href = 'https://github.com';
+                    
+                    const container = document.querySelector('.container');
+                    container.appendChild(setupButton);
+                    container.appendChild(button);
                 }, 2000);
             }
         }

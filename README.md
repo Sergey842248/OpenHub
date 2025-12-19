@@ -5,9 +5,36 @@ An **Open-Source** GitHub Android client app, faster and concise.
 
 <a href="https://github.com/Sergey842248/OpenHub/releases/latest"><img alt="Get it on GitHub" src="https://raw.githubusercontent.com/Sergey842248/OpenHub/refs/heads/master/app/src/main/assets/get-it-on-github.png" width="250"/></a>
 
+## Setup
+
+### ⚠️ OAuth Configuration Required
+
+If you want to build this app from source and use the **GitHub OAuth login** feature, you need to configure your own GitHub OAuth App credentials.
+
+**📖 Documentation:**
+- 📑 **All Docs**: [DOCUMENTATION_INDEX.md](./DOCUMENTATION_INDEX.md) - Complete documentation overview
+- 🚀 **Quick Setup (5 minutes)**: [QUICK_OAUTH_SETUP.md](./QUICK_OAUTH_SETUP.md)
+- 📚 **Detailed Guide**: [SETUP_OAUTH.md](./SETUP_OAUTH.md)
+- 🔧 **Troubleshooting**: [OAUTH_TROUBLESHOOTING.md](./OAUTH_TROUBLESHOOTING.md)
+
+**Quick Overview:**
+
+1. Create a GitHub OAuth App at https://github.com/settings/developers
+2. Enable GitHub Pages in your repository (Settings → Pages → Source: `/docs`)
+3. Configure `public.properties` with your Client ID and Secret
+4. Update `REDIRECT_URL` in `AppConfig.java` with your GitHub Pages URL
+5. Build: `./gradlew clean build`
+
+**💡 Tip:** If OAuth setup seems complex, you can use **Personal Access Token** authentication instead (see below).
+
 ## Features
 
-### Authentication with Personal Access Token (PAT)
+### Authentication Options
+
+#### Option 1: GitHub OAuth Login (Recommended)
+The app supports GitHub OAuth 2.0 authentication with PKCE for secure login. See the [Setup section](#-oauth-configuration-required) above for configuration instructions.
+
+#### Option 2: Personal Access Token (PAT)
 To log in using a Personal Access Token:
 1. Go to your GitHub settings: `Settings` -> `Developer settings` -> `Personal access tokens`.
 2. Generate a new token with the necessary scopes (e.g., `user`, `repo`, `gist`, `notifications`).

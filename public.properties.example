@@ -1,0 +1,12 @@
+# OpenHub OAuth Configuration
+# Copy this file to public.properties and replace the placeholder values with your own
+
+# GitHub OAuth App Credentials
+# Create a GitHub OAuth App at: https://github.com/settings/developers
+# Set Authorization callback URL to: https://YOUR_GITHUB_USERNAME.github.io/OpenHub/docs/index.html
+openhub_client_id=YOUR_CLIENT_ID
+openhub_client_secret=YOUR_CLIENT_SECRET
+
+# Bugly App IDs (optional - for crash reporting)
+bugly_appid=YOUR_BUGLY_APP_ID
+debug_bugly_appid=YOUR_DEBUG_BUGLY_APP_ID

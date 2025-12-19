@@ -57,6 +57,16 @@ public class AppConfig {
      * OAuth redirect URL for GitHub OAuth flow.
      * Uses GitHub Pages as intermediate redirect to handle Custom URL Scheme properly.
      * Final redirect to app handled by web callback page.
+     * 
+     * IMPORTANT: Replace with your own GitHub Pages URL!
+     * Format: https://YOUR_GITHUB_USERNAME.github.io/OpenHub/docs/index.html
+     * 
+     * This URL must:
+     * 1. Be configured in your GitHub OAuth App settings as "Authorization callback URL"
+     * 2. Point to a deployed GitHub Pages site (activate in repo settings → Pages → Source: /docs)
+     * 3. Match exactly with the URL in your OAuth App configuration
+     * 
+     * See SETUP_OAUTH.md for complete setup instructions.
      */
     public final static String REDIRECT_URL = "https://sergey842248.github.io/OpenHub/docs/index.html";
 

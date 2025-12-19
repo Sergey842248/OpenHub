@@ -1,5 +1,9 @@
 # OpenHub OAuth Setup
 
+⚠️ **WICHTIG**: Für eine vollständige Schritt-für-Schritt-Anleitung zur Einrichtung siehe [SETUP_OAUTH.md](../SETUP_OAUTH.md)
+
+📖 **Bei Problemen**: Siehe [OAUTH_TROUBLESHOOTING.md](../OAUTH_TROUBLESHOOTING.md) für eine Fehlerbehebungs-Checkliste
+
 ## Problem und Lösung
 
 ### Das Problem
@@ -8,7 +12,7 @@ Der ursprüngliche OAuth-Flow verwendete ein Custom URL Scheme (`openhub://login
 ### Die Lösung
 Wir verwenden jetzt eine Intermediate-HTTPS-Redirect-URL über GitHub Pages:
 
-1. **GitHub OAuth Redirect URI**: `https://sergey842248.github.io/OpenHub/docs/index.html`
+1. **GitHub OAuth Redirect URI**: `https://YOUR_GITHUB_USERNAME.github.io/OpenHub/docs/index.html`
 2. **Intermediate Web-Seite**: Empfängt OAuth-Parameter von GitHub
 3. **Custom Scheme Callback**: Leitet Parameter an App weiter (`openhub://login`)
 4. **App**: Verarbeitet die Parameter und schließt OAuth-Flow ab
@@ -16,10 +20,12 @@ Wir verwenden jetzt eine Intermediate-HTTPS-Redirect-URL über GitHub Pages:
 ## Konfiguration
 
 ### GitHub OAuth App Setup
-In Ihrer GitHub OAuth App müssen Sie folgende Redirect URI konfigurieren:
+In Ihrer GitHub OAuth App müssen Sie folgende Redirect URI konfigurieren (ersetzen Sie YOUR_GITHUB_USERNAME mit Ihrem echten GitHub-Benutzernamen):
 ```
-https://sergey842248.github.io/OpenHub/docs/index.html
+https://YOUR_GITHUB_USERNAME.github.io/OpenHub/docs/index.html
 ```
+
+⚠️ **Hinweis**: Sie müssen auch GitHub Pages in Ihrem Repository aktivieren! Siehe [SETUP_OAUTH.md](../SETUP_OAUTH.md) für Details.
 
 ### Verzeichnisstruktur
 ```
