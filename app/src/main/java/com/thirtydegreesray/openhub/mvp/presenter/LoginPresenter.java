@@ -20,6 +20,7 @@ import com.thirtydegreesray.openhub.mvp.model.BasicToken;
 import com.thirtydegreesray.openhub.mvp.model.OauthToken;
 import com.thirtydegreesray.openhub.mvp.model.User;
 import com.thirtydegreesray.openhub.mvp.presenter.base.BasePresenter;
+import com.thirtydegreesray.openhub.http.core.AppRetrofit;
 import com.thirtydegreesray.openhub.util.StringUtils;
 
 import java.util.Date;
@@ -30,6 +31,8 @@ import javax.inject.Inject;
 import okhttp3.Credentials;
 import retrofit2.Response;
 import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created on 2017/7/12.
@@ -47,31 +50,48 @@ public class LoginPresenter extends BasePresenter<ILoginContract.View>
 
     @Override
     public void basicLogin(String userName, String password) {
+        basicLogin(userName, password, null);
+    }
+
+    @Override
+    public void basicLogin(String userName, String password, String otp) {
+        AppRetrofit.INSTANCE.setOtp(otp);
         AuthRequestModel authRequestModel = AuthRequestModel.generate();
         String token = Credentials.basic(userName, password);
         Observable<Response<BasicToken>> observable =
                 getLoginService(token).authorizations(authRequestModel);
-        HttpSubscriber<BasicToken> subscriber =
-                new HttpSubscriber<>(
-                        new HttpObserver<BasicToken>() {
-                            @Override
-                            public void onError(@NonNull Throwable error) {
-                                mView.onGetTokenError(getErrorTip(error));
-                            }
+        
+        observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new HttpSubscriber<>(new HttpObserver<BasicToken>() {
+                    @Override
+                    public void onError(Throwable error) {
+                        mView.onGetTokenError(getErrorTip(error));
+                    }
 
-                            @Override
-                            public void onSuccess(@NonNull HttpResponse<BasicToken> response) {
-                                BasicToken token = response.body();
-                                if (token != null) {
-                                    mView.onGetTokenSuccess(token);
+                    @Override
+                    public void onSuccess(HttpResponse<BasicToken> response) {
+                        if (response.isSuccessful()) {
+                            BasicToken token = response.body();
+                            if (token != null) {
+                                mView.onGetTokenSuccess(token);
+                            } else {
+                                mView.onGetTokenError(response.getOriResponse().message());
+                            }
+                        } else {
+                            if (response.getOriResponse().code() == 401) {
+                                String otpHeader = response.getOriResponse().headers().get("X-GitHub-OTP");
+                                if (otpHeader != null && otpHeader.startsWith("required")) {
+                                    mView.showOtpLoginDialog();
                                 } else {
                                     mView.onGetTokenError(response.getOriResponse().message());
                                 }
-
+                            } else {
+                                mView.onGetTokenError(response.getOriResponse().message());
                             }
                         }
-                );
-        generalRxHttpExecute(observable, subscriber);
+                    }
+                }));
     }
 
     @Override
