@@ -23,11 +23,15 @@ public interface ILoginContract {
 
         void onLoginComplete();
 
+        void showOtpLoginDialog();
+
     }
 
     interface Presenter extends IBaseContract.Presenter<ILoginContract.View>{
 
         void basicLogin(String userName, String password);
+
+        void basicLogin(String userName, String password, String otp);
 
         void loginWithPat(String pat);
 

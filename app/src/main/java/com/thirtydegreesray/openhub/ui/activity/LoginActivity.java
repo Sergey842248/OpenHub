@@ -37,22 +37,34 @@ public class LoginActivity extends BaseActivity<LoginPresenter>
     @BindView(R2.id.pat_layout) TextInputLayout patLayout;
     @BindView(R2.id.login_pat_bn) SubmitButton loginPatBn;
 
+    @BindView(R2.id.username_et) TextInputEditText usernameEt;
+    @BindView(R2.id.username_layout) TextInputLayout usernameLayout;
+    @BindView(R2.id.password_et) TextInputEditText passwordEt;
+    @BindView(R2.id.password_layout) TextInputLayout passwordLayout;
+    @BindView(R2.id.login_bn) SubmitButton loginBn;
+
     private String personalAccessToken;
+    private String userName;
+    private String password;
 
     @Override
     public void onGetTokenSuccess(BasicToken basicToken) {
         loginPatBn.doResult(true);
+        loginBn.doResult(true);
         mPresenter.getUserInfo(basicToken);
     }
 
     @Override
     public void onGetTokenError(String errorMsg) {
         loginPatBn.doResult(false);
+        loginBn.doResult(false);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 loginPatBn.reset();
                 loginPatBn.setEnabled(true);
+                loginBn.reset();
+                loginBn.setEnabled(true);
             }
         }, 1000);
 
@@ -63,6 +75,30 @@ public class LoginActivity extends BaseActivity<LoginPresenter>
     public void onLoginComplete() {
         delayFinish();
         startActivity(new Intent(getActivity(), MainActivity.class));
+    }
+
+    @Override
+    public void showOtpLoginDialog() {
+        final androidx.appcompat.widget.AppCompatEditText editText = new androidx.appcompat.widget.AppCompatEditText(getActivity());
+        new androidx.appcompat.app.AlertDialog.Builder(getActivity())
+                .setTitle("Two-factor authentication")
+                .setMessage("Enter the authentication code")
+                .setView(editText)
+                .setPositiveButton("OK", new android.content.DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(android.content.DialogInterface dialog, int which) {
+                        String otp = editText.getText().toString();
+                        mPresenter.basicLogin(userName, password, otp);
+                    }
+                })
+                .setNegativeButton("Cancel", new android.content.DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(android.content.DialogInterface dialog, int which) {
+                        loginBn.reset();
+                        loginBn.setEnabled(true);
+                    }
+                })
+                .show();
     }
 
     /**
@@ -101,7 +137,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter>
 
     @OnClick(R2.id.login_pat_bn)
     public void onLoginPatClick(){
-        if(loginCheck()){
+        if(patLoginCheck()){
             loginPatBn.setEnabled(false);
             mPresenter.loginWithPat(personalAccessToken);
         }else{
@@ -109,7 +145,17 @@ public class LoginActivity extends BaseActivity<LoginPresenter>
         }
     }
 
-    private boolean loginCheck(){
+    @OnClick(R2.id.login_bn)
+    public void onLoginClick(){
+        if(basicLoginCheck()){
+            loginBn.setEnabled(false);
+            mPresenter.basicLogin(userName, password);
+        }else{
+            loginBn.reset();
+        }
+    }
+
+    private boolean patLoginCheck(){
         boolean valid = true;
         personalAccessToken = patEt.getText().toString();
         if(StringUtils.isBlank(personalAccessToken)){
@@ -117,6 +163,25 @@ public class LoginActivity extends BaseActivity<LoginPresenter>
             patLayout.setError(getString(R.string.personal_access_token_hint));
         }else{
             patLayout.setErrorEnabled(false);
+        }
+        return valid;
+    }
+
+    private boolean basicLoginCheck(){
+        boolean valid = true;
+        userName = usernameEt.getText().toString();
+        password = passwordEt.getText().toString();
+        if(StringUtils.isBlank(userName)){
+            valid = false;
+            usernameLayout.setError(getString(R.string.user_name_warning));
+        }else{
+            usernameLayout.setErrorEnabled(false);
+        }
+        if(StringUtils.isBlank(password)){
+            valid = false;
+            passwordLayout.setError(getString(R.string.password_warning));
+        }else{
+            passwordLayout.setErrorEnabled(false);
         }
         return valid;
     }
