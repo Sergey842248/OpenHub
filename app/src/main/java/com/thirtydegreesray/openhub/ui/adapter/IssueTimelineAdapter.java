@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.view.View;
-import androidx.cardview.widget.CardView;
+import com.google.android.material.card.MaterialCardView;
 import android.widget.TextView;
 
 import com.thirtydegreesray.openhub.R;
@@ -165,7 +165,7 @@ public class IssueTimelineAdapter extends BaseAdapter<BaseViewHolder, IssueEvent
     }
 
     class EventViewHolder extends BaseViewHolder{
-        @BindView(R2.id.root_lay) CardView rootLay;
+        @BindView(R2.id.root_lay) MaterialCardView rootLay;
         @BindView(R2.id.event_icon) CircleBackgroundImageView eventIcon;
         @BindView(R2.id.user_avatar) CircleImageView userAvatar;
         @BindView(R2.id.desc) TextView desc;
