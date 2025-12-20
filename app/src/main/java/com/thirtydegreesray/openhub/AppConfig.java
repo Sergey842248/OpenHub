@@ -53,17 +53,7 @@ public class AppConfig {
 
     public final static String OPENHUB_HOME = AUTH_HOME + "/OpenHub";
 
-    /**
-     * OAuth redirect URL for GitHub OAuth flow.
-     * Uses GitHub Pages as intermediate redirect to handle Custom URL Scheme properly.
-     * Final redirect to app handled by web callback page.
-     */
-    public final static String REDIRECT_URL = "https://sergey842248.github.io/OpenHub/docs/index.html";
-
-    /**
-     * Custom URL scheme for app callback after OAuth flow.
-     */
-    public final static String CUSTOM_SCHEME_CALLBACK = "openhub://login";
+    public final static String REDIRECT_URL = "https://github.com/ThirtyDegreesRay/OpenHub/CallBack";
 
     public final static String BUGLY_APPID = BuildConfig.DEBUG ? BuildConfig.DEBUG_BUGLY_ID : BuildConfig.BUGLY_ID;
 

@@ -30,11 +30,7 @@ public class BasicToken {
     public static BasicToken generateFromOauthToken(OauthToken oauthToken){
         BasicToken basicToken = new BasicToken();
         basicToken.setToken(oauthToken.getAccessToken());
-        if (com.thirtydegreesray.openhub.util.StringUtils.isBlank(oauthToken.getScope())) {
-            basicToken.setScopes(new java.util.ArrayList<>());
-        } else {
-            basicToken.setScopes(Arrays.asList(oauthToken.getScope().split(",")));
-        }
+        basicToken.setScopes(Arrays.asList(oauthToken.getScope().split(",")));
         return basicToken;
     }
 

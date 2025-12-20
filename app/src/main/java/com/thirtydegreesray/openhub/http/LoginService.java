@@ -35,9 +35,7 @@ public interface LoginService {
             @Query("client_id") String clientId,
             @Query("client_secret") String clientSecret,
             @Query("code") String code,
-            @Query("redirect_uri") String redirectUri,
-            @Query("state") String state,
-            @Query("code_verifier") String codeVerifier
+            @Query("state") String state
     );
 
 }

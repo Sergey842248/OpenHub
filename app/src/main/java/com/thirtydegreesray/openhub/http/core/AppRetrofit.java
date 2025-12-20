@@ -45,7 +45,6 @@ public enum  AppRetrofit {
 
     private HashMap<String, Retrofit> retrofitMap = new HashMap<>();
     private String token;
-    private String otp;
 
     private void createRetrofit(@NonNull String baseUrl, boolean isJson) {
         int timeOut = AppConfig.HTTP_TIME_OUT;
@@ -82,10 +81,6 @@ public enum  AppRetrofit {
         return retrofitMap.get(key);
     }
 
-    public void setOtp(String otp) {
-        this.otp = otp;
-    }
-
     public Retrofit getRetrofit(@NonNull String baseUrl, @Nullable String token) {
         return getRetrofit(baseUrl, token, true);
     }
@@ -115,13 +110,6 @@ public enum  AppRetrofit {
                 String auth = token.startsWith("Basic") ? token : "token " + token;
                 request = request.newBuilder()
                         .addHeader("Authorization", auth)
-                        .build();
-            }
-
-            //add otp
-            if(!StringUtils.isBlank(otp)){
-                request = request.newBuilder()
-                        .addHeader("X-GitHub-OTP", otp)
                         .build();
             }
             Log.d(TAG, request.url().toString());

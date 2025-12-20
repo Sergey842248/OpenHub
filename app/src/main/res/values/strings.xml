@@ -27,7 +27,6 @@
     <string name="user_name">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
-    <string name="login_with_github">LOGIN WITH GITHUB</string>
     <string name="login_in_browser">LOGIN WITH BROWSER</string>
     <string name="oauth_tip">For now we only support OAuth login in browser, Because Github will remove the Authorizations API endpoint on November 13, 2020. </string>
     <string name="user_name_warning">Invalid username!</string>
