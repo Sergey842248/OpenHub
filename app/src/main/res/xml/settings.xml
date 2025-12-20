@@ -23,27 +23,31 @@
         android:title="@string/cache_controller"
         android:summary="@string/cache_controller_desc"
         android:key="cacheFirstEnable"
-        android:defaultValue="true"/>
+        android:defaultValue="true"
+        android:widgetLayout="@layout/preference_widget_switch_material3" />
 
     <SwitchPreference
         android:icon="@drawable/ic_download"
         android:title="@string/use_system_downloader"
         android:key="systemDownloader"
-        android:defaultValue="true"/>
+        android:defaultValue="true"
+        android:widgetLayout="@layout/preference_widget_switch_material3" />
 
     <SwitchPreference
         android:icon="@drawable/ic_open_in_browser"
         android:title="@string/use_custom_tabs"
         android:summary="@string/custom_tabs_desc"
         android:key="customTabsEnable"
-        android:defaultValue="true"/>
+        android:defaultValue="true"
+        android:widgetLayout="@layout/preference_widget_switch_material3" />
 
     <SwitchPreference
         android:icon="@drawable/ic_image"
         android:title="@string/disable_loading_image"
         android:summary="@string/disable_loading_image_desc"
         android:key="disableLoadingImage"
-        android:defaultValue="false"/>
+        android:defaultValue="false"
+        android:widgetLayout="@layout/preference_widget_switch_material3" />
 
     <Preference
         android:icon="@drawable/ic_language"

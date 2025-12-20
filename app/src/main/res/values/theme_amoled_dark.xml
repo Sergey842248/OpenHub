@@ -25,7 +25,8 @@
         <item name="colorSecondary">@color/amoled_dark_color_accent</item>
         <item name="colorAccent">?attr/colorSecondary</item>
         <item name="android:windowBackground">@color/amoled_dark_color_window_background</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="preferenceTheme">@style/Theme.Material3.DayNight</item>
+        <item name="switchPreferenceCompatStyle">@style/Material3SwitchPreference</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textColorPrimary">@color/amoled_dark_text_color_primary</item>
         <item name="android:textColorSecondary">@color/amoled_dark_text_color_secondary</item>

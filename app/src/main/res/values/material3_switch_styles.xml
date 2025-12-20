@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material 3 Switch Styles - Enhanced for full Material 3 design compliance -->
+    <style name="Material3SwitchPreference" parent="Widget.Material3.CompoundButton.Switch">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:minWidth">52dp</item>
+        <item name="android:minHeight">32dp</item>
+        <item name="android:thumbTint">?attr/colorSecondary</item>
+        <item name="android:trackTint">?attr/colorOnSurface</item>
+        <item name="android:thumbTintMode">src_over</item>
+        <item name="android:trackTintMode">src_over</item>
+    </style>
+
+    <style name="Material3Switch" parent="Widget.Material3.CompoundButton.Switch">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">52dp</item>
+        <item name="android:minHeight">32dp</item>
+        <item name="android:thumbTint">?attr/colorSecondary</item>
+        <item name="android:trackTint">?attr/colorOnSurface</item>
+        <item name="android:thumbTintMode">src_over</item>
+        <item name="android:trackTintMode">src_over</item>
+    </style>
+</resources>
