@@ -5,7 +5,7 @@ package com.thirtydegreesray.openhub.ui.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
+import com.google.android.material.card.MaterialCardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
@@ -62,7 +62,7 @@ public class ProfileInfoFragment extends BaseFragment<ProfileInfoPresenter>
     @BindView(R2.id.repos_num_text) TextView reposNumText;
     @BindView(R2.id.gists_num_text) TextView gistsNumText;
 
-    @BindView(R2.id.orgs_lay) CardView orgsLay;
+    @BindView(R2.id.orgs_lay) MaterialCardView orgsLay;
     @BindView(R2.id.orgs_recycler_view) RecyclerView orgsRecyclerView;
 
     @Inject UsersAdapter orgsAdapter;

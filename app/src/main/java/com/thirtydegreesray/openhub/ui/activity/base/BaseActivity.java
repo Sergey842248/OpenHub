@@ -29,6 +29,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.color.DynamicColors;
 import com.thirtydegreesray.dataautoaccess.DataAutoAccess;
 import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 import com.thirtydegreesray.openhub.AppApplication;
@@ -80,8 +81,9 @@ BaseActivity<P extends IBaseContract.Presenter>
             startActivity(new Intent(getActivity(), SplashActivity.class));
             return;
         }
-
+        
         ThemeHelper.apply(this);
+        DynamicColors.applyToActivityIfAvailable(this);
         AppUtils.updateAppLanguage(getActivity());
         super.onCreate(savedInstanceState);
         isAlive = true;
