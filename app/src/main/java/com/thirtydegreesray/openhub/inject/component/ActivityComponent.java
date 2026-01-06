@@ -5,6 +5,7 @@ package com.thirtydegreesray.openhub.inject.component;
 import com.thirtydegreesray.openhub.inject.ActivityScope;
 import com.thirtydegreesray.openhub.inject.module.ActivityModule;
 import com.thirtydegreesray.openhub.ui.activity.CommitDetailActivity;
+import com.thirtydegreesray.openhub.ui.activity.CreateDiscussionActivity;
 import com.thirtydegreesray.openhub.ui.activity.EditIssueActivity;
 import com.thirtydegreesray.openhub.ui.activity.IssueDetailActivity;
 import com.thirtydegreesray.openhub.ui.activity.IssuesActivity;
@@ -38,6 +39,7 @@ public interface ActivityComponent {
     void inject(IssuesActivity activity);
     void inject(IssueDetailActivity activity);
     void inject(EditIssueActivity activity);
+    void inject(CreateDiscussionActivity activity);
     void inject(CommitDetailActivity activity);
     void inject(TrendingActivity activity);
 }

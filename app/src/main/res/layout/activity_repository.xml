@@ -124,6 +124,16 @@
             android:paddingStart="@dimen/spacing_large"
             android:visibility="gone"/>
 
+        <com.thirtydegreesray.openhub.ui.widget.ZoomAbleFloatingActionButton
+            android:id="@+id/add_discussion_bn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:layout_gravity="bottom|end"
+            app:srcCompat="@drawable/ic_add"
+            android:tint="?title_color"
+            android:visibility="gone"/>
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

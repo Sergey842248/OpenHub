@@ -32,6 +32,7 @@ import com.thirtydegreesray.openhub.inject.component.DaggerActivityComponent;
 import com.thirtydegreesray.openhub.inject.module.ActivityModule;
 import com.thirtydegreesray.openhub.mvp.contract.IRepositoryContract;
 import com.thirtydegreesray.openhub.mvp.model.Branch;
+import com.thirtydegreesray.openhub.mvp.model.Discussion;
 import com.thirtydegreesray.openhub.mvp.model.Repository;
 import com.thirtydegreesray.openhub.mvp.presenter.RepositoryPresenter;
 import com.thirtydegreesray.openhub.ui.activity.base.PagerActivity;
@@ -40,8 +41,11 @@ import com.thirtydegreesray.openhub.ui.adapter.base.BaseViewHolder;
 import com.thirtydegreesray.openhub.ui.adapter.base.FragmentPagerModel;
 import com.thirtydegreesray.openhub.ui.fragment.ActivityFragment;
 import com.thirtydegreesray.openhub.ui.fragment.CommitsFragment;
+import com.thirtydegreesray.openhub.ui.fragment.DiscussionsFragment;
 import com.thirtydegreesray.openhub.ui.fragment.RepoFilesFragment;
 import com.thirtydegreesray.openhub.ui.fragment.RepoInfoFragment;
+import com.thirtydegreesray.openhub.ui.fragment.base.ListFragment;
+import com.thirtydegreesray.openhub.ui.widget.ZoomAbleFloatingActionButton;
 import com.thirtydegreesray.openhub.util.AppOpener;
 import com.thirtydegreesray.openhub.util.AppUtils;
 import com.thirtydegreesray.openhub.util.BundleHelper;
@@ -53,13 +57,14 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by ThirtyDegreesRay on 2017/8/9 21:39:20
  */
 //FIXME fix fragment not showImage from background
 public class RepositoryActivity extends PagerActivity<RepositoryPresenter>
-        implements IRepositoryContract.View {
+        implements IRepositoryContract.View, ListFragment.ListScrollListener {
 
     public static void show(@NonNull Context activity, @NonNull String owner,
                             @NonNull String repoName) {
@@ -86,6 +91,7 @@ public class RepositoryActivity extends PagerActivity<RepositoryPresenter>
     @BindView(R2.id.loader) ProgressBar loader;
     @BindView(R2.id.desc) TextView desc;
     @BindView(R2.id.info) TextView info;
+    @BindView(R2.id.add_discussion_bn) ZoomAbleFloatingActionButton addDiscussionBn;
 
     @Override
     protected void setupActivityComponent(AppComponent appComponent) {
@@ -218,6 +224,11 @@ public class RepositoryActivity extends PagerActivity<RepositoryPresenter>
                     .load(repo.getOwner().getAvatarUrl())
                     .onlyRetrieveFromCache(!PrefUtils.isLoadImageEnable())
                     .into(userImageViewBg);
+
+            // Show FAB only if discussions are enabled for this repository
+            if (addDiscussionBn != null) {
+                addDiscussionBn.setVisibility(repo.isHasDiscussions() ? View.VISIBLE : View.GONE);
+            }
         } else {
             noticeRepositoryUpdated(repo);
         }
@@ -350,7 +361,7 @@ public class RepositoryActivity extends PagerActivity<RepositoryPresenter>
 
     @Override
     public int getPagerSize() {
-        return 4;
+        return mPresenter.getRepository() != null && mPresenter.getRepository().isHasDiscussions() ? 5 : 4;
     }
 
     @Override
@@ -361,9 +372,51 @@ public class RepositoryActivity extends PagerActivity<RepositoryPresenter>
             return 1;
         }else if(fragment instanceof CommitsFragment){
             return 2;
-        }else if(fragment instanceof ActivityFragment){
+        }else if(fragment instanceof DiscussionsFragment){
             return 3;
+        }else if(fragment instanceof ActivityFragment){
+            return mPresenter.getRepository() != null && mPresenter.getRepository().isHasDiscussions() ? 4 : 3;
         }else
             return -1;
+    }
+
+    @OnClick(R2.id.add_discussion_bn)
+    public void onAddDiscussionClick() {
+        CreateDiscussionActivity.show(this, mPresenter.getRepository().getOwner().getLogin(),
+                mPresenter.getRepository().getName(), 100);
+    }
+
+    @Override
+    public void onScrollUp() {
+        if (addDiscussionBn != null && mPresenter.getRepository() != null && mPresenter.getRepository().isHasDiscussions()) {
+            addDiscussionBn.zoomIn();
+        }
+    }
+
+    @Override
+    public void onScrollDown() {
+        if (addDiscussionBn != null && mPresenter.getRepository() != null && mPresenter.getRepository().isHasDiscussions()) {
+            addDiscussionBn.zoomOut();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != RESULT_OK || data == null) return;
+        if (requestCode == 100) {
+            com.thirtydegreesray.openhub.mvp.model.Discussion discussion = data.getParcelableExtra("discussion");
+            if (discussion != null) {
+                // Add the new discussion to the discussions fragment
+                for (FragmentPagerModel pagerModel : pagerAdapter.getPagerList()) {
+                    if (pagerModel.getFragment() instanceof DiscussionsFragment) {
+                        DiscussionsFragment discussionsFragment = (DiscussionsFragment) pagerModel.getFragment();
+                        discussionsFragment.addNewDiscussion(discussion);
+                        showSuccessToast(getString(R.string.create_discussion_success));
+                        break;
+                    }
+                }
+            }
+        }
     }
 }

@@ -147,6 +147,13 @@
     <string name="joined_at">Joined at</string>
     <string name="users">Users</string>
     <string name="activity">Activity</string>
+    <string name="discussions">Discussions</string>
+    <string name="discussion">Discussion</string>
+    <string name="no_discussions">No discussions</string>
+    <string name="discussion_category">Category</string>
+    <string name="create_discussion">Create Discussion</string>
+    <string name="create_discussion_success">Discussion created successfully</string>
+    <string name="discussion_title_null_tip">Discussion title cannot be empty</string>
 
     <string name="just_now">just now</string>
     <string name="seconds_ago">seconds ago</string>
