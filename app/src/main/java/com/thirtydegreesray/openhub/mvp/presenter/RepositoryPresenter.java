@@ -113,20 +113,66 @@ public class RepositoryPresenter extends BasePresenter<IRepositoryContract.View>
 
     @Override
     public void starRepo(boolean star) {
+        boolean originalStarred = starred;
         starred = star;
+        mView.invalidateOptionsMenu();
         Observable<Response<ResponseBody>> observable = starred ?
                 getRepoService().starRepo(owner, repoName) :
                 getRepoService().unstarRepo(owner, repoName);
-        executeSimpleRequest(observable);
+        HttpObserver<ResponseBody> httpObserver = new HttpObserver<ResponseBody>() {
+            @Override
+            public void onError(Throwable error) {
+                // Revert the local state on error
+                starred = originalStarred;
+                mView.invalidateOptionsMenu();
+                mView.showErrorToast(getErrorTip(error));
+            }
+
+            @Override
+            public void onSuccess(HttpResponse<ResponseBody> response) {
+                // API call succeeded, keep the new state
+                mView.showSuccessToast(starred ?
+                        getString(R.string.starred) : getString(R.string.unstarred));
+            }
+        };
+        generalRxHttpExecute(new IObservableCreator<ResponseBody>() {
+            @Override
+            public Observable<Response<ResponseBody>> createObservable(boolean forceNetWork) {
+                return observable;
+            }
+        }, httpObserver);
     }
 
     @Override
     public void watchRepo(boolean watch) {
+        boolean originalWatched = watched;
         watched = watch;
+        mView.invalidateOptionsMenu();
         Observable<Response<ResponseBody>> observable = watched ?
                 getRepoService().watchRepo(owner, repoName) :
                 getRepoService().unwatchRepo(owner, repoName);
-        executeSimpleRequest(observable);
+        HttpObserver<ResponseBody> httpObserver = new HttpObserver<ResponseBody>() {
+            @Override
+            public void onError(Throwable error) {
+                // Revert the local state on error
+                watched = originalWatched;
+                mView.invalidateOptionsMenu();
+                mView.showErrorToast(getErrorTip(error));
+            }
+
+            @Override
+            public void onSuccess(HttpResponse<ResponseBody> response) {
+                // API call succeeded, keep the new state
+                mView.showSuccessToast(watched ?
+                        getString(R.string.watched) : getString(R.string.unwatched));
+            }
+        };
+        generalRxHttpExecute(new IObservableCreator<ResponseBody>() {
+            @Override
+            public Observable<Response<ResponseBody>> createObservable(boolean forceNetWork) {
+                return observable;
+            }
+        }, httpObserver);
     }
 
     @Override

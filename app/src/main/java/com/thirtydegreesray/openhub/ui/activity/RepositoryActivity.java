@@ -156,9 +156,6 @@ public class RepositoryActivity extends PagerActivity<RepositoryPresenter>
                 return true;
             case R.id.action_watch:
                 mPresenter.watchRepo(!mPresenter.isWatched());
-                invalidateOptionsMenu();
-                showSuccessToast(mPresenter.isWatched() ?
-                        getString(R.string.watched) : getString(R.string.unwatched));
                 return true;
             case R.id.action_fork:
                 if(!mPresenter.getRepository().isFork()) forkRepo();
@@ -190,9 +187,6 @@ public class RepositoryActivity extends PagerActivity<RepositoryPresenter>
 
     private void starRepo(boolean star){
         mPresenter.starRepo(star);
-        invalidateOptionsMenu();
-        showSuccessToast(mPresenter.isStarred() ?
-                getString(R.string.starred) : getString(R.string.unstarred));
     }
 
     @Override
