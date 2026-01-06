@@ -43,7 +43,7 @@ public class StringUtils {
 
     public static String listToString(@NonNull List<String> list, @NonNull String separator){
         StringBuilder stringBuilder = new StringBuilder("");
-        if(list.size() == 0 || isBlank(separator)){
+        if(list == null || list.size() == 0 || isBlank(separator)){
             return stringBuilder.toString();
         }
         for(int i = 0; i < list.size(); i++){

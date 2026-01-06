@@ -101,7 +101,11 @@ public class ActivitiesAdapter extends BaseAdapter<ActivitiesAdapter.ViewHolder,
             EventPayload.RefType refType = model.getPayload().getRefType();
             String action = model.getPayload() != null ? model.getPayload().getAction() : null;
 
-            switch (model.getType()) {
+            // Add null check for model.getType() to prevent NullPointerException
+            if (model.getType() == null) {
+                actionStr = "Unknown event type";
+            } else {
+                switch (model.getType()) {
                 case CommitCommentEvent:
                     actionStr = String.format(getString(R.string.created_comment_on_commit), fullName);
                     descSpan = new SpannableStringBuilder(model.getPayload().getComment().getBody());
@@ -238,6 +242,7 @@ public class ActivitiesAdapter extends BaseAdapter<ActivitiesAdapter.ViewHolder,
                 case WatchEvent:
                     actionStr = String.format(getString(R.string.starred_repo), fullName);
                     break;
+                }
             }
 
             this.action.setVisibility(View.VISIBLE);

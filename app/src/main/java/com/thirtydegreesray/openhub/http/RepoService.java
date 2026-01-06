@@ -5,7 +5,6 @@ package com.thirtydegreesray.openhub.http;
 import androidx.annotation.NonNull;
 
 import com.thirtydegreesray.openhub.mvp.model.Branch;
-import com.thirtydegreesray.openhub.mvp.model.Discussion;
 import com.thirtydegreesray.openhub.mvp.model.Event;
 import com.thirtydegreesray.openhub.mvp.model.FileModel;
 import com.thirtydegreesray.openhub.mvp.model.Release;
@@ -16,7 +15,6 @@ import java.util.ArrayList;
 
 import okhttp3.ResponseBody;
 import retrofit2.Response;
-import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -211,23 +209,6 @@ public interface RepoService {
             @Path("owner") String owner,
             @Path("repo") String repo,
             @Path("tag") String tag
-    );
-
-    @NonNull @GET("repos/{owner}/{repo}/discussions")
-    Observable<Response<ArrayList<Discussion>>> getRepoDiscussions(
-            @Header("forceNetWork") boolean forceNetWork,
-            @Path("owner") String owner,
-            @Path("repo") String repo,
-            @Query("page") int page
-    );
-
-    @NonNull @POST("repos/{owner}/{repo}/discussions")
-    @Headers("Accept: application/vnd.github.squirrel-girl-preview+json")
-    Observable<Response<Discussion>> createDiscussion(
-            @Header("forceNetWork") boolean forceNetWork,
-            @Path("owner") String owner,
-            @Path("repo") String repo,
-            @retrofit2.http.Body Discussion body
     );
 
 }

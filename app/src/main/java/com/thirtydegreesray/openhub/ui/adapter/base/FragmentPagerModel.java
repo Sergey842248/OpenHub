@@ -15,7 +15,6 @@ import com.thirtydegreesray.openhub.mvp.model.User;
 import com.thirtydegreesray.openhub.mvp.model.filter.TrendingSince;
 import com.thirtydegreesray.openhub.ui.fragment.ActivityFragment;
 import com.thirtydegreesray.openhub.ui.fragment.CommitsFragment;
-import com.thirtydegreesray.openhub.ui.fragment.DiscussionsFragment;
 import com.thirtydegreesray.openhub.ui.fragment.IssuesFragment;
 import com.thirtydegreesray.openhub.ui.fragment.MarkdownEditorFragment;
 import com.thirtydegreesray.openhub.ui.fragment.MarkdownPreviewFragment;
@@ -56,30 +55,20 @@ public class FragmentPagerModel {
     public static List<FragmentPagerModel> createRepoPagerList(@NonNull Context context
             , @NonNull final Repository repository, @NonNull ArrayList<Fragment> fragments) {
 
-        List<FragmentPagerModel> list = new ArrayList<>();
-        list.add(new FragmentPagerModel(context.getString(R.string.info),
-                getFragment(fragments, 0, () -> RepoInfoFragment.create(repository))));
-        list.add(new FragmentPagerModel(context.getString(R.string.files),
-                getFragment(fragments, 1, () -> RepoFilesFragment.create(repository))));
-        list.add(new FragmentPagerModel(context.getString(R.string.commits),
-                getFragment(fragments, 2,
-                        () -> CommitsFragment.createForRepo(repository.getOwner().getLogin(),
-                        repository.getName(), repository.getDefaultBranch()))));
-
-        // Only add discussions tab if discussions are enabled for this repository
-        if (repository.isHasDiscussions()) {
-            list.add(new FragmentPagerModel(context.getString(R.string.discussions),
-                    getFragment(fragments, 3,
-                            () -> DiscussionsFragment.create(repository.getOwner().getLogin(),
-                            repository.getName()))));
-        }
-
-        list.add(new FragmentPagerModel(context.getString(R.string.activity),
-                getFragment(fragments, repository.isHasDiscussions() ? 4 : 3,
-                        () -> ActivityFragment.create(ActivityFragment.ActivityType.Repository,
-                        repository.getOwner().getLogin(), repository.getName()))));
-
-        return setPagerFragmentFlag(list);
+        return setPagerFragmentFlag(Arrays.asList(
+                new FragmentPagerModel(context.getString(R.string.info),
+                        getFragment(fragments, 0, () -> RepoInfoFragment.create(repository))),
+                new FragmentPagerModel(context.getString(R.string.files),
+                        getFragment(fragments, 1, () -> RepoFilesFragment.create(repository))),
+                new FragmentPagerModel(context.getString(R.string.commits),
+                        getFragment(fragments, 2,
+                                () -> CommitsFragment.createForRepo(repository.getOwner().getLogin(),
+                                repository.getName(), repository.getDefaultBranch()))),
+                new FragmentPagerModel(context.getString(R.string.activity),
+                        getFragment(fragments, 3,
+                                () -> ActivityFragment.create(ActivityFragment.ActivityType.Repository,
+                                repository.getOwner().getLogin(), repository.getName())))
+        ));
     }
 
     public static List<FragmentPagerModel> createProfilePagerList(Context context, final User user

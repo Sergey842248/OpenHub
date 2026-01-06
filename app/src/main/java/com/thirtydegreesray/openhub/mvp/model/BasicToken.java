@@ -30,7 +30,11 @@ public class BasicToken {
     public static BasicToken generateFromOauthToken(OauthToken oauthToken){
         BasicToken basicToken = new BasicToken();
         basicToken.setToken(oauthToken.getAccessToken());
-        basicToken.setScopes(Arrays.asList(oauthToken.getScope().split(",")));
+        if(oauthToken.getScope() != null && !oauthToken.getScope().isEmpty()) {
+            basicToken.setScopes(Arrays.asList(oauthToken.getScope().split(",")));
+        } else {
+            basicToken.setScopes(new java.util.ArrayList<String>());
+        }
         return basicToken;
     }
 
