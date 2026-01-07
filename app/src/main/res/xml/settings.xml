@@ -54,4 +54,9 @@
         android:title="@string/language"
         android:key="language"/>
 
+    <Preference
+        android:icon="@drawable/ic_search_title"
+        android:title="@string/clear_search_history"
+        android:key="clearSearchHistory"/>
+
 </PreferenceScreen>

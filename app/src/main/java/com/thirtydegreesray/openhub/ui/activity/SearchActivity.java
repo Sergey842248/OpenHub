@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import androidx.appcompat.app.AlertDialog;
 
 import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 import com.thirtydegreesray.openhub.R;
@@ -114,7 +115,7 @@ public class SearchActivity extends PagerActivity<SearchPresenter>
         AutoCompleteTextView autoCompleteTextView = searchView
                 .findViewById(androidx.appcompat.R.id.search_src_text);
         autoCompleteTextView.setThreshold(0);
-        autoCompleteTextView.setAdapter(new ArrayAdapter<>(this,
+        autoCompleteTextView.setAdapter(new SearchRecordAdapter(this,
                 R.layout.layout_item_simple_list, mPresenter.getSearchRecordList()));
         autoCompleteTextView.setDropDownBackgroundDrawable(new ColorDrawable(ViewUtils.getWindowBackground(getActivity())));
         autoCompleteTextView.setOnItemClickListener((parent, view, position, id) -> {
@@ -250,6 +251,35 @@ public class SearchActivity extends PagerActivity<SearchPresenter>
             return 1;
         }else
             return -1;
+    }
+
+    private class SearchRecordAdapter extends ArrayAdapter<String> {
+
+        public SearchRecordAdapter(@NonNull Context context, int resource, @NonNull List<String> objects) {
+            super(context, resource, objects);
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            View view = super.getView(position, convertView, parent);
+            view.setOnLongClickListener(v -> {
+                String record = getItem(position);
+                if (record != null) {
+                    new AlertDialog.Builder(getContext())
+                            .setTitle(R.string.warning_dialog_tile)
+                            .setMessage(R.string.delete_search_record_confirm)
+                            .setPositiveButton(R.string.ok, (dialog, which) -> {
+                                mPresenter.removeSearchRecord(record);
+                                notifyDataSetChanged();
+                            })
+                            .setNegativeButton(R.string.cancel, null)
+                            .show();
+                }
+                return true;
+            });
+            return view;
+        }
     }
 
 }

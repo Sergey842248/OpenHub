@@ -65,6 +65,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
         findPreference(PrefUtils.LANGUAGE).setOnPreferenceClickListener(this);
 //        findPreference(PrefUtils.LOGOUT).setOnPreferenceClickListener(this);
         findPreference(PrefUtils.START_PAGE).setOnPreferenceClickListener(this);
+        findPreference("clearSearchHistory").setOnPreferenceClickListener(this);
         findPreference(PrefUtils.START_PAGE).setSummary(nameList.get(getStartPageIndex()));
         ((ColorChooserPreference) findPreference(PrefUtils.ACCENT_COLOR))
                 .setColorChooserCallback(this);
@@ -89,6 +90,9 @@ public class SettingsFragment extends PreferenceFragmentCompat
                 return true;
             case PrefUtils.START_PAGE:
                 showChooseStartPageDialog();
+                return true;
+            case "clearSearchHistory":
+                showClearSearchHistoryDialog();
                 return true;
         }
         return false;
@@ -162,6 +166,25 @@ public class SettingsFragment extends PreferenceFragmentCompat
     private int getStartPageIndex(){
         String startPage = PrefUtils.getStartPage();
         return idList.indexOf(startPage);
+    }
+
+    private void showClearSearchHistoryDialog() {
+        new AlertDialog.Builder(getContext())
+                .setCancelable(true)
+                .setTitle(R.string.warning_dialog_tile)
+                .setMessage(R.string.clear_search_history_confirm)
+                .setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss())
+                .setPositiveButton(R.string.ok, (dialog, which) -> {
+                    clearSearchHistory();
+                    dialog.dismiss();
+                })
+                .show();
+    }
+
+    private void clearSearchHistory() {
+        PrefUtils.clearKey(PrefUtils.SEARCH_RECORDS);
+        // Show a simple toast to indicate success
+        android.widget.Toast.makeText(getContext(), R.string.success_deleted, android.widget.Toast.LENGTH_SHORT).show();
     }
 
 }

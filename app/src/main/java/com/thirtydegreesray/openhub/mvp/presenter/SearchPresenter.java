@@ -101,4 +101,21 @@ public class SearchPresenter extends BasePresenter<ISearchContract.View>
         PrefUtils.set(PrefUtils.SEARCH_RECORDS, recordStr.toString());
     }
 
+    @Override
+    public void removeSearchRecord(@NonNull String record) {
+        ArrayList<String> recordList = getSearchRecordList();
+        recordList.remove(record);
+        StringBuilder recordStr = new StringBuilder("");
+        if (!recordList.isEmpty()) {
+            String lastRecord = recordList.get(recordList.size() - 1);
+            for(String str : recordList){
+                recordStr.append(str);
+                if(!str.equals(lastRecord)){
+                    recordStr.append("$$");
+                }
+            }
+        }
+        PrefUtils.set(PrefUtils.SEARCH_RECORDS, recordStr.toString());
+    }
+
 }
