@@ -271,6 +271,8 @@ public class SearchActivity extends PagerActivity<SearchPresenter>
                             .setMessage(R.string.delete_search_record_confirm)
                             .setPositiveButton(R.string.ok, (dialog, which) -> {
                                 mPresenter.removeSearchRecord(record);
+                                clear();
+                                addAll(mPresenter.getSearchRecordList());
                                 notifyDataSetChanged();
                             })
                             .setNegativeButton(R.string.cancel, null)
