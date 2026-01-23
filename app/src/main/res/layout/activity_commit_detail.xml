@@ -21,91 +21,91 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            android:paddingTop="0dp"
+            android:paddingBottom="@dimen/spacing_normal"
             app:collapsedTitleGravity="start"
+            app:contentScrim="?attr/colorPrimary"
             app:expandedTitleGravity="top"
             app:expandedTitleMarginStart="96dp"
             app:expandedTitleMarginTop="80dp"
             app:expandedTitleTextAppearance="@style/Toolbar.Expand.TitleText"
-            android:paddingTop="0dp"
-            android:paddingBottom="@dimen/spacing_normal">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="140dp"
                 android:layout_gravity="start|top"
+                android:layout_marginTop="135dp"
                 android:paddingStart="@dimen/spacing_normal"
-                android:paddingEnd="@dimen/spacing_normal"
-                android:layout_marginTop="120dp">
+                android:paddingEnd="@dimen/spacing_normal">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/user_avatar"
                     android:layout_width="72dp"
                     android:layout_height="72dp"
-                    android:transitionName="userAvatar"
-                    android:tint="?android:textColorSecondary"/>
+                    android:tint="?android:textColorSecondary"
+                    android:transitionName="userAvatar" />
 
                 <LinearLayout
                     android:id="@+id/state_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_toEndOf="@+id/user_avatar"
                     android:layout_marginStart="@dimen/spacing_normal"
-                    android:layout_marginTop="@dimen/spacing_x_large"
-                    android:gravity="center_vertical">
+                    android:layout_marginTop="40dp"
+                    android:layout_toEndOf="@+id/user_avatar"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        app:srcCompat="@drawable/ic_change_file"
+                        android:padding="2dp"
                         android:tint="?title_color"
-                        android:padding="2dp"/>
+                        app:srcCompat="@drawable/ic_change_file" />
 
                     <TextView
                         android:id="@+id/changed_files_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/text_normal"
-                        android:textColor="?title_color"
                         android:layout_marginStart="@dimen/spacing_mini"
+                        android:layout_marginEnd="@dimen/spacing_mini"
                         android:minWidth="36dp"
-                        android:layout_marginEnd="@dimen/spacing_mini"/>
+                        android:textColor="?title_color"
+                        android:textSize="@dimen/text_normal" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        app:srcCompat="@drawable/ic_addition"
+                        android:padding="1dp"
                         android:tint="?title_color"
-                        android:padding="1dp"/>
+                        app:srcCompat="@drawable/ic_addition" />
 
                     <TextView
                         android:id="@+id/additions_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/text_normal"
-                        android:textColor="?title_color"
                         android:layout_marginStart="@dimen/spacing_mini"
+                        android:layout_marginEnd="@dimen/spacing_mini"
                         android:minWidth="36dp"
-                        android:layout_marginEnd="@dimen/spacing_mini"/>
+                        android:textColor="?title_color"
+                        android:textSize="@dimen/text_normal" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        app:srcCompat="@drawable/ic_deletion"
+                        android:padding="1dp"
                         android:tint="?title_color"
-                        android:padding="1dp"/>
+                        app:srcCompat="@drawable/ic_deletion" />
 
                     <TextView
                         android:id="@+id/deletions_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/text_normal"
-                        android:textColor="?title_color"
                         android:layout_marginStart="@dimen/spacing_mini"
+                        android:layout_marginEnd="@dimen/spacing_mini"
                         android:minWidth="36dp"
-                        android:layout_marginEnd="@dimen/spacing_mini"/>
+                        android:textColor="?title_color"
+                        android:textSize="@dimen/text_normal" />
 
                 </LinearLayout>
 
@@ -113,14 +113,15 @@
                     android:id="@+id/commit_message"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_small"
-                    android:textColor="?title_color"
                     android:layout_below="@+id/state_lay"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="24dp"
                     android:layout_toEndOf="@+id/user_avatar"
-                    android:layout_marginStart="@dimen/spacing_normal"
-                    android:transitionName="issueTitle"
+                    android:ellipsize="end"
                     android:maxLines="6"
-                    android:ellipsize="end"/>
+                    android:textColor="?title_color"
+                    android:textSize="@dimen/text_small"
+                    android:transitionName="issueTitle" />
 
             </RelativeLayout>
 
@@ -130,7 +131,7 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="@drawable/toolbar_background"
                 app:layout_collapseMode="pin"
-                app:popupTheme="?popup_theme"/>
+                app:popupTheme="?popup_theme" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -159,8 +160,8 @@
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        android:layout_height="678dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <ProgressBar
         android:id="@+id/loader"
