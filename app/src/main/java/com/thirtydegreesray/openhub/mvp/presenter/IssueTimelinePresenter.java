@@ -67,6 +67,10 @@ public class IssueTimelinePresenter extends BasePresenter<IIssueTimelineContract
 
     @Override
     public void editComment(final String commentId, final String body) {
+        if (StringUtils.isBlank(commentId)) {
+            mView.showErrorToast(getString(R.string.comment_null_warning));
+            return;
+        }
         HttpObserver<IssueEvent> httpObserver = new HttpObserver<IssueEvent>() {
             @Override
             public void onError(Throwable error) {
