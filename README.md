@@ -10,9 +10,9 @@ An **Open-Source** GitHub Android client app, faster and concise.
 ### Authentication with Personal Access Token (PAT)
 To log in using a Personal Access Token:
 1. Go to your GitHub settings: `Settings` -> `Developer settings` -> `Personal access tokens`.
-2. Generate a new token with the necessary scopes (e.g., `user`, `repo`, `gist`, `notifications`).
+2. Generate a new **classic** token with the necessary scopes (e.g., `user`, `repo`, `gist`, `notifications`).
 3. Copy the generated token.
-4. In the app's login screen, enter your Personal Access Token in the provided field and tap "LOGIN WITH TOKEN".
+4. In the app's login screen, paste your Personal Access Token in the provided field and tap "LOGIN WITH TOKEN".
 
 ### App
 * Light, dark, and AMOLED dark theme, multiple accent colors
