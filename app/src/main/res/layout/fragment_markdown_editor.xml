@@ -104,16 +104,6 @@
             app:toast_text="@string/add_a_bulleted_list"/>
 
         <com.thirtydegreesray.openhub.ui.widget.ToastAbleImageButton
-            android:id="@+id/add_image"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_image"
-            android:scaleType="center"
-            android:background="?android:selectableItemBackgroundBorderless"
-            app:toast_text="@string/add_a_photo"/>
-
-        <com.thirtydegreesray.openhub.ui.widget.ToastAbleImageButton
             android:id="@+id/add_mention"
             android:layout_width="0dp"
             android:layout_height="match_parent"

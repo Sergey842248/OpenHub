@@ -278,16 +278,7 @@
     <string name="insert_code">Insert code</string>
     <string name="insert_a_quote">Insert a quote</string>
     <string name="add_a_bulleted_list">Add a bulleted list</string>
-    <string name="add_a_photo">Add a photo</string>
-    <string name="image_upload_tip">GitHub doesn’t support uploading images directly via the API for issue comments.
-
-Please upload the image (e.g. in a browser on GitHub, or another host) and paste the image URL into the comment using markdown:
-
-![](https://...)
-
-We also copied the selected image URI to clipboard for convenience.</string>
     <string name="mention">Directly mention a user or team</string>
-    <string name="insert_link">Insert</string>
     <string name="nothing_to_preview">Nothing to preview</string>
 
     <string name="title">Title</string>

@@ -1,14 +1,7 @@
 package com.thirtydegreesray.openhub.ui.fragment;
 
-import android.app.Activity;
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import android.text.Editable;
 import android.view.Gravity;
@@ -31,7 +24,6 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
-import es.dmoral.toasty.Toasty;
 
 /**
  * Created by ThirtyDegreesRay on 2017/9/29 11:52:17
@@ -45,8 +37,6 @@ public class MarkdownEditorFragment extends BaseFragment
         fragment.setArguments(BundleHelper.builder().put("text", text).put("mentionUsers", mentionUsers).build());
         return fragment;
     }
-
-    private static final int PICK_IMAGE_REQUEST_CODE = 400;
 
     @BindView(R2.id.markdown_edit) EditText markdownEdit;
     @BindView(R2.id.add_mention) ToastAbleImageButton addMention;
@@ -104,7 +94,7 @@ public class MarkdownEditorFragment extends BaseFragment
 
     @OnClick({R2.id.add_large_head, R2.id.add_medium_head, R2.id.add_small_head, R2.id.add_bold,
             R2.id.add_italic, R2.id.add_quote, R2.id.insert_code, R2.id.add_link, R2.id.add_bulleted_list,
-            R2.id.add_image, R2.id.add_mention})
+            R2.id.add_mention})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.add_large_head:
@@ -134,59 +124,11 @@ public class MarkdownEditorFragment extends BaseFragment
             case R.id.add_bulleted_list:
                 addKeyWord("-");
                 break;
-            case R.id.add_image:
-                pickImage();
-                break;
             case R.id.add_mention:
                 addKeyWord("@", 1);
                 afterTextChanged(markdownEdit.getText());
                 break;
         }
-    }
-
-    private void pickImage() {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("image/*");
-        startActivityForResult(Intent.createChooser(intent, getString(R.string.add_a_photo)),
-                PICK_IMAGE_REQUEST_CODE);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
-            Uri uri = data.getData();
-            if (uri != null) {
-                onImagePicked(uri);
-            } else {
-                Toasty.error(getActivity(), getString(R.string.failed_to_recognize)).show();
-            }
-        }
-    }
-
-    private void onImagePicked(Uri uri) {
-        String uriString = uri.toString();
-        if (StringUtils.isBlank(uriString)) {
-            Toasty.error(getActivity(), getString(R.string.failed_to_recognize)).show();
-            return;
-        }
-
-        new AlertDialog.Builder(getActivity())
-                .setTitle(getString(R.string.add_a_photo))
-                .setMessage(getString(R.string.image_upload_tip))
-                .setPositiveButton(getString(R.string.copy_url), (dialog, which) -> {
-                    ClipboardManager cm = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-                    if (cm != null) {
-                        cm.setPrimaryClip(ClipData.newPlainText("imageUri", uriString));
-                        Toasty.success(getActivity(), getString(R.string.success_copied)).show();
-                    }
-                })
-                .setNeutralButton(getString(R.string.insert_link), (dialog, which) -> {
-                    addKeyWord("![](" + uriString + ")", 4, false);
-                })
-                .setNegativeButton(getString(R.string.cancel), null)
-                .show();
     }
 
     private void addKeyWord(String keyWord){
