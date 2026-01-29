@@ -272,6 +272,15 @@
     <string name="insert_code">Code einfügen</string>
     <string name="insert_a_quote">Fügen Sie ein Angebot ein</string>
     <string name="add_a_bulleted_list">Fügen Sie eine Aufzählungsliste hinzu</string>
+    <string name="add_a_photo">Foto hinzufügen</string>
+    <string name="image_upload_tip">GitHub unterstützt das direkte Hochladen von Bildern für Issue-Kommentare über die API nicht.
+
+Bitte laden Sie das Bild (z.B. im Browser auf GitHub oder bei einem anderen Host) hoch und fügen Sie die Bild-URL per Markdown in den Kommentar ein:
+
+![](https://...)
+
+Wir haben die ausgewählte Bild-URI zur Vereinfachung auch in die Zwischenablage kopiert.</string>
+    <string name="insert_link">Einfügen</string>
     <string name="mention">Erwähnen Sie direkt einen Nutzer oder ein Team</string>
     <string name="nothing_to_preview">Nichts zu sehen</string>
 
