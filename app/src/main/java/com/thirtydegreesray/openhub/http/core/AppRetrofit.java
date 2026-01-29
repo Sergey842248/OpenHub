@@ -94,8 +94,9 @@ public enum  AppRetrofit {
             Request request = chain.request();
 
             //add unique login id in url to differentiate caches
-            if(AppData.INSTANCE.getLoggedUser() != null
-                    && !AppConfig.isCommonPageUrl(request.url().toString())){
+            if ("GET".equals(request.method())
+                    && AppData.INSTANCE.getLoggedUser() != null
+                    && !AppConfig.isCommonPageUrl(request.url().toString())) {
                 HttpUrl url = request.url().newBuilder()
                         .addQueryParameter("uniqueLoginId",
                                 AppData.INSTANCE.getLoggedUser().getLogin())

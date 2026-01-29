@@ -19,6 +19,8 @@ public class AppConfig {
 
     public final static String GITHUB_API_BASE_URL = "https://api.github.com/";
 
+    public final static String GITHUB_UPLOAD_BASE_URL = "https://uploads.github.com/";
+
     public final static String GITHUB_CONTENT_BASE_URL = "https://raw.githubusercontent.com/";
 
     /**
