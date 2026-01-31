@@ -116,6 +116,7 @@ dependencies {
     implementation 'androidx.transition:transition:1.6.0'
     implementation 'androidx.webkit:webkit:1.14.0'
     implementation 'androidx.browser:browser:1.9.0'
+    implementation 'androidx.exifinterface:exifinterface:1.4.2'
 
     implementation "com.thirtydegreesray:dataautoaccess:${DATAAUTOACCESS_VERSION}"
     annotationProcessor "com.thirtydegreesray:dataautoaccess-compiler:${DATAAUTOACCESS_VERSION}"
