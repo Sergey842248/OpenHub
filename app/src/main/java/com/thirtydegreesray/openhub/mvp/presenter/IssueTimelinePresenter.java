@@ -176,10 +176,6 @@ public class IssueTimelinePresenter extends BasePresenter<IIssueTimelineContract
         return timeline;
     }
 
-    public Issue getIssue() {
-        return issue;
-    }
-
     private void updateComment(IssueEvent editedComment){
         for(IssueEvent event : timeline){
             if(editedComment.getId().equals(event.getId())){

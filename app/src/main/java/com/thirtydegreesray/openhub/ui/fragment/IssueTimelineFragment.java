@@ -55,14 +55,9 @@ public class IssueTimelineFragment extends ListFragment<IssueTimelinePresenter, 
 
     @Override
     public void showEditCommentPage(String commentId, String body) {
-        Issue issue = mPresenter.getIssue();
         MarkdownEditorActivity.show(getActivity(), R.string.comment,
                 IssueDetailActivity.EDIT_COMMENT_REQUEST_CODE,
-                body,
-                getIssueUsersExceptMe(),
-                issue == null ? null : issue.getRepoAuthorName(),
-                issue == null ? null : issue.getRepoName(),
-                issue == null ? -1 : issue.getNumber());
+                body);
     }
 
     @Override
