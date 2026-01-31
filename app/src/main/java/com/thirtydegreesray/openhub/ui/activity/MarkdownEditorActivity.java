@@ -43,22 +43,10 @@ public class MarkdownEditorActivity extends PagerActivity implements MarkdownEdi
     public static void show(@NonNull Activity activity, @StringRes int title,
                             int requestCode, @Nullable String text,
                             @Nullable ArrayList<String> mentionUsers) {
-        show(activity, title, requestCode, text, mentionUsers, null, null, -1);
-    }
-
-    public static void show(@NonNull Activity activity, @StringRes int title,
-                            int requestCode, @Nullable String text,
-                            @Nullable ArrayList<String> mentionUsers,
-                            @Nullable String uploadOwner,
-                            @Nullable String uploadRepoName,
-                            int uploadIssueNumber) {
         Intent intent = new Intent(activity, MarkdownEditorActivity.class);
         intent.putExtra("text", text);
         intent.putExtra("title", title);
         intent.putExtra("mentionUsers", mentionUsers);
-        intent.putExtra("uploadOwner", uploadOwner);
-        intent.putExtra("uploadRepoName", uploadRepoName);
-        intent.putExtra("uploadIssueNumber", uploadIssueNumber);
         activity.startActivityForResult(intent, requestCode);
     }
 
@@ -66,9 +54,6 @@ public class MarkdownEditorActivity extends PagerActivity implements MarkdownEdi
     @AutoAccess String text;
     @AutoAccess @StringRes int title;
     @AutoAccess ArrayList<String> mentionUsers;
-    @AutoAccess String uploadOwner;
-    @AutoAccess String uploadRepoName;
-    @AutoAccess int uploadIssueNumber = -1;
     private MarkdownEditorCallback markdownEditorCallback;
     private boolean isKeyBoardShow = true;
 
@@ -90,8 +75,7 @@ public class MarkdownEditorActivity extends PagerActivity implements MarkdownEdi
         setToolbarTitle(getString(title));
 
         pagerAdapter.setPagerList(FragmentPagerModel
-                .createMarkdownEditorPagerList(getActivity(), text, getFragments(), mentionUsers,
-                        uploadOwner, uploadRepoName, uploadIssueNumber));
+                .createMarkdownEditorPagerList(getActivity(), text, getFragments(), mentionUsers));
         tabLayout.setVisibility(View.VISIBLE);
         tabLayout.setupWithViewPager(viewPager);
         viewPager.setAdapter(pagerAdapter);

@@ -137,14 +137,8 @@ public class EditIssueActivity extends BaseActivity<EditIssuePresenter>
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.markdown_editor_bn:
-                int issueNumber = mPresenter.isAddMode() ? -1 : mPresenter.getIssue().getNumber();
                 MarkdownEditorActivity.show(getActivity(), R.string.edit,
-                        MARKDOWN_EDITOR_REQUEST_CODE,
-                        commentEdit.getText().toString(),
-                        null,
-                        mPresenter.getRepoOwner(),
-                        mPresenter.getRepoName(),
-                        issueNumber);
+                        MARKDOWN_EDITOR_REQUEST_CODE, commentEdit.getText().toString());
                 break;
             case R.id.edit_labels:
                 mPresenter.loadLabels();
