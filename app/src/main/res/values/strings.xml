@@ -278,11 +278,6 @@
     <string name="insert_code">Insert code</string>
     <string name="insert_a_quote">Insert a quote</string>
     <string name="add_a_bulleted_list">Add a bulleted list</string>
-    <string name="insert_image">Insert an image</string>
-    <string name="select_image">Select image</string>
-    <string name="uploading_image">Uploading image…</string>
-    <string name="image_uploaded">Image uploaded</string>
-    <string name="image_upload_not_supported">Image upload is not supported here.</string>
     <string name="mention">Directly mention a user or team</string>
     <string name="nothing_to_preview">Nothing to preview</string>
 

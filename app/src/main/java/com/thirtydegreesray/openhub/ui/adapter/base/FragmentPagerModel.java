@@ -128,12 +128,10 @@ public class FragmentPagerModel {
     }
 
     public static List<FragmentPagerModel> createMarkdownEditorPagerList(@NonNull Context context
-            , final String text, @NonNull ArrayList<Fragment> fragments, final ArrayList<String> mentionUsers,
-            final String uploadOwner, final String uploadRepoName, final int uploadIssueNumber) {
+            , final String text, @NonNull ArrayList<Fragment> fragments, final ArrayList<String> mentionUsers) {
         return setPagerFragmentFlag(Arrays.asList(
                 new FragmentPagerModel(context.getString(R.string.write),
-                        getFragment(fragments, 0, () -> MarkdownEditorFragment.create(text, mentionUsers,
-                                uploadOwner, uploadRepoName, uploadIssueNumber))),
+                        getFragment(fragments, 0, () -> MarkdownEditorFragment.create(text, mentionUsers))),
                 new FragmentPagerModel(context.getString(R.string.preview),
                         getFragment(fragments, 1, () -> MarkdownPreviewFragment.create()))
         ));
