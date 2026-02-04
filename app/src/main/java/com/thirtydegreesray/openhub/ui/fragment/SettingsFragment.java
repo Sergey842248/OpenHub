@@ -5,10 +5,10 @@ package com.thirtydegreesray.openhub.ui.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.ColorInt;
-import androidx.appcompat.app.AlertDialog;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.thirtydegreesray.openhub.R;
 import com.thirtydegreesray.openhub.R2;
 import com.thirtydegreesray.openhub.ui.widget.colorChooser.ColorChooserPreference;
@@ -103,7 +103,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
                 = Arrays.asList(getResources().getStringArray(R.array.theme_array));
         String theme = PrefUtils.getTheme();
         int selectIndex = valueList.indexOf(theme);
-        new AlertDialog.Builder(getContext())
+        new MaterialAlertDialogBuilder(requireContext(), R.style.DialogStyle_OpenHub_Settings)
                 .setCancelable(true)
                 .setTitle(R.string.choose_theme)
                 .setSingleChoiceItems(R.array.theme_array, selectIndex, (dialog1, which) -> {
@@ -120,7 +120,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
         String language = PrefUtils.getLanguage();
         int index = valueList.indexOf(language);
 
-        new AlertDialog.Builder(getContext())
+        new MaterialAlertDialogBuilder(requireContext(), R.style.DialogStyle_OpenHub_Settings)
                 .setCancelable(true)
                 .setTitle(R.string.language)
                 .setSingleChoiceItems(R.array.language_array, index, (dialog, which) -> {
@@ -136,7 +136,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
     }
 
     private void logout() {
-        new AlertDialog.Builder(getContext())
+        new MaterialAlertDialogBuilder(requireContext(), R.style.DialogStyle_OpenHub_Settings)
                 .setCancelable(true)
                 .setTitle(R.string.warning_dialog_tile)
                 .setMessage(R.string.logout_warning)
@@ -149,7 +149,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
     }
 
     private void showChooseStartPageDialog(){
-        new AlertDialog.Builder(getContext())
+        new MaterialAlertDialogBuilder(requireContext(), R.style.DialogStyle_OpenHub_Settings)
                 .setCancelable(true)
                 .setTitle(R.string.start_page)
                 .setSingleChoiceItems(R.array.start_pages_name, getStartPageIndex(), (dialog, which) -> {
@@ -169,7 +169,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
     }
 
     private void showClearSearchHistoryDialog() {
-        new AlertDialog.Builder(getContext())
+        new MaterialAlertDialogBuilder(requireContext(), R.style.DialogStyle_OpenHub_Settings)
                 .setCancelable(true)
                 .setTitle(R.string.warning_dialog_tile)
                 .setMessage(R.string.clear_search_history_confirm)

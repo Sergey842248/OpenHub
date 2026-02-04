@@ -4,6 +4,8 @@
     <string name="navigation_drawer_open" translatable="false">navigation_drawer_open</string>
     <string name="navigation_drawer_close" translatable="false">navigation_drawer_close</string>
 
+    <string name="icon">Icon</string>
+
     <!-- colors -->
     <string name="light_blue" translatable="false">Light Blue</string>
     <string name="blue" translatable="false">Blue</string>

@@ -24,7 +24,7 @@
         <item name="colorSecondary">@color/dark_color_accent</item>
         <item name="colorAccent">?attr/colorSecondary</item>
         <item name="android:windowBackground">@color/dark_color_window_background</item>
-        <item name="preferenceTheme">@style/Theme.Material3.DayNight</item>
+        <item name="preferenceTheme">@style/ThemeOverlay.Material3</item>
         <item name="switchPreferenceCompatStyle">@style/Material3SwitchPreference</item>
         <item name="android:textColorPrimary">@color/dark_text_color_primary</item>
         <item name="android:textColorSecondary">@color/dark_text_color_secondary</item>
@@ -39,6 +39,15 @@
         <item name="appbar_theme">@style/AppbarThemeDark</item>
         <item name="android:contextPopupMenuStyle" tools:targetApi="n">@style/ContextPopupThemeDark</item>
         <item name="popup_menu_theme">@style/PopupMenuDark</item>
+
+        <!-- Material 3 Shape Appearances -->
+        <item name="materialCardViewStyle">@style/Widget.OpenHub.Material3.CardView.Dark</item>
+        <item name="materialButtonStyle">@style/Widget.OpenHub.Material3.Button.Dark</item>
+        <item name="floatingActionButtonStyle">@style/Widget.OpenHub.Material3.FAB.Dark</item>
+        <item name="chipStyle">@style/Widget.OpenHub.Material3.Chip.Dark</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.OpenHub.Material3.BottomSheetDialog.Dark</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.OpenHub.Material3.Dialog.Alert.Dark</item>
+        <item name="textInputStyle">@style/Widget.OpenHub.Material3.TextInputLayout.Dark</item>
     </style>
 
     <style name="DialogThemeDark" parent="Theme.Material3.Dark.Dialog.Alert">
@@ -71,6 +80,70 @@
          ~  a contextPopupMenuStyle on Android N, set bellow can fix it.
         -->
         <item name="android:overlapAnchor">true</item>
+    </style>
+
+    <!-- Material 3 Component Styles for Dark Theme -->
+
+    <!-- Card View -->
+    <style name="Widget.OpenHub.Material3.CardView.Dark" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardBackgroundColor">@color/dark_card_background</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <!-- Button -->
+    <style name="Widget.OpenHub.Material3.Button.Dark" parent="Widget.Material3.Button">
+        <item name="cornerRadius">24dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+    </style>
+
+    <style name="Widget.OpenHub.Material3.Button.TextButton.Dark" parent="Widget.Material3.Button.TextButton">
+        <item name="cornerRadius">24dp</item>
+    </style>
+
+    <style name="Widget.OpenHub.Material3.Button.TonalButton.Dark" parent="Widget.Material3.Button.TonalButton">
+        <item name="cornerRadius">24dp</item>
+    </style>
+
+    <!-- FAB -->
+    <style name="Widget.OpenHub.Material3.FAB.Dark" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="shapeAppearance">@style/ShapeAppearance.OpenHub.Material3.FAB</item>
+    </style>
+
+    <!-- Chip -->
+    <style name="Widget.OpenHub.Material3.Chip.Dark" parent="Widget.Material3.Chip.Filter">
+        <item name="chipCornerRadius">16dp</item>
+    </style>
+
+    <!-- Text Input Layout -->
+    <style name="Widget.OpenHub.Material3.TextInputLayout.Dark" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+    </style>
+
+    <!-- Bottom Sheet Dialog -->
+    <style name="ThemeOverlay.OpenHub.Material3.BottomSheetDialog.Dark" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.OpenHub.Material3.BottomSheet.Dark</item>
+    </style>
+
+    <style name="Widget.OpenHub.Material3.BottomSheet.Dark" parent="Widget.Material3.BottomSheet">
+        <item name="shapeAppearance">@style/ShapeAppearance.OpenHub.Material3.BottomSheet</item>
+        <item name="backgroundTint">@color/dark_card_background</item>
+    </style>
+
+    <!-- Alert Dialog -->
+    <style name="ThemeOverlay.OpenHub.Material3.Dialog.Alert.Dark" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="shapeAppearance">@style/ShapeAppearance.OpenHub.Material3.SettingsDialog</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/TextAppearance.OpenHub.Material3.Dialog.Title</item>
+    </style>
+
+    <!-- Material 3 Extended FAB -->
+    <style name="Widget.OpenHub.Material3.ExtendedFAB.Dark" parent="Widget.Material3.ExtendedFloatingActionButton.Primary">
+        <item name="shapeAppearance">@style/ShapeAppearance.OpenHub.Material3.FAB</item>
     </style>
 
     <style name="ThemeDark.LightBlue" parent="ThemeDark">

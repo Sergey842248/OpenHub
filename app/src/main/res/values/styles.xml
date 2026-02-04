@@ -1,5 +1,6 @@
 <resources>
 
+    <!-- Material Expressive Divider Styles -->
     <style name="DividerLine">
         <item name="android:background">@color/material_grey_700</item>
     </style>
@@ -14,31 +15,83 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
+    <!-- Splash Theme with Material 3 -->
     <style name="SplashTheme" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/transparent</item>
-        <!--<item name="android:windowLightStatusBar" tools:targetApi="m">true</item>-->
         <item name="android:windowBackground">@color/amoled_dark_card_background</item>
-        <!--<item name="icon_color">@color/white</item> &lt;!&ndash; to display the icons properly since this theme is the default &ndash;&gt;-->
     </style>
 
-    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <!-- Material Expressive Toolbar Styles -->
+    <style name="Toolbar.TitleText" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textSize">@dimen/text_normal</item>
         <item name="android:textColor">?title_color</item>
     </style>
 
-    <style name="Toolbar.Subtitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+    <style name="Toolbar.Subtitle" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textSize">@dimen/text_mini</item>
         <item name="android:textColor">?subtitle_color</item>
     </style>
 
-    <style name="Toolbar.Expand.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <style name="Toolbar.Expand.TitleText" parent="TextAppearance.Material3.HeadlineMedium">
         <item name="android:textSize">22sp</item>
     </style>
 
-    <style name="text_link">
-        <item name="android:textColor">?android:colorAccent</item>
+    <!-- Material Expressive Text Styles -->
+    <style name="text_link" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">?attr/colorSecondary</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
+    <!-- Material Expressive Card Styles -->
+    <style name="CardStyle.OpenHub" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <style name="CardStyle.OpenHub.Elevated" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <!-- Material Expressive Button Styles -->
+    <style name="ButtonStyle.OpenHub" parent="Widget.Material3.Button">
+        <item name="cornerRadius">24dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+    </style>
+
+    <style name="ButtonStyle.OpenHub.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="cornerRadius">24dp</item>
+    </style>
+
+    <style name="ButtonStyle.OpenHub.Tonal" parent="Widget.Material3.Button.TonalButton">
+        <item name="cornerRadius">24dp</item>
+    </style>
+
+    <!-- Material Expressive Dialog Button Styles -->
+    <style name="Widget.OpenHub.Material3.Button.TextButton.Dialog" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="cornerRadius">24dp</item>
+    </style>
+
+    <!-- Material 3 Shape Appearance for ColorChooserDialog -->
+    <style name="MD3_ShapeAppearance" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">28dp</item>
+    </style>
+
+    <!-- Material Expressive FAB Styles -->
+    <style name="FabStyle.OpenHub" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="shapeAppearance">@style/ShapeAppearance.OpenHub.Material3.FAB</item>
+    </style>
+
+    <!-- Material Expressive Chip Styles -->
+    <style name="ChipStyle.OpenHub" parent="Widget.Material3.Chip.Filter">
+        <item name="chipCornerRadius">16dp</item>
+    </style>
+
+    <!-- Material Expressive Label Styles -->
     <style name="label_color">
         <item name="android:layout_height">36dp</item>
         <item name="android:layout_width">0dp</item>
@@ -46,6 +99,47 @@
         <item name="android:textColor">?title_color</item>
         <item name="android:textSize">@dimen/text_normal</item>
         <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_chip_rounded_16dp</item>
+    </style>
+
+    <!-- Material Expressive Bottom Sheet Styles -->
+    <style name="BottomSheetStyle.OpenHub" parent="Widget.Material3.BottomSheet">
+        <item name="shapeAppearance">@style/ShapeAppearance.OpenHub.Material3.BottomSheet</item>
+        <item name="backgroundTint">?attr/card_background</item>
+    </style>
+
+    <!-- Material Expressive Dialog Styles -->
+    <style name="DialogStyle.OpenHub" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="shapeAppearance">@style/ShapeAppearance.OpenHub.Material3.Dialog</item>
+    </style>
+
+    <!-- Material Expressive Settings Dialog Styles -->
+    <style name="DialogStyle.OpenHub.Settings" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="shapeAppearance">@style/ShapeAppearance.OpenHub.Material3.SettingsDialog</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/TextAppearance.OpenHub.Material3.Dialog.Title</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.OpenHub.Material3.Button.TextButton.Dialog</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.OpenHub.Material3.Button.TextButton.Dialog</item>
+    </style>
+
+    <!-- Material Expressive Settings Preference Card Styles -->
+    <style name="PreferenceCardStyle.OpenHub" parent="Widget.Material3.CardView.Filled">
+        <item name="shapeAppearance">@style/ShapeAppearance.OpenHub.Material3.Preference</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">?attr/card_background</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <!-- Material Expressive Settings Switch Styles -->
+    <style name="SwitchStyle.OpenHub" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="shapeAppearance">@style/ShapeAppearance.OpenHub.Material3.Switch</item>
+    </style>
+
+    <!-- Material Expressive Text Input Styles -->
+    <style name="TextInputStyle.OpenHub" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
     </style>
 
 </resources>

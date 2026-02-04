@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Material 3 Shape Appearances for rounded corners
+  ~ Implements Material Expressive design patterns
+-->
+<resources>
+
+    <!-- Shape Appearances for Material 3 Components -->
+
+    <!-- Extra Small Shapes - Small buttons, chips, badges -->
+    <style name="ShapeAppearance.OpenHub.Material3.Corner.ExtraSmall" parent="ShapeAppearance.Material3.Corner.ExtraSmall">
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <!-- Small Shapes - Small cards, list items -->
+    <style name="ShapeAppearance.OpenHub.Material3.Corner.Small" parent="ShapeAppearance.Material3.Corner.Small">
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <!-- Medium Shapes - Default cards, dialogs -->
+    <style name="ShapeAppearance.OpenHub.Material3.Corner.Medium" parent="ShapeAppearance.Material3.Corner.Medium">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <!-- Large Shapes - Bottom sheets, navigation drawers -->
+    <style name="ShapeAppearance.OpenHub.Material3.Corner.Large" parent="ShapeAppearance.Material3.Corner.Large">
+        <item name="cornerSize">24dp</item>
+    </style>
+
+    <!-- Extra Large Shapes - Full screen dialogs -->
+    <style name="ShapeAppearance.OpenHub.Material3.Corner.ExtraLarge" parent="ShapeAppearance.Material3.Corner.ExtraLarge">
+        <item name="cornerSize">28dp</item>
+    </style>
+
+    <!-- Full Shapes - Completely rounded (circles) -->
+    <style name="ShapeAppearance.OpenHub.Material3.Corner.Full" parent="ShapeAppearance.Material3.Corner.Full">
+        <item name="cornerSize">50dp</item>
+    </style>
+
+    <!-- Component-Specific Shape Styles -->
+
+    <!-- Card Shape -->
+    <style name="ShapeAppearance.OpenHub.Material3.Card" parent="ShapeAppearance.OpenHub.Material3.Corner.Medium">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <!-- Button Shapes -->
+    <style name="ShapeAppearance.OpenHub.Material3.Button" parent="ShapeAppearance.OpenHub.Material3.Corner.Large">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="ShapeAppearance.OpenHub.Material3.Button.Small" parent="ShapeAppearance.OpenHub.Material3.Corner.Medium">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <!-- FAB Shape -->
+    <style name="ShapeAppearance.OpenHub.Material3.FAB" parent="ShapeAppearance.OpenHub.Material3.Corner.Full">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <!-- Chip Shape -->
+    <style name="ShapeAppearance.OpenHub.Material3.Chip" parent="ShapeAppearance.OpenHub.Material3.Corner.Small">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <!-- Dialog Shape -->
+    <style name="ShapeAppearance.OpenHub.Material3.Dialog" parent="ShapeAppearance.OpenHub.Material3.Corner.ExtraLarge">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <!-- Bottom Sheet Shape -->
+    <style name="ShapeAppearance.OpenHub.Material3.BottomSheet" parent="ShapeAppearance.OpenHub.Material3.Corner.ExtraLarge">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">28dp</item>
+        <item name="cornerSizeTopRight">28dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <!-- Navigation Drawer Shape -->
+    <style name="ShapeAppearance.OpenHub.Material3.Navigation" parent="ShapeAppearance.OpenHub.Material3.Corner.Large">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <!-- Text Field Shape -->
+    <style name="ShapeAppearance.OpenHub.Material3.TextField" parent="ShapeAppearance.OpenHub.Material3.Corner.Medium">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <!-- Material Expressive Elevation Values -->
+    <dimen name="elevation_none">0dp</dimen>
+    <dimen name="elevation_low">1dp</dimen>
+    <dimen name="elevation_medium">4dp</dimen>
+    <dimen name="elevation_high">8dp</dimen>
+    <dimen name="elevation_extra_high">12dp</dimen>
+
+    <!-- Material Expressive Spacing Values -->
+    <dimen name="spacing_expressive_xs">4dp</dimen>
+    <dimen name="spacing_expressive_small">8dp</dimen>
+    <dimen name="spacing_expressive_medium">16dp</dimen>
+    <dimen name="spacing_expressive_large">24dp</dimen>
+    <dimen name="spacing_expressive_xl">32dp</dimen>
+    <dimen name="spacing_expressive_xxl">48dp</dimen>
+
+    <!-- Material Expressive Text Appearances -->
+    <style name="TextAppearance.OpenHub.Material3.Dialog.Title" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Settings Preference Shape Styles -->
+    <style name="ShapeAppearance.OpenHub.Material3.Preference" parent="ShapeAppearance.OpenHub.Material3.Corner.Medium">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="ShapeAppearance.OpenHub.Material3.Preference.ExtraLarge" parent="ShapeAppearance.OpenHub.Material3.Corner.ExtraLarge">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <!-- Settings Dialog Shape Styles -->
+    <style name="ShapeAppearance.OpenHub.Material3.SettingsDialog" parent="ShapeAppearance.OpenHub.Material3.Corner.ExtraLarge">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">28dp</item>
+    </style>
+
+    <!-- Color Chooser Dialog Shape Styles -->
+    <style name="ShapeAppearance.OpenHub.Material3.ColorChooserDialog" parent="ShapeAppearance.OpenHub.Material3.Corner.ExtraLarge">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">28dp</item>
+    </style>
+
+    <!-- Material Expressive Switch Shape -->
+    <style name="ShapeAppearance.OpenHub.Material3.Switch" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+</resources>

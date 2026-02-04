@@ -12,6 +12,7 @@
         <item name="android:trackTint">?attr/colorOnSurface</item>
         <item name="android:thumbTintMode">src_over</item>
         <item name="android:trackTintMode">src_over</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.OpenHub.Material3.Switch</item>
     </style>
 
     <style name="Material3Switch" parent="Widget.Material3.CompoundButton.Switch">
@@ -23,5 +24,6 @@
         <item name="android:trackTint">?attr/colorOnSurface</item>
         <item name="android:thumbTintMode">src_over</item>
         <item name="android:trackTintMode">src_over</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.OpenHub.Material3.Switch</item>
     </style>
 </resources>

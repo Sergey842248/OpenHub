@@ -408,6 +408,9 @@ public class ColorChooserDialog extends DialogFragment
       bd.theme(builder.theme);
     }
 
+    // Material 3 rounded corners are applied via MaterialDialogs library theme
+    // The dialog will use Material 3 styling with rounded corners by default
+
     final MaterialDialog dialog = bd.build();
     final View v = dialog.getCustomView();
     grid = v.findViewById(R.id.md_grid);
