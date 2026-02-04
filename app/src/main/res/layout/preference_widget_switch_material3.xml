@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Material 3 Switch Preference Widget Layout
+  ~ Implements Material Expressive design with rounded corners
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
@@ -13,6 +17,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="false"
-        android:focusable="false" />
+        android:focusable="false"
+        app:thumbIconTint="?attr/colorOnPrimaryContainer"
+        app:trackTint="?attr/colorSurfaceVariant" />
 
 </LinearLayout>
