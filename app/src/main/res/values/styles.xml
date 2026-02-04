@@ -127,16 +127,11 @@
         <item name="cardElevation">0dp</item>
         <item name="cardBackgroundColor">?attr/card_background</item>
         <item name="strokeWidth">0dp</item>
-        <item name="cardCornerRadius">16dp</item>
-        <item name="rippleColor">?attr/colorPrimary</item>
     </style>
 
     <!-- Material Expressive Settings Switch Styles -->
     <style name="SwitchStyle.OpenHub" parent="Widget.Material3.CompoundButton.MaterialSwitch">
         <item name="shapeAppearance">@style/ShapeAppearance.OpenHub.Material3.Switch</item>
-        <item name="thumbIconTint">?attr/colorOnPrimaryContainer</item>
-        <item name="trackTint">?attr/colorSurfaceVariant</item>
-        <item name="trackDecorationTint">?attr/colorPrimary</item>
     </style>
 
     <!-- Material Expressive Text Input Styles -->
@@ -145,22 +140,6 @@
         <item name="boxCornerRadiusTopEnd">16dp</item>
         <item name="boxCornerRadiusBottomStart">16dp</item>
         <item name="boxCornerRadiusBottomEnd">16dp</item>
-    </style>
-
-    <!-- Material 3 Preference Theme -->
-    <style name="PreferenceThemeOverlay.OpenHub.Material3" parent="PreferenceThemeOverlay">
-        <item name="android:layout">@layout/preference_material3</item>
-        <item name="preferenceStyle">@style/Preference.Material3</item>
-        <item name="preferenceCategoryStyle">@style/Preference.Category.Material3</item>
-        <item name="switchPreferenceCompatStyle">@style/Material3SwitchPreference</item>
-    </style>
-
-    <style name="Preference.Material3" parent="Preference">
-        <item name="android:layout">@layout/preference_material3</item>
-    </style>
-
-    <style name="Preference.Category.Material3" parent="Preference.Category">
-        <item name="android:layout">@layout/preference_category_material3</item>
     </style>
 
 </resources>

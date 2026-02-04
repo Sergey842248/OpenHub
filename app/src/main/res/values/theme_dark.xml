@@ -24,7 +24,7 @@
         <item name="colorSecondary">@color/dark_color_accent</item>
         <item name="colorAccent">?attr/colorSecondary</item>
         <item name="android:windowBackground">@color/dark_color_window_background</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.OpenHub.Material3</item>
+        <item name="preferenceTheme">@style/ThemeOverlay.Material3</item>
         <item name="switchPreferenceCompatStyle">@style/Material3SwitchPreference</item>
         <item name="android:textColorPrimary">@color/dark_text_color_primary</item>
         <item name="android:textColorSecondary">@color/dark_text_color_secondary</item>

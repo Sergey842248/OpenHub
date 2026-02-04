@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Material 3 Preference Layout
-  ~ Implements Material Expressive design with rounded corners
--->
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,28 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/spacing_expressive_medium"
-    android:layout_marginVertical="@dimen/spacing_expressive_xs"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="0dp"
-    app:strokeWidth="0dp">
+    android:layout_marginVertical="@dimen/spacing_expressive_xs">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="64dp"
+        android:minHeight="56dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingStart="20dp"
+        android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:background="?attr/selectableItemBackground">
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp">
 
         <ImageView
             android:id="@+id/icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="16dp"
             android:contentDescription="@string/icon"
             android:scaleType="centerInside"
             tools:src="@drawable/ic_menu_settings"
@@ -52,19 +44,17 @@
                 android:textColor="?attr/colorOnSurface"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:lineSpacingExtra="2dp"
                 tools:text="Title" />
 
             <TextView
                 android:id="@+id/summary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="?attr/colorOnSurfaceVariant"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:lineSpacingExtra="2dp"
                 android:visibility="gone"
                 tools:visibility="visible"
                 tools:text="Summary" />
