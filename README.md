@@ -3,7 +3,7 @@
 
 An **Open-Source** GitHub Android client app, faster and concise.
 
-<a href="https://github.com/Sergey842248/OpenHub/releases/latest"><img alt="Get it on GitHub" src="https://raw.githubusercontent.com/Sergey842248/OpenHub/refs/heads/master/app/src/main/assets/get-it-on-github.png" width="250"/></a>
+<a href="https://github.com/Sergey842248/OpenHub/releases/latest"><img alt="Get it on GitHub" src="https://raw.githubusercontent.com/Sergey842248/OpenHub/refs/heads/main/app/src/main/assets/get-it-on-github.png" width="250"/></a>
 
 ## Features
 
