@@ -1,0 +1,22 @@
+name: Mirror to GitLab
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Mirror to GitLab (HTTPS)
+        uses: yesolutions/mirror-action@master
+        with:
+          REMOTE: 'https://gitlab.com/open-nexor/openhub.git'
+          GIT_USERNAME: ${{ secrets.GITLAB_USER }}
+          GIT_PASSWORD: ${{ secrets.GITLAB_PAT }}
