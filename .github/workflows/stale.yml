@@ -1,0 +1,66 @@
+# .github/workflows/stale.yml
+
+name: "Close Stale Issues & PRs"
+
+on:
+  schedule:
+    # Daily at 01:00 UTC
+    - cron: "00 1 * * *"
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/stale@v9
+        with:
+          # --- General ---
+          repo-token: ${{ secrets.STALE_TOKEN }}
+          days-before-stale: 30
+          days-before-close: 7
+          stale-issue-label: "stale"
+          stale-pr-label: "stale"
+          remove-stale-when-updated: true
+
+          # --- Issues ---
+          stale-issue-message: >
+            This issue has been inactive for 30 days and has been marked as **stale**.
+            It will be automatically closed in 7 days if
+            there is no further activity.
+            Please comment if this issue is still relevant.
+          close-issue-message: >
+            This issue has been automatically closed due to inactivity.
+            You can reopen it at any time if it is still relevant.
+          close-issue-reason: "not_planned"
+
+          # --- Pull Requests ---
+          stale-pr-message: >
+            This pull request has been inactive for 30 days and has been marked as stale. 
+            It will be automatically closed in 7 days if there is no further activity.
+          close-pr-message: >
+            This pull request was automatically closed due to inactivity.
+            You can reopen it at any time.
+
+          # --- Exemptions ---
+          exempt-issue-labels: "pinned,security,bug,enhancement"
+          exempt-pr-labels: "pinned,security,work-in-progress"
+          exempt-all-milestones: true
+          exempt-all-assignees: false
+
+          # --- Limits & Operations ---
+          operations-per-run: 100
+          ascending: true
+          delete-branch: false
+
+          # --- Optional advanced filters ---
+          # only-labels: “”               # Only check issues/PRs with these labels
+          # any-of-labels: “”             # At least one of these labels
+          # days-before-issue-stale: 30   # Overrides days-before-stale for issues
+          # days-before-pr-stale: 45      # Overrides days-before-stale for PRs
+          # days-before-issue-close: 7    # Overrides days-before-close for issues
+          # days-before-pr-close: 14      # Overrides days-before-close for PRs
+          # start-date: “2023-01-01T00:00:00Z”  # Only issues/PRs after this date
