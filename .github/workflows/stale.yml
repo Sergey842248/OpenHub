@@ -16,7 +16,7 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/stale@v9
+      - uses: actions/stale@v10
         with:
           # --- General ---
           repo-token: ${{ secrets.STALE_TOKEN }}
