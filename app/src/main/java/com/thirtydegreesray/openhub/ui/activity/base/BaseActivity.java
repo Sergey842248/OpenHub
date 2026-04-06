@@ -81,9 +81,8 @@ BaseActivity<P extends IBaseContract.Presenter>
             startActivity(new Intent(getActivity(), SplashActivity.class));
             return;
         }
-        
+
         ThemeHelper.apply(this);
-        DynamicColors.applyToActivityIfAvailable(this);
         AppUtils.updateAppLanguage(getActivity());
         super.onCreate(savedInstanceState);
         isAlive = true;
@@ -115,7 +114,7 @@ BaseActivity<P extends IBaseContract.Presenter>
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        //系统由于内存不足而杀死activity，此时保存数据
+//系统由于内存不足而杀死activity，此时保存数据
         DataAutoAccess.saveData(this, outState);
         if(mPresenter != null) mPresenter.onSaveInstanceState(outState);
         if(curActivity.equals(this)){

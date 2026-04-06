@@ -41,7 +41,6 @@ public class AppApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        DynamicColors.applyToActivitiesIfAvailable(this);
         application = this;
         //init application
         long startTime = System.currentTimeMillis();
