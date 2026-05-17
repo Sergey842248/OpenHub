@@ -1,3 +1,6 @@
+> [!Important]
+> **This project is discontinued, feel free to fork it.**
+
 # OpenHub
 [![Releases](https://img.shields.io/github/release/Sergey842248/OpenHub.svg)](https://github.com/Sergey842248/OpenHub/releases/latest)
 
